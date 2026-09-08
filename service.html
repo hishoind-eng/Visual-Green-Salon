@@ -1,0 +1,2830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Green — Men's Salon &amp; Beauty Parlour</title>
+    <meta name="description"
+        content="Visual Green — premium grooming, precision styling and modern beauty experiences for the confident man.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================================
+           VISUAL GREEN — MEN'S SALON & BEAUTY PARLOUR
+           Rebuilt: one source of truth for variables, no duplicate blocks,
+           all @media queries live together at the very end of the file.
+        ===================================================================== */
+
+        :root {
+            /* dark register (nav / hero / showcase / footer) */
+            --black: rgb(104, 179, 179);
+            --black-deep: #060c0a;
+            --black-elevated: #142019;
+            --ink: #f4f1e8;
+            --ink-dim: rgba(244, 241, 232, .68);
+            --ink-faint: rgba(244, 241, 232, .4);
+            --line-dark: rgba(244, 241, 232, .14);
+
+            /* light register (services / price menu) */
+            --paper: #f7f5ef;
+            --sage-tint: #eaf1ea;
+            --paper-ink: #102420;
+            --paper-ink-soft: #46564f;
+            --line-light: rgba(16, 36, 29, .14);
+            --line-light-soft: rgba(16, 36, 29, .08);
+
+            /* brand */
+            --emerald: #0f8b5f;
+            --emerald-deep: #0a5d40;
+            --emerald-light: #12a271;
+            --emerald-pale: #d9ebdd;
+            --gold: #b9975a;
+            --gold-light: #d4af37;
+            --vg-green-dark: #0A6244;
+            --vg-green: #0F8B5F;
+            --c-white: white;
+
+
+
+            /* neutrals used across nav/footer */
+            --white: #ffffff;
+            --gray: rgba(244, 241, 232, .6);
+            --glass: rgba(255, 255, 255, .06);
+            --glass-border: rgba(244, 241, 232, .14);
+
+            --font-display: "Bodoni Moda", "Times New Roman", serif;
+            --font-body: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+            --radius-md: 14px;
+            --ease: cubic-bezier(.22, 1, .36, 1);
+            --transition: .35s var(--ease);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--ink);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding-inline: 30px;
+        }
+
+        /* =====================================================================
+           BUTTONS
+        ===================================================================== */
+        .vg-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .14em;
+            padding: .9rem 1.9rem;
+            border-radius: 999px;
+            border: 1px solid var(--emerald);
+            transition: transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease), box-shadow .35s var(--ease);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+
+        }
+        .vg-btn-gold:hover {
+            background: var(--vg-green);
+            color: var(--c-white);
+            transform: translateY(-2px);
+        }
+
+        .vg-btn-line {
+            background: transparent;
+            color: var(--ink);
+            border-color: rgba(244, 241, 232, .4);
+        }
+
+        .vg-btn-line:hover {
+            border-color: var(--emerald);
+            color: var(--emerald);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .7rem 1.4rem;
+            border-radius: 999px;
+            background: var(--vg-green);
+            color: var(--c-white);
+            box-shadow: 0 14px 30px -12px rgba(15, 139, 95, 0.55);
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .03em;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -12px rgba(212, 175, 55, .55);
+        }
+        
+      
+
+        /* =====================================================================
+           SCROLL REVEAL (shared)
+        ===================================================================== */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .8s, transform .8s;
+        }
+
+        [data-reveal].is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .vg-reveal-line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .vg-reveal-inner {
+            display: inline-block;
+            transform: translateY(115%);
+            opacity: 0;
+            transition: transform 1s var(--ease), opacity .8s var(--ease);
+        }
+
+        .vg-hero.is-loaded .vg-reveal-inner {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .vg-reveal-inner[data-delay="2"] {
+            transition-delay: .15s;
+        }
+
+        .vg-reveal-inner[data-delay="3"] {
+            transition-delay: .3s;
+        }
+
+        /*---------------------------------------------------------
+          HEADER / NAVBAR 
+         --------------------------------------------------------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px clamp(20px, 5vw, 48px);
+            background: transparent;
+            transition: background 0.4s var(--vg-ease), box-shadow 0.4s var(--vg-ease), padding 0.4s var(--vg-ease);
+        }
+
+        .navbar.scrolled {
+            background: rgba(13, 13, 13, .82);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.6);
+            padding-block: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 50px;
+        }
+
+        .logo-wrap {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .vgs-brand-text {
+            font-family: var(--vg-font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--vg-white);
+            line-height: 1.2;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .vgs-brand-sub {
+            display: block;
+            font-size: 0.6rem;
+            font-family: var(--vg-font-body);
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            color: var(--vg-green-dark);
+            margin-top: 2px;
+        }
+
+        .menu-list {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu>li {
+            position: relative;
+        }
+
+        .nav-menu>li>a {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--vg-text-on-dark);
+            position: relative;
+            transition: color 0.3s var(--vg-ease);
+        }
+
+        .nav-menu>li>a::after {
+            content: "";
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 4px;
+            height: 1px;
+            background: var(--vg-green-light);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s var(--vg-ease);
+        }
+
+        .nav-menu>li>a:hover,
+        .nav-menu>li.active>a,
+        .nav-menu>li>a.is-active {
+            color: var(--vg-white);
+        }
+
+        .nav-menu>li>a:hover::after,
+        .nav-menu>li.active>a::after,
+        .nav-menu>li>a.is-active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 26px;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            height: 2px;
+            background: var(--vg-white);
+            border-radius: 2px;
+            transition: transform 0.35s var(--vg-ease), opacity 0.35s var(--vg-ease);
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ---- Mega menu ---- */
+        .has-mega {
+            position: static;
+        }
+
+        .mega-menu {
+            position: absolute;
+            top: calc(100% + 18px);
+            left: 0;
+            right: 0;
+            max-width: 1280px;
+            margin-inline: auto;
+            background: rgba(17, 17, 17, 0.96);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--vg-radius-md);
+            padding: 30px 28px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px 24px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.35s var(--vg-ease), transform 0.35s var(--vg-ease), visibility 0.35s;
+            box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.7);
+        }
+
+        .has-mega:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 8px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--vg-text-on-dark);
+            transition: background 0.25s var(--vg-ease), color 0.25s var(--vg-ease), padding-left 0.25s var(--vg-ease);
+        }
+
+        .mega-menu a i {
+            color: var(--vg-green-light);
+            width: 16px;
+            font-size: 0.85rem;
+        }
+
+        .mega-menu a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--vg-gold);
+            padding-left: 14px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-actions .vg-btn-gold {
+                display: none;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: min(320px, 82vw);
+                background: rgba(10, 12, 11, 0.98);
+                backdrop-filter: blur(16px);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 96px 26px 26px;
+                margin: 0;
+                transform: translateX(100%);
+                transition: transform 0.4s var(--vg-ease);
+                z-index: 1100;
+                overflow-y: auto;
+                box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-menu.open {
+                transform: translateX(0);
+            }
+
+            .nav-menu>li {
+                width: 100%;
+            }
+
+            .nav-menu>li>a {
+                padding: 14px 6px;
+                font-size: 0.95rem;
+            }
+
+            .nav-menu>li>a::after {
+                display: none;
+            }
+
+            .mega-menu {
+                position: static;
+                grid-template-columns: repeat(2, 1fr);
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                background: transparent;
+                border: none;
+                backdrop-filter: none;
+                box-shadow: none;
+                padding: 6px 0 10px 14px;
+            }
+
+            .has-mega.open .mega-menu {
+                display: grid;
+            }
+        }
+
+
+        /* ============ MOBILE SLIDE NAV ============ */
+        .slider-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: min(320px, 86vw);
+            background: rgba(10, 12, 11, 0.98);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            flex-direction: column;
+            padding: 26px;
+            transform: translateX(100%);
+            transition: transform 0.4s var(--vg-ease);
+            z-index: 1200;
+            overflow-y: auto;
+            box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .slider-nav.open {
+            transform: translateX(0);
+        }
+
+        .slider-nav-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 30px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(246, 245, 241, .1);
+        }
+
+        .slider-nav-head .logo {
+            margin-left: 0;
+        }
+
+        .slider-nav-close {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(246, 245, 241, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-white);
+            font-size: 1rem;
+            transition: background .3s, border-color .3s, transform .3s;
+        }
+
+        .slider-nav-close:hover {
+            background: var(--c-emerald);
+            border-color: var(--c-emerald);
+            transform: rotate(90deg);
+        }
+
+        .slider-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            list-style: none;
+            margin: 0 0 24px;
+            padding: 0;
+        }
+
+        .slider-menu>li>a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 6px;
+            font-size: .95rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--c-white);
+            border-bottom: 1px solid rgba(246, 245, 241, .08);
+            transition: color .3s;
+        }
+
+        .slider-menu>li>a:hover {
+            color: var(--c-gold-light);
+        }
+
+        .slider-has-mega>a i {
+            transition: transform .3s var(--vg-ease);
+        }
+
+        .slider-has-mega.open>a i {
+            transform: rotate(180deg);
+        }
+
+        .slider-mega-menu {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 14px;
+            padding: 10px 0 14px 10px;
+        }
+
+        .slider-has-mega.open .slider-mega-menu {
+            display: grid;
+        }
+
+        .slider-mega-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 6px;
+            font-size: .82rem;
+            color: var(--c-gray);
+            border-radius: 8px;
+            transition: background .25s, color .25s;
+        }
+
+        .slider-mega-menu a i {
+            color: var(--c-emerald-light);
+            width: 14px;
+            font-size: .8rem;
+        }
+
+        .slider-mega-menu a:hover {
+            background: rgba(255, 255, 255, .06);
+            color: var(--c-gold-light);
+        }
+
+        .slider-nav-cta {
+            margin-top: auto;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .slider-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .35s ease, visibility .35s ease;
+            z-index: 1150;
+        }
+
+        .slider-nav-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 992px) {
+            .slider-nav {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .slider-nav {
+                width: 100vw;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-actions .vg-btn-gold {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+
+
+        /* =====================================================================
+           1. HERO
+        ===================================================================== */
+        .vg-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .vg-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+            background-size: cover;
+            background-position: center;
+            animation: vgHeroZoom 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes vgHeroZoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        .vg-hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 45%, rgba(6, 12, 10, .94) 100%);
+        }
+
+        .vg-hero-glow {
+            position: absolute;
+            z-index: -1;
+            top: -10%;
+            right: -10%;
+            width: 640px;
+            height: 640px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(15, 139, 95, .35), transparent 70%);
+            filter: blur(20px);
+            animation: vgGlowPulse 7s ease-in-out infinite;
+        }
+
+        @keyframes vgGlowPulse {
+
+            0%,
+            100% {
+                opacity: .5;
+            }
+
+            50% {
+                opacity: .9;
+            }
+        }
+
+        .vg-hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .vg-hero-particles span {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--gold);
+            opacity: .5;
+            animation: vgFloatParticle 9s ease-in-out infinite;
+        }
+
+        .vg-hero-particles span:nth-child(1) {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .vg-hero-particles span:nth-child(2) {
+            top: 65%;
+            left: 8%;
+            animation-delay: 1.2s;
+        }
+
+        .vg-hero-particles span:nth-child(3) {
+            top: 30%;
+            left: 80%;
+            animation-delay: 2.4s;
+        }
+
+        .vg-hero-particles span:nth-child(4) {
+            top: 75%;
+            left: 70%;
+            animation-delay: 3.6s;
+        }
+
+        .vg-hero-particles span:nth-child(5) {
+            top: 50%;
+            left: 45%;
+            animation-delay: 4.8s;
+        }
+
+        .vg-hero-particles span:nth-child(6) {
+            top: 12%;
+            left: 55%;
+            animation-delay: 6s;
+        }
+
+        @keyframes vgFloatParticle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: .35;
+            }
+
+            50% {
+                transform: translateY(-22px);
+                opacity: .9;
+            }
+        }
+
+        .vg-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            padding: 0 6vw;
+        }
+
+        .vg-hero-eyebrow,
+        .vg-hero-kicker {
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--emerald-pale);
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .8s var(--ease) .1s, transform .8s var(--ease) .1s;
+        }
+
+        .vg-hero.is-loaded .vg-hero-eyebrow,
+        .vg-hero.is-loaded .vg-hero-kicker {
+            opacity: 1;
+            transform: none;
+        }
+
+        .vg-hero-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            line-height: 1.05;
+            margin-bottom: 1.4rem;
+            color: var(--ink);
+        }
+
+        .vg-hero-title-sub {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--emerald-pale);
+        }
+
+        .vg-hero-desc {
+            font-size: clamp(1rem, 1.3vw, 1.15rem);
+            color: var(--ink-dim);
+            max-width: 520px;
+            margin-bottom: 2.2rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .9s var(--ease) .5s, transform .9s var(--ease) .5s;
+        }
+
+        .vg-hero.is-loaded .vg-hero-desc {
+            opacity: 1;
+            transform: none;
+        }
+
+        .vg-hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .9s var(--ease) .65s, transform .9s var(--ease) .65s;
+        }
+
+        .vg-hero.is-loaded .vg-hero-actions {
+            opacity: 1;
+            transform: none;
+            margin-top: 30%;
+            margin-left: 10%;
+        }
+
+        /*----
+        .vg-hero-badge {
+            position: absolute;
+            right: 8%;
+            bottom: 14%;
+            z-index: 3;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(11, 21, 18, .55);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(244, 241, 232, .2);
+            animation: vgBadgeRotate 14s linear infinite;
+        }
+
+        .vg-hero-badge-ring {
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            border: 1px dashed var(--gold);
+            opacity: .6;
+        }
+
+        .vg-hero-badge-text {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: .86rem;
+            text-align: center;
+            line-height: 1.3;
+            color: var(--ink);
+        }
+
+        @keyframes vgBadgeRotate {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .vg-scroll-cue {
+            position: absolute;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%);
+            z-index: 3;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .vg-scroll-track {
+            display: block;
+            width: 1px;
+            height: 46px;
+            background: rgba(244, 241, 232, .25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vg-scroll-dot {
+            position: absolute;
+            top: -20%;
+            left: -1.5px;
+            width: 4px;
+            height: 18px;
+            border-radius: 4px;
+            background: var(--emerald);
+            box-shadow: 0 0 10px rgba(15, 139, 95, .9);
+            animation: vgScrollDrop 2.2s cubic-bezier(.4, 0, .2, 1) infinite;
+        }
+
+        @keyframes vgScrollDrop {
+            0% {
+                top: -25%;
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            70% {
+                top: 88%;
+                opacity: 1;
+            }
+
+            100% {
+                top: 88%;
+                opacity: 0;
+            }
+        }----*/
+
+        /* =====================================================================
+           2. SERVICES + PRICE MENU (light-luxury register)
+        ===================================================================== */
+        .vg-services {
+            position: relative;
+            overflow: hidden;
+            padding: 7rem 6vw 6rem;
+            background: linear-gradient(10deg, rgb(255, 254, 254), #83b8b8);
+            color: var(--paper-ink);
+        }
+
+        .vg-services::before,
+        .vg-services::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        .vg-services::before {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, var(--emerald-pale), transparent 70%);
+            top: -160px;
+            right: -120px;
+        }
+
+        .vg-services::after {
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, #f1e6d0, transparent 70%);
+            bottom: -140px;
+            left: -100px;
+        }
+
+        .vg-services-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .vg-services-intro {
+            max-width: 640px;
+            margin-bottom: 4.5rem;
+        }
+
+        .vg-services-intro h2 {
+            margin: 0 0 .9rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(2.6rem, 4.2vw, 4rem);
+            line-height: 1.02;
+            letter-spacing: -.01em;
+            color: var(--paper-ink);
+        }
+
+        .vg-services-intro h2 em {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--emerald-deep);
+        }
+
+        .vg-services-intro p {
+            font-size: 1.08rem;
+            color: var(--paper-ink-soft);
+            line-height: 1.6;
+        }
+
+        .vg-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.75rem;
+        }
+
+        .vg-menu-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid var(--line-light-soft);
+            border-radius: 6px;
+            padding: 2.2rem 2.1rem 2rem;
+            transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
+        }
+
+        .vg-menu-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--emerald);
+            box-shadow: 0 30px 60px -30px rgba(15, 139, 95, .35);
+        }
+
+        .vg-menu-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 1.6rem;
+            bottom: 1.6rem;
+            width: 3px;
+            border-radius: 0 3px 3px 0;
+            background: var(--emerald);
+        }
+
+        .vg-menu-card--haircut,
+        .vg-menu-card--beard,
+        .vg-menu-card--haircare,
+        .vg-menu-card--face,
+        .vg-menu-card--combo {
+            grid-column: span 4;
+        }
+
+        .vg-menu-card-head {
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .vg-menu-icon {
+            flex: 0 0 auto;
+            width: 38px;
+            height: 38px;
+            color: var(--emerald);
+        }
+
+        .vg-menu-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .vg-menu-card-head h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.55rem;
+            color: var(--paper-ink);
+        }
+
+        .vg-menu-list {
+            margin: 0 0 1.7rem;
+        }
+
+        .vg-menu-list h3,
+        .vg-menu-list h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--emerald-deep);
+            margin: 1rem 0 .4rem;
+        }
+
+        .vg-menu-row {
+            display: flex;
+            align-items: baseline;
+            gap: .6rem;
+            padding: .68rem 0;
+            border-bottom: 1px solid var(--line-light-soft);
+        }
+
+        .vg-menu-row:last-child {
+            border-bottom: none;
+        }
+
+        .vg-menu-row .name {
+            font-size: .98rem;
+            color: var(--paper-ink);
+            white-space: nowrap;
+        }
+
+        .vg-menu-row .leader {
+            flex: 1 1 auto;
+            border-bottom: 1px dotted var(--line-light);
+            height: 0;
+            transform: translateY(-.3em);
+        }
+
+        .vg-menu-row .price {
+            font-family: var(--font-mono);
+            font-size: .92rem;
+            font-weight: 500;
+            color: var(--emerald-deep);
+            white-space: nowrap;
+        }
+
+        .vg-menu-row:hover .leader {
+            border-color: var(--emerald-deep);
+        }
+
+        .vg-menu-row:hover .price {
+            color: var(--emerald);
+        }
+
+        .vg-book-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-weight: 600;
+            font-size: .85rem;
+            color: var(--emerald-deep);
+            padding: .7rem 0;
+            border-top: 1px solid var(--line-light-soft);
+            width: 100%;
+            margin-top: .2rem;
+            transition: color .3s var(--ease), gap .3s var(--ease);
+        }
+
+        .vg-book-btn::after {
+            content: "";
+            width: 16px;
+            height: 1px;
+            background: currentColor;
+            transition: width .3s var(--ease);
+        }
+
+        .vg-book-btn:hover {
+            color: var(--emerald);
+            gap: .8rem;
+        }
+
+        .vg-book-btn:hover::after {
+            width: 26px;
+        }
+
+        .vg-menu-card--combo {
+            background: #fff;
+            border-color: var(--emerald-deep);
+            color: var(--paper-ink);
+        }
+
+        .vg-menu-card--combo::before {
+            background: var(--emerald);
+        }
+
+        .vg-menu-card--combo:hover {
+            box-shadow: 0 30px 60px -28px rgba(10, 93, 64, .55);
+            border-color: var(--emerald);
+        }
+
+        .vg-poster-banner {
+            grid-column: 1 / -1;
+            position: relative;
+            min-height: 220px;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #0c1c17 url("https://picsum.photos/seed/visualgreen-poster/1600/700") center/cover no-repeat;
+            isolation: isolate;
+        }
+
+        .vg-poster-banner .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(6, 20, 15, .86) 10%, rgba(15, 139, 95, .55) 100%);
+            z-index: 1;
+        }
+
+        .vg-poster-banner h3 {
+            position: relative;
+            z-index: 2;
+            color: var(--ink);
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(1.9rem, 3.4vw, 3rem);
+            line-height: 1.15;
+        }
+
+        /* =====================================================================
+           3. TRANSFORMATION / STYLE SHOWCASE
+        ===================================================================== */
+        .vg-showcase {
+            position: relative;
+            overflow: hidden;
+            padding: 7rem 6vw;
+            background: radial-gradient(ellipse at top, #0f251d 0%, #0a1512 60%, #070d0b 100%);
+        }
+
+        .vg-showcase-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: .5;
+            pointer-events: none;
+        }
+
+        .vg-showcase-glow--1 {
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(15, 139, 95, .45), transparent 70%);
+            top: -160px;
+            left: -120px;
+        }
+
+        .vg-showcase-glow--2 {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(185, 151, 90, .28), transparent 70%);
+            bottom: -140px;
+            right: -80px;
+        }
+
+        .vg-showcase-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .vg-showcase-intro {
+            max-width: 600px;
+            margin-bottom: 3.5rem;
+        }
+
+        .vg-showcase-intro h2 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            line-height: 1.06;
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .vg-showcase-intro h2 em {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--emerald-pale);
+        }
+
+        .vg-showcase-intro p {
+            color: var(--ink-dim);
+            margin-top: .9rem;
+        }
+
+        /* ---- Before / After grid ---- */
+        .vg-before-after {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px 35px;
+        }
+
+        .vg-ba-item {
+            width: 100%;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .vg-ba-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vg-before-after-label {
+            text-align: center;
+            margin: 0 0 15px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+        }
+
+        .vg-before-after-label span {
+            margin: 0 8px;
+            font-size: 20px;
+            color: var(--gold);
+        }
+
+        .vg-ba-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            border-radius: 22px;
+            background: #111;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+            transition: box-shadow .4s var(--ease);
+        }
+
+        .vg-ba-frame:hover {
+            box-shadow: 0 26px 60px rgba(15, 139, 95, .28);
+        }
+
+        .vg-ba-before,
+        .vg-ba-after {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            -webkit-user-select: none;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .vg-ba-after-wrap {
+            position: absolute;
+            inset: 0;
+            width: 50%;
+            overflow: hidden;
+            z-index: 2;
+            transition: width .35s var(--ease);
+        }
+
+        .vg-ba-frame.is-dragging .vg-ba-after-wrap,
+        .vg-ba-frame.is-dragging .vg-ba-handle {
+            transition: none;
+        }
+
+        .vg-ba-after {
+            width: var(--frame-w, 100%);
+            max-width: none;
+        }
+
+        .vg-ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: #fff;
+            transform: translateX(-50%);
+            z-index: 5;
+            pointer-events: none;
+            transition: left .35s var(--ease);
+        }
+
+        .vg-ba-handle::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--emerald);
+            border: 3px solid #fff;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+            transition: transform .25s var(--ease), background .25s var(--ease);
+        }
+
+        .vg-ba-frame:hover .vg-ba-handle::before,
+        .vg-ba-frame.is-dragging .vg-ba-handle::before {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--emerald-light);
+        }
+
+        .vg-ba-handle i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            color: #fff;
+            font-size: 20px;
+            transform: translate(-50%, -50%);
+        }
+
+        .vg-ba-range {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .vg-ba-title {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .vg-ba-title h3 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            font-family: var(--font-display);
+            color: var(--ink);
+        }
+
+        .vg-ba-title p {
+            margin: 6px 0 0;
+            color: var(--ink-dim);
+        }
+
+        .vg-ba-item:last-child {
+            grid-column: 1 / -1;
+            max-width: calc(50% - 17.5px);
+            margin: 0 auto;
+        }
+
+        /* =====================================================================
+           4. FOOTER
+        ===================================================================== */
+        .site-footer {
+            background: var(--black-deep);
+            border-top: 1px solid rgba(244, 241, 232, .08);
+            padding-top: 70px;
+            background-image: linear-gradient(180deg, rgba(6, 12, 10, .92), rgba(0, 0, 0, 0)), url("image/wmremove-transformed (1).png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 50px;
+            padding-bottom: 50px;
+        }
+
+        .footer-col h5 {
+            font-size: 1.05rem;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: .88rem;
+            color: var(--gray);
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul li {
+            font-size: .88rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li i {
+            color: var(--gold-light);
+            width: 16px;
+        }
+
+        .footer-col a {
+            color: var(--gray);
+            transition: color .3s, padding-left .3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold-light);
+            padding-left: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(246, 245, 241, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s, border-color .3s, transform .3s;
+        }
+
+        .social-links a:hover {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(246, 245, 241, .08);
+            padding: 22px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: .82rem;
+            color: var(--gray);
+        }
+
+        /* =====================================================================
+           5. BACK TO TOP
+        ===================================================================== */
+        .back-to-top {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(120deg, var(--gold-light), var(--gold));
+            color: var(--black-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 60;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity .35s, visibility .35s, transform .35s;
+            box-shadow: 0 12px 30px -10px rgba(212, 175, 55, .6);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* =====================================================================
+           MEDIA QUERIES — every breakpoint lives here, largest to smallest.
+           Nothing above this line should contain a @media rule.
+        ===================================================================== */
+
+        /* ---------- ≤1200px ---------- */
+        @media (max-width: 1200px) {
+
+            .vg-menu-card--haircut,
+            .vg-menu-card--beard,
+            .vg-menu-card--haircare,
+            .vg-menu-card--face {
+                grid-column: span 6;
+            }
+
+            .vg-menu-card--combo {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* ---------- ≤992px (tablet / mobile nav) ---------- */
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: min(320px, 82vw);
+                background: var(--black-elevated);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 90px 26px 26px;
+                margin: 0;
+                border-radius: 0;
+                transform: translateX(100%);
+                transition: transform .4s ease;
+                z-index: 60;
+                overflow-y: auto;
+            }
+
+            .nav-menu.open {
+                transform: translateX(0);
+            }
+
+            .nav-menu>li {
+                width: 100%;
+            }
+
+            .nav-menu>li>a {
+                padding: 14px 6px;
+            }
+
+            .mega-menu {
+                position: static;
+                grid-template-columns: repeat(2, 1fr);
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                background: transparent;
+                border: none;
+                backdrop-filter: none;
+                padding: 10px 0 10px 14px;
+            }
+
+            .has-mega.open .mega-menu {
+                display: grid;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px 30px;
+                padding-bottom: 40px;
+            }
+
+            .footer-col h5 {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+
+            .footer-col p,
+            .footer-col ul li {
+                font-size: .86rem;
+            }
+
+            .container {
+                padding-inline: 20px;
+            }
+        }
+
+        /* ---------- ≤768px (phones / large phones) ---------- */
+        @media (max-width: 768px) {
+            .site-footer {
+                padding-top: 45px;
+                background-attachment: scroll;
+                background-position: center;
+                background-size: cover;
+            }
+
+            .vg-services {
+                padding: 5rem 6vw 4.5rem;
+            }
+
+            .vg-services-intro {
+                margin-bottom: 3rem;
+            }
+
+            .vg-menu-grid {
+                gap: 1.25rem;
+            }
+
+            .vg-menu-card--haircut,
+            .vg-menu-card--beard,
+            .vg-menu-card--haircare,
+            .vg-menu-card--face,
+            .vg-menu-card--combo {
+                grid-column: 1 / -1;
+            }
+
+            .vg-menu-card {
+                padding: 1.9rem 1.6rem 1.7rem;
+            }
+
+            .vg-poster-banner {
+                min-height: 180px;
+                padding: 2rem;
+            }
+
+            .vg-showcase {
+                padding: 4.5rem 5vw;
+            }
+
+            .vg-before-after {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .vg-ba-item:last-child {
+                grid-column: auto;
+                max-width: 100%;
+            }
+
+            .vg-ba-frame {
+                aspect-ratio: 4/3;
+                border-radius: 16px;
+            }
+
+            .vg-ba-title h3 {
+                font-size: 19px;
+            }
+
+            .vg-before-after-label {
+                font-size: 13px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding-bottom: 35px;
+            }
+
+            .footer-col h5 {
+                font-size: 1rem;
+                margin-bottom: 14px;
+                position: relative;
+                padding-bottom: 8px;
+            }
+
+            .footer-col h5::after {
+                content: "";
+                display: block;
+                width: 35px;
+                height: 2px;
+                background: var(--emerald);
+                margin-top: 8px;
+                border-radius: 10px;
+            }
+
+            .footer-col p {
+                font-size: .85rem;
+                line-height: 1.7;
+                margin-bottom: 12px;
+            }
+
+            .footer-col ul li {
+                font-size: .85rem;
+                margin-bottom: 10px;
+                line-height: 1.5;
+            }
+
+            .social-links {
+                gap: 10px;
+                margin-top: 15px;
+            }
+
+            .social-links a {
+                width: 36px;
+                height: 36px;
+                font-size: .9rem;
+            }
+
+            .footer-bottom {
+                padding: 18px 0;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                gap: 8px;
+                font-size: .78rem;
+            }
+
+            .navbar {
+                padding-inline: 16px;
+            }
+
+            .logo-wrap {
+                width: 56px;
+                height: 48px;
+            }
+        }
+
+        /* ---------- ≤576px (phones) ---------- */
+        @media (max-width: 576px) {
+            .container {
+                padding-inline: 16px;
+            }
+
+            .vg-hero-badge {
+                width: 100px;
+                height: 100px;
+                right: 6%;
+                bottom: 12%;
+            }
+
+            .vg-hero-badge-text {
+                font-size: .72rem;
+            }
+
+            .vg-hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .vg-hero-actions .vg-btn {
+                width: 100%;
+            }
+
+            .vg-menu-row .name {
+                white-space: normal;
+            }
+
+            .vg-menu-card-head h3 {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* ---------- ≤480px (small mobile) ---------- */
+        @media (max-width: 480px) {
+            .site-footer {
+                padding-top: 35px;
+            }
+
+            .footer-grid {
+                gap: 26px;
+                padding-bottom: 28px;
+            }
+
+            .footer-col h5 {
+                font-size: .95rem;
+                margin-bottom: 12px;
+            }
+
+            .footer-col p,
+            .footer-col ul li {
+                font-size: .82rem;
+            }
+
+            .footer-col p {
+                line-height: 1.65;
+            }
+
+            .footer-col ul li {
+                margin-bottom: 9px;
+            }
+
+            .footer-col ul li i {
+                width: 14px;
+                font-size: .8rem;
+            }
+
+            .social-links {
+                gap: 8px;
+            }
+
+            .social-links a {
+                width: 34px;
+                height: 34px;
+                font-size: .82rem;
+            }
+
+            .footer-bottom {
+                padding: 16px 10px;
+                font-size: .74rem;
+                line-height: 1.5;
+            }
+
+            .vg-ba-frame {
+                aspect-ratio: 1/1;
+            }
+
+            .vg-ba-handle::before {
+                width: 40px;
+                height: 40px;
+            }
+
+            .vg-ba-handle i {
+                font-size: 16px;
+            }
+        }
+
+        /* ---------- ≤420px ---------- */
+        @media (max-width: 420px) {
+            .vgs-brand-text {
+                display: none;
+            }
+        }
+
+        /* ---------- ≤400px ---------- */
+        @media (max-width: 400px) {
+
+            .vg-hero-eyebrow,
+            .vg-hero-kicker {
+                font-size: .7rem;
+                letter-spacing: .18em;
+            }
+        }
+
+        /* ---------- ≤360px (very small devices) ---------- */
+        @media (max-width: 360px) {
+            .site-footer {
+                padding-top: 30px;
+            }
+
+            .footer-grid {
+                gap: 22px;
+            }
+
+            .footer-col h5 {
+                font-size: .9rem;
+            }
+
+            .footer-col p,
+            .footer-col ul li {
+                font-size: .78rem;
+            }
+
+            .social-links a {
+                width: 32px;
+                height: 32px;
+            }
+
+            .footer-bottom {
+                font-size: .7rem;
+            }
+        }
+
+        /* ---------- reduced motion (accessibility, not a breakpoint) ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .vg-ba-item,
+            .vg-ba-after-wrap,
+            .vg-ba-handle,
+            .vg-ba-handle::before,
+            .vg-ba-frame {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <div class="logo-wrap">
+                <img src="image/bg removed logo.png" alt="logo">
+                <span class="vgs-brand-text">VISUAL&nbsp;GREEN<span class="vgs-brand-sub">STUDIO</span></span>
+            </div>
+        </a>
+
+        <div class="menu-list">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="has-mega">
+                    <a href="service.html">Services <i class="fa-solid fa-chevron-down"
+                            style="font-size:.6rem;margin-left:4px;"></i></a>
+                    <div class="mega-menu">
+                        <a href="#services"><i class="fa-solid fa-scissors"></i>Haircut</a>
+                        <a href="#services"><i class="fa-solid fa-spa"></i>Hair Spa</a>
+                        <a href="#services"><i class="fa-solid fa-palette"></i>Hair Coloring</a>
+                        <a href="#services"><i class="fa-solid fa-wind"></i>Hair Straightening</a>
+                        <a href="#services"><i class="fa-solid fa-mask"></i>Beard Styling</a>
+                        <a href="#services"><i class="fa-solid fa-fire"></i>Royal Shaving</a>
+                        <a href="#services"><i class="fa-solid fa-face-smile"></i>Facial</a>
+                        <a href="#services"><i class="fa-solid fa-soap"></i>Cleanup</a>
+                        <a href="#services"><i class="fa-solid fa-hand-sparkles"></i>Skin Treatment</a>
+                        <a href="#services"><i class="fa-solid fa-hand"></i>Head Massage</a>
+                        <a href="#services"><i class="fa-solid fa-shower"></i>Hair Wash</a>
+                        <a href="#services"><i class="fa-solid fa-droplet"></i>Keratin Treatment</a>
+                        <a href="#services"><i class="fa-solid fa-child"></i>Kids Haircut</a>
+                        <a href="#services"><i class="fa-solid fa-crown"></i>Premium Grooming</a>
+
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#booking" class="btn-gold d-none d-lg-inline-flex"><i class="fa-solid fa-calendar-check"></i>
+                    Book Now</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- ============ MOBILE SLIDE NAV ============ -->
+    <nav class="slider-nav" id="sliderNav" aria-label="Mobile navigation">
+        <div class="slider-nav-head">
+            <a href="#home" class="logo">
+                <div class="logo-wrap">
+                    <img src="image/bg removed logo.png" alt="logo">
+                </div>
+                <span class="vgs-brand-text">VISUAL&nbsp;GREEN<span class="vgs-brand-sub">STUDIO</span></span>
+            </a>
+            <button class="slider-nav-close" id="sliderNavClose" aria-label="Close navigation">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="slider-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="slider-has-mega">
+                <a href="service.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="slider-mega-menu">
+                    <a href="#services"><i class="fa-solid fa-scissors"></i>Haircut</a>
+                    <a href="#services"><i class="fa-solid fa-spa"></i>Hair Spa</a>
+                    <a href="#services"><i class="fa-solid fa-palette"></i>Hair Coloring</a>
+                    <a href="#services"><i class="fa-solid fa-wind"></i>Hair Straightening</a>
+                    <a href="#services"><i class="fa-solid fa-mask"></i>Beard Styling</a>
+                    <a href="#services"><i class="fa-solid fa-fire"></i>Royal Shaving</a>
+                    <a href="#services"><i class="fa-solid fa-face-smile"></i>Facial</a>
+                    <a href="#services"><i class="fa-solid fa-soap"></i>Cleanup</a>
+                    <a href="#services"><i class="fa-solid fa-hand-sparkles"></i>Skin Treatment</a>
+                    <a href="#services"><i class="fa-solid fa-hand"></i>Head Massage</a>
+                    <a href="#services"><i class="fa-solid fa-shower"></i>Hair Wash</a>
+                    <a href="#services"><i class="fa-solid fa-droplet"></i>Keratin Treatment</a>
+                    <a href="#services"><i class="fa-solid fa-child"></i>Kids Haircut</a>
+                    <a href="#services"><i class="fa-solid fa-crown"></i>Premium Grooming</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <a href="#booking" class="btn btn-gold slider-nav-cta"><i class="fa-solid fa-calendar-check"></i> Book
+            Now</a>
+    </nav>
+    <div class="slider-nav-overlay" id="sliderNavOverlay"></div>
+
+
+
+    <main>
+
+        <!-- =========================================================
+             1. HOME / HERO
+        ========================================================= -->
+        <section class="vg-hero" id="home">
+            <div class="vg-hero-bg" style="background-image:url('image/service-img.png')"></div>
+            <div class="vg-hero-overlay"></div>
+            <div class="vg-hero-glow"></div>
+
+            <div class="vg-hero-particles" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <!------
+            <div class="vg-hero-content">
+                <p class="vg-hero-kicker" data-reveal>Men's Salon &amp; Beauty Parlour</p>
+
+                <h1 class="vg-hero-title">
+                    <span class="vg-reveal-line"><span class="vg-reveal-inner" data-delay="1">Visual Green</span></span>
+                    <span class="vg-reveal-line vg-hero-title-sub"><span class="vg-reveal-inner" data-delay="2">Define
+                            your style.</span></span>
+                    <span class="vg-reveal-line vg-hero-title-sub"><span class="vg-reveal-inner" data-delay="3">Own your
+                            look.</span></span>
+                </h1>
+
+                <p class="vg-hero-desc" data-reveal data-delay="4">
+                    Premium grooming, precision styling and modern beauty experiences crafted for the confident you.
+                </p>---->
+
+            <div class="vg-hero-actions" data-reveal data-delay="4">
+                <a href="#services" class="vg-btn vg-btn-gold">Explore Services</a>
+                <a href="#book" class="vg-btn vg-btn-line">Book Appointment</a>
+            </div>
+            </div>
+            <!-----
+            <div class="vg-hero-badge" data-reveal data-delay="3">
+                <span class="vg-hero-badge-ring"></span>
+                <span class="vg-hero-badge-text">Premium<br>Grooming</span>
+            </div>
+
+            <button class="vg-scroll-cue" id="scrollCue" aria-label="Scroll to services">
+                <span class="vg-scroll-track"><span class="vg-scroll-dot"></span></span>
+            </button>---->
+        </section>
+
+        <!-- =========================================================
+             2. SERVICES + PRICE MENU
+        ========================================================= -->
+        <section class="vg-services" id="services">
+            <div class="vg-services-inner">
+
+                <div class="vg-services-intro" data-reveal>
+                    <h2>Our <em>Services</em></h2>
+                    <p>Precision grooming. Premium experience.</p>
+                </div>
+
+                <div class="vg-menu-grid">
+
+                    <article class="vg-menu-card vg-menu-card--haircut" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <circle cx="10" cy="10" r="4.5" stroke="currentColor" stroke-width="1.6" />
+                                    <circle cx="10" cy="30" r="4.5" stroke="currentColor" stroke-width="1.6" />
+                                    <path d="M13.5 12.5L32 27M32 13L13.5 27.5" stroke="currentColor" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h3>The Art of the Perfect Cut</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Hair Cut</span><span class="leader"></span><span
+                                    class="price">₹300 ₹250</span></li>
+                            <li class="vg-menu-row"><span class="name">Kids Hair Cut</span><span
+                                    class="leader"></span><span class="price">₹250 ₹200</span></li>
+                            <li class="vg-menu-row"><span class="name">Head Shave </span><span
+                                    class="leader"></span><span class="price">₹500 -</span></li>
+                            <li class="vg-menu-row"><span class="name">Shaving</span><span class="leader"></span><span
+                                    class="price">₹150 ₹100</span></li>
+                            <li class="vg-menu-row"><span class="name">(Hair Styling, Beard Styling,<br>
+                                    Hair Wash,Face Washing)</span><span class="leader"></span><span class="price">₹700
+                                    ₹650</span></li>
+                            <li class="vg-menu-row"><span class="name">Trimming</span><span class="leader"></span><span
+                                    class="price">₹200 ₹150</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <article class="vg-menu-card vg-menu-card--beard" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <path d="M12 10c0 6-3 8-3 14 0 6 5 9 11 9s11-3 11-9c0-6-3-8-3-14"
+                                        stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M15 10c0 3 1.5 4 5 4s5-1 5-4" stroke="currentColor" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h3>Hair Texture Matters</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Smoothening</span><span
+                                    class="leader"></span><span class="price">₹6000 ₹5000</span></li>
+                            <li class="vg-menu-row"><span class="name">Strightening</span><span
+                                    class="leader"></span><span class="price">₹6000 ₹5000</span></li>
+                            <li class="vg-menu-row"><span class="name">Keratin</span><span class="leader"></span><span
+                                    class="price">₹6000 ₹5000</span></li>
+                            <li class="vg-menu-row"><span class="name">Botox</span><span class="leader"></span><span
+                                    class="price">₹6000 ₹5500</span></li>
+                            <h4>Women's:</h4>
+                            <li class="vg-menu-row"><span class="name">Botox</span><span class="leader"></span><span
+                                    class="price">₹7999</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <article class="vg-menu-card vg-menu-card--combo" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <rect x="7" y="15" width="26" height="18" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <path d="M7 20h26M20 15v18" stroke="currentColor" stroke-width="1.6" />
+                                    <path d="M20 15c-3-6-10-6-10 0M20 15c3-6 10-6 10 0" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h3>World of Colors</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Gray Coverage (Ammonia)</span><span
+                                    class="leader"></span><span class="price">₹1000 ₹900 </span></li>
+                            <li class="vg-menu-row"><span class="name">Express Color</span><span
+                                    class="leader"></span><span class="price">₹1000 ₹900</span></li>
+                            <li class="vg-menu-row"><span class="name">Grey Coverage (Ammonia Free)</span><span
+                                    class="leader"></span><span class="price">₹1500 ₹1300</span></li>
+                            <li class="vg-menu-row"><span class="name">Global Fashion Color</span><span
+                                    class="leader"></span><span class="price">₹2000 ₹1600</span></li>
+                            <li class="vg-menu-row"><span class="name">Highlights (1 per)</span><span
+                                    class="leader"></span><span class="price">₹500 ₹300</span></li>
+                            <li class="vg-menu-row"><span class="name">Moustache Color</span><span
+                                    class="leader"></span><span class="price">₹200 ₹150</span></li>
+                            <li class="vg-menu-row"><span class="name">Beard Color</span><span
+                                    class="leader"></span><span class="price">₹600 ₹500</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <div class="vg-poster-banner" data-reveal>
+                        <div class="overlay"></div>
+                        <h3>Look good. Feel confident.</h3>
+                    </div>
+
+                    <article class="vg-menu-card vg-menu-card--haircare" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <path d="M20 6c5 8 9 13.5 9 19a9 9 0 1 1-18 0c0-5.5 4-11 9-19Z"
+                                        stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            <h3>Hair &amp; Scalp Rituals</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Head Massage / Hero Massage</span><span
+                                    class="leader"></span><span class="price">₹600 ₹500</span></li>
+                            <li class="vg-menu-row"><span class="name">Color Shave</span><span
+                                    class="leader"></span><span class="price">₹1400 ₹1100</span></li>
+                            <li class="vg-menu-row"><span class="name">Repair / Rejuvenate</span><span
+                                    class="leader"></span><span class="price">₹1400 ₹1100</span></li>
+                            <li class="vg-menu-row"><span class="name">Hair Strengthening Treatment</span><span
+                                    class="leader"></span><span class="price">₹1500 ₹1300 </span></li>
+                            <li class="vg-menu-row"><span class="name">Botox Hair Treatment</span><span
+                                    class="leader"></span><span class="price">₹2000 ₹1700</span></li>
+                            <li class="vg-menu-row"><span class="name">Stress Relief Hair</span><span
+                                    class="leader"></span><span class="price">₹2500 ₹2300</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <article class="vg-menu-card vg-menu-card--face" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <path d="M20 6l2.6 7.8L30 16l-7.4 2.2L20 26l-2.6-7.8L10 16l7.4-2.2L20 6Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                                    <circle cx="30" cy="30" r="3" stroke="currentColor" stroke-width="1.5" />
+                                </svg>
+                            </span>
+                            <h3>Scalp Treatment</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Dandruff Control Treatment</span><span
+                                    class="leader"></span><span class="price">₹2000 ₹1700</span></li>
+                            <li class="vg-menu-row"><span class="name">Hair Fall Control Treatment</span><span
+                                    class="leader"></span><span class="price">₹2500 ₹2200</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <article class="vg-menu-card vg-menu-card--combo" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <rect x="7" y="15" width="26" height="18" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <path d="M7 20h26M20 15v18" stroke="currentColor" stroke-width="1.6" />
+                                    <path d="M20 15c-3-6-10-6-10 0M20 15c3-6 10-6 10 0" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h3>Skin Basics</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Fruit Glow</span><span
+                                    class="leader"></span><span class="price">₹900 ₹800</span></li>
+                            <li class="vg-menu-row"><span class="name">No Tan</span><span class="leader"></span><span
+                                    class="price">₹1500 ₹1400</span></li>
+                            <h4>Senses Suite:</h4>
+                            <li class="vg-menu-row"><span class="name">Skin Lighting</span><span
+                                    class="leader"></span><span class="price">₹1500 ₹1300</span></li>
+                            <li class="vg-menu-row"><span class="name">Acne Care Treatment</span><span
+                                    class="leader"></span><span class="price">₹1800 ₹1650 </span></li>
+                            <li class="vg-menu-row"><span class="name">Dead Sea Hydration</span><span
+                                    class="leader"></span><span class="price">₹2000 ₹1800</span></li>
+                            <li class="vg-menu-row"><span class="name">Signature Glow (03)</span><span
+                                    class="leader"></span><span class="price">₹2200 ₹2000</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <div class="vg-poster-banner" data-reveal>
+                        <div class="overlay"></div>
+                        <h3>Look good. Feel confident.</h3>
+                    </div>
+
+                    <article class="vg-menu-card vg-menu-card--combo" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <rect x="7" y="15" width="26" height="18" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <path d="M7 20h26M20 15v18" stroke="currentColor" stroke-width="1.6" />
+                                    <path d="M20 15c-3-6-10-6-10 0M20 15c3-6 10-6 10 0" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h3>Advanced Cosmetology Facial</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Skin
+                                    Brightening<br>[Brighten, Clarity, Illuminate]</span><span
+                                    class="leader"></span><span class="price">₹6000 ₹5000</span></li>
+                            <li class="vg-menu-row"><span class="name">Age-Defying<br>[Revive, Replenish,
+                                    Renew]</span><span class="leader"></span><span class="price">₹6000 ₹5000</span></li>
+                            <li class="vg-menu-row"><span class="name">Hydration
+                                    Therapy<br>[Hydrate, Restore, Replenish]</span><span class="leader"></span><span
+                                    class="price">₹6000 ₹5000</span></li>
+                            <li class="vg-menu-row"><span class="name">Acne Care<br>[Cleanse, Clear, Calm, Confidence]
+                                </span><span class="leader"></span><span class="price">₹6000 ₹5000</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <article class="vg-menu-card vg-menu-card--combo" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <rect x="7" y="15" width="26" height="18" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <path d="M7 20h26M20 15v18" stroke="currentColor" stroke-width="1.6" />
+                                    <path d="M20 15c-3-6-10-6-10 0M20 15c3-6 10-6 10 0" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h3>Add-On Basics</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">De-Tan (Face and Neck)</span><span
+                                    class="leader"></span><span class="price">₹600 ₹550</span></li>
+                            <h4>Add-On Bright Care:</h4>
+                            <li class="vg-menu-row"><span class="name">Neck and Elbow</span><span
+                                    class="leader"></span><span class="price">₹700 ₹600</span></li>
+                            <li class="vg-menu-row"><span class="name">Under Eye Treatment </span><span
+                                    class="leader"></span><span class="price">₹1000 ₹800</span></li>
+                            <h4>Brightening Mask (Face):</h4>
+                            <li class="vg-menu-row"><span class="name">Rejuvenate Repeat</span><span
+                                    class="leader"></span><span class="price">₹800 ₹700 </span></li>
+                            <li class="vg-menu-row"><span class="name">Peel Off Mask (Bright)</span><span
+                                    class="leader"></span><span class="price">₹800 ₹700</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                    <article class="vg-menu-card vg-menu-card--combo" data-reveal>
+                        <div class="vg-menu-card-head">
+                            <span class="vg-menu-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none">
+                                    <rect x="7" y="15" width="26" height="18" rx="1.5" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <path d="M7 20h26M20 15v18" stroke="currentColor" stroke-width="1.6" />
+                                    <path d="M20 15c-3-6-10-6-10 0M20 15c3-6 10-6 10 0" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <h3>Groom Package</h3>
+                        </div>
+                        <ul class="vg-menu-list">
+                            <li class="vg-menu-row"><span class="name">Matte Finish</span><span
+                                    class="leader"></span><span class="price">₹6000 </span></li>
+                            <li class="vg-menu-row"><span class="name">HD Makeup</span><span class="leader"></span><span
+                                    class="price">₹8000</span></li>
+                            <li class="vg-menu-row"><span class="name">Skin Finish Due</span><span
+                                    class="leader"></span><span class="price">₹9000</span></li>
+                            <li class="vg-menu-row"><span class="name">Glassy Makeup</span><span
+                                    class="leader"></span><span class="price">₹10,000 </span></li>
+                            <li class="vg-menu-row"><span class="name">Air Brush Makeup</span><span
+                                    class="leader"></span><span class="price">₹12,000</span></li>
+                        </ul>
+                        <a class="vg-book-btn" href="#book">Book Now</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             3. TRANSFORMATION / STYLE SHOWCASE
+        ========================================================= -->
+        <section class="vg-showcase" id="showcase">
+            <div class="vg-showcase-glow vg-showcase-glow--1"></div>
+            <div class="vg-showcase-glow vg-showcase-glow--2"></div>
+            <div class="vg-showcase-inner">
+                <div class="vg-showcase-intro" data-reveal>
+                    <h2>Your style. <em>Your signature.</em></h2>
+                    <p>Drag any slider to see the transformation.</p>
+                </div>
+
+                <div class="vg-before-after" id="baGrid">
+
+                    <div class="vg-ba-item">
+                        <p class="vg-before-after-label">Before <span>→</span> After</p>
+                        <div class="vg-ba-frame">
+                            <img class="vg-ba-before" src="image/t-hc-before.png" alt="Before the grooming session">
+                            <div class="vg-ba-after-wrap">
+                                <img class="vg-ba-after" src="image/t-hc-after.png" alt="After the grooming session">
+                            </div>
+                            <div class="vg-ba-handle"><i class="bi bi-arrows-expand"></i></div>
+                            <input type="range" class="vg-ba-range" min="0" max="100" value="50"
+                                aria-label="Reveal before and after: Haircut Transformation">
+                        </div>
+                        <div class="vg-ba-title">
+                            <h3>Haircut Transformation</h3>
+                            <p>A sharper cut. A stronger look.</p>
+                        </div>
+                    </div>
+
+                    <div class="vg-ba-item">
+                        <p class="vg-before-after-label">Before <span>→</span> After</p>
+                        <div class="vg-ba-frame">
+                            <img class="vg-ba-before" src="image/t-skin-before.png" alt="Before the skin treatment">
+                            <div class="vg-ba-after-wrap">
+                                <img class="vg-ba-after" src="image/t-skin-after.png" alt="After the skin treatment">
+                            </div>
+                            <div class="vg-ba-handle"><i class="bi bi-arrows-expand"></i></div>
+                            <input type="range" class="vg-ba-range" min="0" max="100" value="50"
+                                aria-label="Reveal before and after: Skin">
+                        </div>
+                        <div class="vg-ba-title">
+                            <h3>Skin</h3>
+                            <p>Clean and bright skin.</p>
+                        </div>
+                    </div>
+
+                    <div class="vg-ba-item">
+                        <p class="vg-before-after-label">Before <span>→</span> After</p>
+                        <div class="vg-ba-frame">
+                            <img class="vg-ba-before" src="image/t-grooming-before.png" alt="Before the full grooming">
+                            <div class="vg-ba-after-wrap">
+                                <img class="vg-ba-after" src="image/t-grooming-after.png" alt="After the full grooming">
+                            </div>
+                            <div class="vg-ba-handle"><i class="bi bi-arrows-expand"></i></div>
+                            <input type="range" class="vg-ba-range" min="0" max="100" value="50"
+                                aria-label="Reveal before and after: Full Grooming">
+                        </div>
+                        <div class="vg-ba-title">
+                            <h3>Full Grooming</h3>
+                            <p>Head to jaw, fully refreshed.</p>
+                        </div>
+                    </div>
+
+                    <div class="vg-ba-item">
+                        <p class="vg-before-after-label">Before <span>→</span> After</p>
+                        <div class="vg-ba-frame">
+                            <img class="vg-ba-before" src="image/t-hcr-before.png" alt="Before the hair color">
+                            <div class="vg-ba-after-wrap">
+                                <img class="vg-ba-after" src="image/t-hcr-after.png" alt="After the hair color">
+                            </div>
+                            <div class="vg-ba-handle"><i class="bi bi-arrows-expand"></i></div>
+                            <input type="range" class="vg-ba-range" min="0" max="100" value="50"
+                                aria-label="Reveal before and after: Hair Color">
+                        </div>
+                        <div class="vg-ba-title">
+                            <h3>Hair Color</h3>
+                            <p>The last touch that pulls it together.</p>
+                        </div>
+                    </div>
+
+                    <div class="vg-ba-item">
+                        <p class="vg-before-after-label">Before <span>→</span> After</p>
+                        <div class="vg-ba-frame">
+                            <img class="vg-ba-before" src="image/t-scalp-before.png" alt="Before the scalp treatment">
+                            <div class="vg-ba-after-wrap">
+                                <img class="vg-ba-after" src="image/t-scalp-after.png" alt="After the scalp treatment">
+                            </div>
+                            <div class="vg-ba-handle"><i class="bi bi-arrows-expand"></i></div>
+                            <input type="range" class="vg-ba-range" min="0" max="100" value="50"
+                                aria-label="Reveal before and after: Scalp Treatment">
+                        </div>
+                        <div class="vg-ba-title">
+                            <h3>Scalp Treatment</h3>
+                            <p>Healthier roots, visibly refreshed.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================================================
+         4. FOOTER
+    ========================================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#home" class="logo" style="margin-bottom:18px;">
+                        <div class="logo-wrap">
+                            <img src="image/bg removed logo.png" alt="logo">
+                        </div>
+                    </a>
+                    <p>Premium men's salon and beauty parlour delivering luxury grooming experiences for the
+                        modern gentleman.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#offers">Offers</a></li>
+                        <li><a href="#booking">Booking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#services">Haircut</a></li>
+                        <li><a href="#services">Beard Styling</a></li>
+                        <li><a href="#services">Facial</a></li>
+                        <li><a href="#services">Bridal Package</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> 12, MG Road, Chennai 600001</li>
+                        <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fa-solid fa-envelope"></i> hello@visualgreen.example</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="vgYear"></span> Visual Green. All rights reserved.</p>
+                <p>Crafted with <i class="fa-solid fa-heart" style="color:var(--gold);"></i> for the
+                    modern gentleman.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ BACK TO TOP ============ -->
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <script src="script.js"></script>
+    <script>
+        /* =====================================================================
+           VISUAL GREEN — SITE SCRIPT
+           1. Hero load-in
+           2. Navbar scroll state + mobile menu
+           3. Scroll-reveal engine
+           4. Before / after slider
+           5. Back to top + footer year
+        ===================================================================== */
+        (function () {
+            "use strict";
+            var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            /* 1. Hero load-in */
+            var hero = document.querySelector(".vg-hero");
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    if (hero) hero.classList.add("is-loaded");
+                }, 150);
+            });
+            /* ---------- 1. Navbar scroll state ---------- */
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                const onScroll = () => {
+                    navbar.classList.toggle('scrolled', window.scrollY > 40);
+                };
+                onScroll();
+                window.addEventListener('scroll', onScroll, { passive: true });
+            }
+
+            /* ---------- 2. Mobile slide nav (hamburger -> .slider-nav) ---------- */
+            const navToggle = document.getElementById('navToggle');
+            const sliderNav = document.getElementById('sliderNav');
+            const sliderNavOverlay = document.getElementById('sliderNavOverlay');
+            const sliderNavClose = document.getElementById('sliderNavClose');
+
+            const openSliderNav = () => {
+                sliderNav?.classList.add('open');
+                sliderNavOverlay?.classList.add('visible');
+                navToggle?.classList.add('active');
+                navToggle?.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeSliderNav = () => {
+                sliderNav?.classList.remove('open');
+                sliderNavOverlay?.classList.remove('visible');
+                navToggle?.classList.remove('active');
+                navToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                document.querySelectorAll('.slider-has-mega.open').forEach(li => li.classList.remove('open'));
+            };
+
+            if (navToggle && sliderNav) {
+                navToggle.addEventListener('click', () => {
+                    sliderNav.classList.contains('open') ? closeSliderNav() : openSliderNav();
+                });
+
+                sliderNavClose?.addEventListener('click', closeSliderNav);
+                sliderNavOverlay?.addEventListener('click', closeSliderNav);
+
+                // Close the slide nav when a plain (non-mega) link is followed
+                sliderNav.querySelectorAll(':scope > .slider-menu > li > a').forEach(link => {
+                    if (link.parentElement.classList.contains('slider-has-mega')) return;
+                    link.addEventListener('click', closeSliderNav);
+                });
+                sliderNav.querySelectorAll('.slider-nav-cta, .slider-nav-head .logo').forEach(link => {
+                    link.addEventListener('click', closeSliderNav);
+                });
+
+                // Close on Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeSliderNav();
+                });
+
+                // Close the panel automatically if the viewport grows past the mobile breakpoint
+                window.addEventListener('resize', () => {
+                    if (window.matchMedia('(min-width: 993px)').matches) closeSliderNav();
+                });
+            }
+
+            // Slide-nav mega menu: tapping "Services" expands its submenu in place
+            document.querySelectorAll('.slider-has-mega').forEach(item => {
+                const trigger = item.querySelector(':scope > a');
+                if (!trigger) return;
+
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = item.classList.toggle('open');
+                    trigger.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+
+            /* ---------- 2. Mobile menu toggle + mega-menu ---------- *
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            const closeMenu = () => {
+                if (navToggle) {
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+                if (navMenu) navMenu.classList.remove('open');
+                document.querySelectorAll('.has-mega.open').forEach(li => li.classList.remove('open'));
+            };
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    const isOpen = navMenu.classList.toggle('open');
+                    navToggle.classList.toggle('active', isOpen);
+                    navToggle.setAttribute('aria-expanded', String(isOpen));
+                });
+
+                // Close the mobile menu when a plain (non-mega) nav link is followed
+                navMenu.querySelectorAll(':scope > li > a').forEach(link => {
+                    if (link.parentElement.classList.contains('has-mega')) return;
+                    link.addEventListener('click', closeMenu);
+                });
+
+                // Close on Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeMenu();
+                });
+            }
+
+            // Mega-menu: on touch/mobile widths, tapping the "Services" link should
+            // expand the mega-menu instead of navigating away immediately.
+            document.querySelectorAll('.has-mega').forEach(item => {
+                const trigger = item.querySelector(':scope > a');
+                if (!trigger) return;
+
+                trigger.addEventListener('click', (e) => {
+                    const isMobile = window.matchMedia('(max-width: 992px)').matches;
+                    if (!isMobile) return; // desktop uses hover, let the link work
+                    e.preventDefault();
+                    const isOpen = item.classList.toggle('open');
+                    trigger.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+            /* 2. Navbar scroll state + mobile menu *
+            var navbar = document.querySelector(".navbar");
+            var backToTop = document.getElementById("backToTop");
+
+            function onScroll() {
+                if (navbar) {
+                    if (window.scrollY > 40) navbar.classList.add("scrolled");
+                    else navbar.classList.remove("scrolled");
+                }
+                if (backToTop) {
+                    if (window.scrollY > 400) backToTop.classList.add("visible");
+                    else backToTop.classList.remove("visible");
+                }
+            }
+            window.addEventListener("scroll", onScroll);
+            onScroll();
+
+            var navToggle = document.getElementById("navToggle");
+            var navMenu = document.querySelector(".nav-menu");
+            if (navToggle && navMenu) {
+                navToggle.addEventListener("click", function () {
+                    navMenu.classList.toggle("open");
+                    navToggle.classList.toggle("active");
+                });
+            }
+
+            document.querySelectorAll(".has-mega > a").forEach(function (link) {
+                link.addEventListener("click", function (e) {
+                    if (window.matchMedia("(max-width:992px)").matches) {
+                        e.preventDefault();
+                        link.parentElement.classList.toggle("open");
+                    }
+                });
+            });
+
+            document.querySelectorAll(".nav-menu a:not(.has-mega > a)").forEach(function (a) {
+                a.addEventListener("click", function () {
+                    if (navMenu) navMenu.classList.remove("open");
+                    if (navToggle) navToggle.classList.remove("active");
+                });
+            });
+
+            /* 3. Scroll-reveal engine */
+            var revealTargets = document.querySelectorAll("[data-reveal]");
+            if ("IntersectionObserver" in window) {
+                var revealObserver = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+                revealTargets.forEach(function (el) { revealObserver.observe(el); });
+            } else {
+                revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
+            }
+
+            /* 4. Before / after slider */
+            function setPosition(frame, value) {
+                var afterWrap = frame.querySelector(".vg-ba-after-wrap");
+                var afterImg = frame.querySelector(".vg-ba-after");
+                var handle = frame.querySelector(".vg-ba-handle");
+                afterWrap.style.width = value + "%";
+                handle.style.left = value + "%";
+                afterImg.style.width = frame.offsetWidth + "px";
+            }
+
+            var frames = document.querySelectorAll(".vg-ba-frame");
+            frames.forEach(function (frame) {
+                var range = frame.querySelector(".vg-ba-range");
+                if (!range) return;
+                setPosition(frame, range.value);
+                range.addEventListener("input", function () {
+                    frame.classList.add("is-dragging");
+                    setPosition(frame, range.value);
+                });
+                ["change", "mouseup", "touchend"].forEach(function (evt) {
+                    range.addEventListener(evt, function () {
+                        frame.classList.remove("is-dragging");
+                    });
+                });
+            });
+
+            window.addEventListener("resize", function () {
+                frames.forEach(function (frame) {
+                    var range = frame.querySelector(".vg-ba-range");
+                    if (range) setPosition(frame, range.value);
+                });
+            });
+
+            var items = document.querySelectorAll(".vg-ba-item");
+            if ("IntersectionObserver" in window) {
+                var baObserver = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                items.forEach(function (item) { baObserver.observe(item); });
+            } else {
+                items.forEach(function (item) { item.classList.add("is-visible"); });
+            }
+
+            /* 5. Scroll cue + footer year */
+            var scrollCue = document.getElementById("scrollCue");
+            if (scrollCue) {
+                scrollCue.addEventListener("click", function () {
+                    var target = document.getElementById("services");
+                    if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+                });
+            }
+
+            var yearEl = document.getElementById("vgYear");
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+        })();
+    </script>
+</body>
+
+</html>

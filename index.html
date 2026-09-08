@@ -1,0 +1,4688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Green | Luxury Men's Salon &amp; Beauty Parlour</title>
+    <meta name="theme-color" content="#0D0D0D">
+
+    <!-- sections connection link-->
+
+    <!--css-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="image/bg removed logo.png" type="image/png">
+
+    <!-- Preload the hero background video so it starts smoothly once the loader finishes -->
+    <link rel="preload" href="video/7086059-uhd_3840_2160_24fps.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="video/7697544-hd_1920_1080_30fps.mp4" as="video" type="video/mp4">
+
+    <link rel="img" href="image/banner3.jpeg" as="img" type="image/png">
+    <link rel="img" href="image/chat gpt.jpeg" as="img" type="image/png">
+    <link rel="img" href="image/wmremove-transformed (1).png" as="img" type="image/png">
+    <link rel="img" href="image/about img 1.png" as="img" type="image/png">
+    <link rel="img" href="image/service-img.png" as="img" type="image/png">
+    <!-- Fonts / Icons / Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* ---- Color tokens ---- */
+            --c-black: rgb(104, 179, 179);
+            --c-black-soft: #eff1f1;
+            --c-black-elevated: #1b2020;
+            --c-emerald: #0e9f6e;
+            --c-emerald-light: #f3740c;
+            --c-emerald-deep: #0a7051;
+            --c-gold: #d4af37;
+            --c-gold-light: #e9760b;
+            --c-white: #f6f5f1;
+            --c-gray: #084944;
+            --c-gray-dim: rgba(185, 185, 180, 0.6);
+            --c-glass: rgba(246, 245, 241, 0.045);
+            --c-glass-border: rgba(228, 181, 28, 0.35);
+            --c-glass-border-em: rgba(14, 159, 110, 0.35);
+            --vg-green-dark: #0A6244;
+            --vg-green: #0F8B5F;
+
+            --vg-ease: cubic-bezier(0.22, 1, 0.36, 1);
+            /* ---- Typography ---- */
+            --f-display: 'Cormorant Garamond', serif;
+            --f-body: 'Manrope', sans-serif;
+            --f-utility: 'Bebas Neue', sans-serif;
+            --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+            /* ---- Layout ---- */
+            --container-w: 1240px;
+            --radius-sm: 6px;
+            --radius-md: 14px;
+            --radius-lg: 28px;
+            --transition: 0.45s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        /* ============ RESET ============ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            background: var(--c-black);
+            color: var(--c-white);
+            font-family: var(--f-body);
+            font-weight: 400;
+            line-height: 1.65;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Guards against any absolutely-positioned decorative element
+           (side medallions, gradient orbs, marquee tracks, etc.) pushing
+           the document wider than the viewport and exposing blank space
+           on the right edge while scrolling. */
+        #main-content {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: inherit;
+        }
+
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--c-gold);
+            color: var(--c-black);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--c-black-soft);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--c-emerald), var(--c-gold));
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-w);
+            margin-inline: auto;
+            padding-inline: 24px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--f-display);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: .2px
+        }
+
+        p {
+            color: var(--c-gray);
+        }
+
+        .section-pad {
+            padding: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-pad {
+                padding-block: 80px;
+            }
+        }
+
+        .section-eyebrow {
+            font-family: var(--font-mono);
+            letter-spacing: .22rem;
+            font-size: .74rem;
+            color: var( --c-emerald);
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .section-eyebrow::before {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: var(--c-gold);
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(2.1rem, 4vw, 3.4rem);
+            margin-bottom: 20px;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: transparent;
+            background: linear-gradient(100deg, rgb(10, 24, 214), rgb(235, 92, 10));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .section-sub {
+            color: rgb(55, 88, 84);
+
+            font-size: 1.02rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-inline: auto;
+        }
+
+        /* ============ BUTTONS ============ */
+        .vg-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 34px;
+            font-family: var(--f-body);
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .14em;
+            border-radius: 999px;
+            overflow: hidden;
+            isolation: isolate;
+            transition: transform 0.35s var(--vg-ease), box-shadow 0.35s var(--vg-ease), background 0.35s var(--vg-ease), color 0.35s var(--vg-ease);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .vg-btn:active {
+            transform: scale(.96);
+        }
+
+        .vg-btn-gold {
+            background: var(--vg-green);
+            color: var(--c-white);
+            box-shadow: 0 14px 30px -12px rgba(15, 139, 95, 0.55);
+
+        }
+
+        .vg-btn-gold:hover {
+            box-shadow: 0 12px 40px -6px rgba(212, 175, 55, .75);
+            transform: translateY(-3px);
+        }
+
+        /*-----section grid----*/
+
+
+        /* ============ LOADING SCREEN ============ */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--c-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 22px;
+            transition: opacity .7s ease, visibility .7s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #loader svg {
+            width: 120px;
+            height: 120px;
+        }
+
+        #loader .vg-path {
+            fill: none;
+            stroke: var(--c-gold);
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: draw 2s ease infinite;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        #loader .loader-label {
+            font-family: var(--f-utility);
+            letter-spacing: 6px;
+            font-size: 12px;
+            color: var(--c-gray);
+        }
+
+        #loader .loader-bar {
+            width: 180px;
+            height: 1px;
+            background: rgba(255, 255, 255, .12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #loader .loader-bar::after {
+            content: '';
+            position: absolute;
+            left: -40%;
+            top: 0;
+            bottom: 0;
+            width: 40%;
+            background: linear-gradient(90deg, transparent, var(--c-emerald-light), var(--c-gold), transparent);
+            animation: loaderSlide 1.3s ease-in-out infinite;
+        }
+
+        @keyframes loaderSlide {
+            0% {
+                left: -40%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* ============ CUSTOM CURSOR ============ */
+        .cursor-dot,
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+        }
+
+        .cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--c-gold);
+        }
+
+        .cursor-ring {
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(212, 175, 55, .5);
+            transition: width .25s, height .25s, border-color .25s, background .25s;
+        }
+
+        .cursor-ring.active {
+            width: 56px;
+            height: 56px;
+            background: rgba(14, 159, 110, .12);
+            border-color: var(--c-emerald-light);
+        }
+
+        @media (max-width: 992px) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none;
+            }
+        }
+
+        /*---------------------------------------------------------
+          HEADER / NAVBAR 
+         --------------------------------------------------------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px clamp(20px, 5vw, 48px);
+            background: transparent;
+            transition: background 0.4s var(--vg-ease), box-shadow 0.4s var(--vg-ease), padding 0.4s var(--vg-ease);
+        }
+
+        .navbar.scrolled {
+            background: rgba(13, 13, 13, .82);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.6);
+            padding-block: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 50px;
+        }
+
+        .logo-wrap {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .vgs-brand-text {
+            font-family: var(--vg-font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--vg-white);
+            line-height: 1.2;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .vgs-brand-sub {
+            display: block;
+            font-size: 0.6rem;
+            font-family: var(--vg-font-body);
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            color: var(--vg-green-dark);
+            margin-top: 2px;
+        }
+
+        .menu-list {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu>li {
+            position: relative;
+        }
+
+        .nav-menu>li>a {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--vg-text-on-dark);
+            position: relative;
+            transition: color 0.3s var(--vg-ease);
+        }
+
+        .nav-menu>li>a::after {
+            content: "";
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 4px;
+            height: 1px;
+            background: var(--vg-green-light);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s var(--vg-ease);
+        }
+
+        .nav-menu>li>a:hover,
+        .nav-menu>li.active>a,
+        .nav-menu>li>a.is-active {
+            color: var(--vg-white);
+        }
+
+        .nav-menu>li>a:hover::after,
+        .nav-menu>li.active>a::after,
+        .nav-menu>li>a.is-active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 26px;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            height: 2px;
+            background: var(--vg-white);
+            border-radius: 2px;
+            transition: transform 0.35s var(--vg-ease), opacity 0.35s var(--vg-ease);
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(246, 245, 241, 0.08);
+            border: 1px solid rgba(246, 245, 241, 0.18);
+            padding: 0;
+            cursor: pointer;
+            z-index: 1101;
+            /* stays above the mega-menu / slider overlay */
+        }
+
+        .nav-toggle span {
+            width: 20px;
+            height: 2px;
+            margin-inline: auto;
+            background: var(--c-white);
+            border-radius: 2px;
+        }
+
+        /* ---- Mega menu ---- */
+        .has-mega {
+            position: static;
+        }
+
+        .mega-menu {
+            position: absolute;
+            top: calc(100% + 18px);
+            left: 0;
+            right: 0;
+            max-width: 1280px;
+            margin-inline: auto;
+            background: rgba(17, 17, 17, 0.96);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--vg-radius-md);
+            padding: 30px 28px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px 24px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.35s var(--vg-ease), transform 0.35s var(--vg-ease), visibility 0.35s;
+            box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.7);
+        }
+
+        .has-mega:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 8px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--vg-text-on-dark);
+            transition: background 0.25s var(--vg-ease), color 0.25s var(--vg-ease), padding-left 0.25s var(--vg-ease);
+        }
+
+        .mega-menu a i {
+            color: var(--vg-green-light);
+            width: 16px;
+            font-size: 0.85rem;
+        }
+
+        .mega-menu a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--vg-gold);
+            padding-left: 14px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-actions .vg-btn-gold {
+                display: none;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: min(320px, 82vw);
+                background: rgba(10, 12, 11, 0.98);
+                backdrop-filter: blur(16px);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 96px 26px 26px;
+                margin: 0;
+                transform: translateX(100%);
+                transition: transform 0.4s var(--vg-ease);
+                z-index: 1100;
+                overflow-y: auto;
+                box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-menu.open {
+                transform: translateX(0);
+            }
+
+            .nav-menu>li {
+                width: 100%;
+            }
+
+            .nav-menu>li>a {
+                padding: 14px 6px;
+                font-size: 0.95rem;
+            }
+
+            .nav-menu>li>a::after {
+                display: none;
+            }
+
+            .mega-menu {
+                position: static;
+                grid-template-columns: repeat(2, 1fr);
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                background: transparent;
+                border: none;
+                backdrop-filter: none;
+                box-shadow: none;
+                padding: 6px 0 10px 14px;
+            }
+
+            .has-mega.open .mega-menu {
+                display: grid;
+            }
+        }
+
+        /* ============ MOBILE SLIDE NAV ============ */
+        .slider-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: min(320px, 86vw);
+            background: rgba(10, 12, 11, 0.98);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            flex-direction: column;
+            padding: 26px;
+            transform: translateX(100%);
+            transition: transform 0.4s var(--vg-ease);
+            z-index: 1200;
+            overflow-y: auto;
+            box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .slider-nav.open {
+            transform: translateX(0);
+        }
+
+        .slider-nav-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 30px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(246, 245, 241, .1);
+        }
+
+        .slider-nav-head .logo {
+            margin-left: 0;
+        }
+
+        .slider-nav-close {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(246, 245, 241, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-white);
+            font-size: 1rem;
+            transition: background .3s, border-color .3s, transform .3s;
+        }
+
+        .slider-nav-close:hover {
+            background: var(--c-emerald);
+            border-color: var(--c-emerald);
+            transform: rotate(90deg);
+        }
+
+        .slider-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            list-style: none;
+            margin: 0 0 24px;
+            padding: 0;
+        }
+
+        .slider-menu>li>a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 6px;
+            font-size: .95rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--c-white);
+            border-bottom: 1px solid rgba(246, 245, 241, .08);
+            transition: color .3s;
+        }
+
+        .slider-menu>li>a:hover {
+            color: var(--c-gold-light);
+        }
+
+        .slider-has-mega>a i {
+            transition: transform .3s var(--vg-ease);
+        }
+
+        .slider-has-mega.open>a i {
+            transform: rotate(180deg);
+        }
+
+        .slider-mega-menu {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 14px;
+            padding: 10px 0 14px 10px;
+        }
+
+        .slider-has-mega.open .slider-mega-menu {
+            display: grid;
+        }
+
+        .slider-mega-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 6px;
+            font-size: .82rem;
+            color: var(--c-gray);
+            border-radius: 8px;
+            transition: background .25s, color .25s;
+        }
+
+        .slider-mega-menu a i {
+            color: var(--c-emerald-light);
+            width: 14px;
+            font-size: .8rem;
+        }
+
+        .slider-mega-menu a:hover {
+            background: rgba(255, 255, 255, .06);
+            color: var(--c-gold-light);
+        }
+
+        .slider-nav-cta {
+            margin-top: auto;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .slider-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .35s ease, visibility .35s ease;
+            z-index: 1150;
+        }
+
+        .slider-nav-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 992px) {
+            .slider-nav {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .slider-nav {
+                width: 100vw;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-actions .vg-btn-gold {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+
+        /* ============ NAVBAR ============ 
+
+        .navbar,
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            gap: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px clamp(20px, 5vw, 48px);
+            background: transparent;
+            transition: background 0.4s var(--vg-ease), box-shadow 0.4s var(--vg-ease), padding 0.4s var(--vg-ease);
+        }
+
+        /* Filled/blurred state once the page has scrolled (toggled by JS) *
+        .navbar.scrolled {
+            background: rgba(13, 13, 13, .82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, .6);
+            padding-block: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 10px;
+
+        }
+
+        .logo-wrap {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+
+        .vgs-brand-text {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            letter-spacing: 0.05em;
+            color: var(--ivory);
+            line-height: 1.2;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .vgs-brand-sub {
+            display: block;
+            font-size: 0.6rem;
+            font-family: var(--vg-font-body);
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            color: var(--vg-green-dark);
+            margin-top: 2px;
+        }
+
+        .menu-list {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .nav-menu>li {
+            position: relative;
+        }
+
+        .nav-menu>li>a {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            font-size: .82rem;
+            font-weight: 700;
+            letter-spacing: 0.05px;
+            text-transform: uppercase;
+            color: var(--c-white);
+            position: relative;
+            transition: color 0.3s var(--vg-ease);
+        }
+
+        .nav-menu>li>a::after {
+            content: '';
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 6px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--c-emerald-light), var(--c-gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s var(--vg-ease);
+        }
+
+        .nav-menu>li>a:hover,
+        .nav-menu>li.active>a,
+        .nav-menu>li.active>a {
+
+            color: var(--c-gold-light);
+        }
+
+        .nav-menu>li>a:hover::after,
+        .nav-menu>li.active>a::after,
+        .nav-menu>li.active>a::after {
+            transform: scaleX(1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .vg-btn-gold {
+            background: var(--vg-gold);
+            color: var(--vg-black);
+            box-shadow: 0 14px 30px -14px rgba(201, 162, 75, 0.5);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 26px;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            height: 2px;
+            background: var(--c-white);
+            border-radius: 2px;
+            transition: transform 0.35s var(--vg-ease), opacity 0.35s var(--vg-ease);
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: min(320px, 82vw);
+                background: var(--c-black-elevated);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 90px 26px 26px;
+                margin: 0;
+                border-radius: 0;
+                transform: translateX(100%);
+                transition: transform .4s ease;
+                z-index: 60;
+                overflow-y: auto;
+            }
+
+            .nav-menu.open {
+                transform: translateX(0);
+            }
+
+            .nav-menu>li {
+                width: 100%;
+            }
+
+            .nav-menu>li>a {
+                padding: 14px 6px;
+            }
+        }----*/
+
+
+        /* ---- Mega menu ---- *
+        .has-mega {
+            position: static;
+        }
+
+        .mega-menu {
+            position: absolute;
+            top: calc(100% + 22px);
+            left: 0;
+            right: 0;
+            background: rgba(20, 21, 19, .92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid var(--c-glass-border);
+            border-radius: var(--radius-md);
+            padding: 34px 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px 264x;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(14px);
+            transition: opacity .35s ease, transform .35s ease, visibility .35s;
+            box-shadow: 0 30px 70px -20px rgba(0, 0, 0, .7);
+        }
+
+        .has-mega:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .mega-menu {
+                position: static;
+                grid-template-columns: repeat(2, 1fr);
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                background: transparent;
+                border: none;
+                backdrop-filter: none;
+                padding: 10px 0 10px 14px;
+            }
+
+            .has-mega.open .mega-menu {
+                display: grid;
+            }
+        }
+
+        .mega-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 8px;
+            border-radius: 8px;
+            font-size: .85rem;
+            color: var(--c-gray);
+            transition: background .25s, color .25s, padding-left .25s;
+        }
+
+        .mega-menu a i {
+            color: var(--c-emerald-light);
+            width: 16px;
+            font-size: .85rem;
+        }
+
+        .mega-menu a:hover {
+            background: var(--c-glass);
+            color: var(--c-gold-light);
+            padding-left: 14px;
+        }----*/
+
+        /*--======HERO SECTION NEW======---*/
+        .animation-header {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: url("image/img/common/header-img.jpeg") center center/cover no-repeat;
+        }
+
+        .animation-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(125deg,
+                    rgba(14, 20, 15, 0.82),
+                    rgba(14, 61, 44, 0.72),
+                    rgba(20, 92, 63, 0.68),
+                    rgba(10, 15, 12, 0.85));
+            z-index: 1;
+        }
+
+        .animation-header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(transparent 25%, rgba(8, 12, 9, 0.55) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .animation-header>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .animation-header h5 span {
+            position: relative;
+            display: inline-block;
+            color: transparent;
+            -webkit-text-stroke: .7px var(--gold-bright);
+            animation: display-text 16s linear infinite;
+            animation-delay: calc(-4s * var(--i));
+            letter-spacing: 2px;
+        }
+
+        @keyframes display-text {
+
+            25%,
+            100% {
+                display: none;
+            }
+        }
+
+        .animation-header h5 span::before {
+            content: attr(data-text);
+            position: absolute;
+            width: 0;
+            border-right: 2px solid var(--green-bright);
+            color: var(--green-bright);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: fill-text 4s linear infinite;
+        }
+
+        @keyframes fill-text {
+
+            0%,
+            10% {
+                width: 0;
+            }
+
+            40%,
+            70% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+            }
+        }
+
+        .animation-header button {
+            margin-top: 50px;
+            border: 2px solid var(--gold-bright);
+            padding: 8px 30px;
+            border-radius: 10px;
+            background-color: transparent;
+            color: #fff;
+            font-weight: 500;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .animation-header button:hover {
+            border: 2px solid #fff;
+            color: var(--green-bright);
+        }
+
+        @media screen and (max-width: 1261px) {
+            .animation-header .container h1 {
+                font-size: 32px;
+            }
+
+            .gradient-background {
+                height: 100% !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .animation-header {
+                min-height: auto;
+                height: auto;
+                padding: 40px 0;
+            }
+
+            .gradient-background {
+                height: 100% !important;
+            }
+
+            .animation-header button {
+                margin-top: 20px;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            .animation-header .container h1 {
+                font-size: 28px;
+            }
+        }
+
+        /* Modern Mesh Glow Orbs Overlay */
+        .gradient-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .gradient-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            mix-blend-mode: screen;
+            opacity: 0.6;
+        }
+
+        .sphere-1 {
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(217, 179, 112, 0.35) 0%, transparent 70%);
+            top: -10%;
+            left: -5%;
+            animation: float-1 20s ease-in-out infinite alternate;
+        }
+
+        .sphere-2 {
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, rgba(31, 157, 104, 0.3) 0%, transparent 70%);
+            bottom: -15%;
+            right: -5%;
+            animation: float-2 22s ease-in-out infinite alternate;
+        }
+
+        .sphere-3 {
+            width: 30vw;
+            height: 30vw;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, transparent 70%);
+            top: 40%;
+            left: 30%;
+            animation: float-3 25s ease-in-out infinite alternate;
+        }
+
+        .noise-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.02;
+            z-index: 5;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        @keyframes float-1 {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(12%, 8%) scale(1.15);
+            }
+        }
+
+        @keyframes float-2 {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(-10%, -12%) scale(1.1);
+            }
+        }
+
+        @keyframes float-3 {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translate(-15%, 15%) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        /* Custom Modern Micro Sparkle Cursor Path Trail */
+        @keyframes cursorSparkle {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* ── Rotating circular badge medallions (left & right) ── */
+        .side-rotator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 450px;
+            height: 450px;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        /* Positioned fully inside the hero so the circle is never clipped
+           by .animation-header's overflow:hidden */
+        .side-rotator-left {
+            left: -225px;
+        }
+
+        .side-rotator-right {
+            right: -220px;
+        }
+
+        .rotator-glow {
+            position: absolute;
+            inset: -14px;
+            border-radius: 50%;
+            animation: ring-pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes ring-pulse {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: .9
+            }
+        }
+
+        .rotator-outer {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: rotate-ring 32s linear infinite;
+        }
+
+        .side-rotator-right .rotator-outer {
+            animation-direction: reverse;
+        }
+
+        @keyframes rotate-ring {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        /* Decorative ring texture image — centered, cropped to a perfect
+           circle so it never overflows or sits off-centre inside the ring */
+        .rotator-outer .rotator-text-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .rotator-text-svg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .rotator-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 85px;
+            height: 85px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .rotator-center img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            padding: 10px;
+        }
+
+        /* ── Responsive tiers so the medallions stay centered & proportioned
+           on desktop, laptop and tablet, and fold away cleanly on mobile
+           where the hero stacks into a single column ── */
+        @media screen and (max-width: 1400px) {
+            .side-rotator {
+                width: 165px;
+                height: 165px;
+            }
+
+            .rotator-center {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media screen and (max-width: 1199.98px) {
+            .side-rotator {
+                width: 130px;
+                height: 130px;
+            }
+
+            .side-rotator-left {
+                left: 10px;
+            }
+
+            .side-rotator-right {
+                right: 10px;
+            }
+
+            .rotator-center {
+                width: 50px;
+                height: 50px;
+            }
+
+            .rotator-center img {
+                padding: 7px;
+            }
+        }
+
+        @media screen and (max-width: 991.98px) {
+            .side-rotator {
+                display: none;
+            }
+        }
+
+        /* ── Content layout (Fixed Grid Center Gaps) ── */
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            padding: 60px 0;
+        }
+
+        .hero-content-wrapper>.row {
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(5, 99, 83, 0.671);
+            border: 1px solid rgba(217, 179, 112, 0.4);
+            border-radius: 20px;
+            padding: 10px 16px 5px;
+            font-size: 11px;
+            color: #f4efe0;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.6s 0.15s forwards;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold-bright);
+            animation: blink 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .home-header-title {
+            font-size: 38px !important;
+            font-weight: 700 !important;
+            color: #fff !important;
+            line-height: 1.25 !important;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6) !important;
+            margin-bottom: 18px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.65s 0.35s forwards;
+        }
+
+        .home-header-title .accent-word {
+            background: linear-gradient(90deg, #ffffff, var(--gold-bright), var(--green-bright));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shineText 5s linear infinite;
+        }
+
+        @keyframes shineText {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.75;
+            max-width: 440px;
+            margin-bottom: 22px;
+            opacity: 0;
+            transform: translateY(14px);
+            animation: fadeUp 0.65s 0.55s forwards;
+        }
+
+        .hero-typed-line {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 26px;
+            min-height: 22px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.65s 0.7s forwards;
+        }
+
+        .hero-typed-line .typed-cursor {
+            color: var(--gold-bright);
+            font-weight: 700;
+            border-right: 2px solid var(--green-bright);
+            padding-right: 2px;
+            animation: cursor-blink 0.8s step-end infinite;
+        }
+
+        @keyframes cursor-blink {
+
+            0%,
+            100% {
+                border-color: var(--green-bright);
+            }
+
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* ── USP / Highlights Group ── */
+        .flag-container {
+            display: flex !important;
+            align-items: center;
+            gap: 26px;
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.65s 0.85s forwards;
+        }
+
+        .flag-container a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flag-container a .usp-icon {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.55);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s;
+            z-index: 2;
+            position: relative;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .flag-container a span.usp-label {
+            display: block;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            margin-top: 6px;
+            letter-spacing: 0.4px;
+        }
+
+        .flag-container a {
+            flex-direction: column;
+        }
+
+        .flag-container a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(31, 157, 104, 0.55);
+            animation: flagPulse 2.5s infinite cubic-bezier(0.25, 0, 0, 1);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .flag-container a:nth-child(2)::before {
+            animation-delay: 0.8s;
+        }
+
+        .flag-container a:nth-child(3)::before {
+            animation-delay: 1.6s;
+        }
+
+        @keyframes flagPulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(31, 157, 104, 0.55);
+            }
+
+            70% {
+                transform: scale(1.3);
+                box-shadow: 0 0 0 12px rgba(217, 179, 112, 0);
+            }
+
+            100% {
+                transform: scale(1.4);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        .flag-container a .usp-icon:hover {
+            transform: scale(1.15) rotate(4deg);
+            border-color: var(--green-bright) !important;
+            box-shadow: 0 8px 25px rgba(31, 157, 104, 0.55);
+        }
+
+        /* Buttons 
+        .vg-btn {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(14px);
+            animation: fadeUp 0.65s 1s forwards;
+        }
+
+        .animation-header .vg-btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border: none;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 22px rgba(217, 179, 112, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .animation-header .vg-btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(217, 179, 112, 0.5);
+            color: #fff;
+        }
+
+        .animation-header .vg-btn-gold {
+            background: transparent;
+            border: 1.5px solid rgba(217, 179, 112, 0.5);
+            color: #f4efe0;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .animation-header .vg-btn-gold:hover {
+            background: rgba(217, 179, 112, 0.12);
+            transform: translateY(-3px);
+            color: #fff;
+            border-color: var(--gold-bright);
+        }----*/
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── Image Section With Additive Glow/Float Animations ── */
+        .hero-image-section {
+            flex-shrink: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(40px);
+            animation: fadeRight 0.9s 0.9s forwards, hero-float-ui 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Attractive Soft Float Loop for Scene Content */
+        @keyframes hero-float-ui {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
+
+        .img-scene {
+            position: relative;
+            width: 420px;
+            height: 540px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-aura {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 380px;
+            height: 500px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(217, 179, 112, 0.28) 0%, rgba(31, 157, 104, 0.14) 50%, transparent 75%);
+            filter: blur(34px);
+            z-index: 2;
+            animation: aura-pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes aura-pulse {
+            from {
+                opacity: 0.45;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+
+            to {
+                opacity: 0.85;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .img-blob {
+            position: absolute;
+            border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+            filter: blur(1px);
+            pointer-events: none;
+        }
+
+        .img-blob-1 {
+            width: 200px;
+            height: 200px;
+            top: -30px;
+            left: -40px;
+            background: linear-gradient(135deg, rgba(217, 179, 112, 0.14), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(217, 179, 112, 0.2);
+            animation: blob-drift-1 9s ease-in-out infinite alternate;
+        }
+
+        .img-blob-2 {
+            width: 160px;
+            height: 160px;
+            bottom: -20px;
+            right: -30px;
+            background: linear-gradient(225deg, rgba(31, 157, 104, 0.16), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(31, 157, 104, 0.2);
+            border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%;
+            animation: blob-drift-2 11s ease-in-out infinite alternate;
+        }
+
+        @keyframes blob-drift-1 {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            100% {
+                transform: translate(12px, 16px) rotate(18deg) scale(1.07);
+            }
+        }
+
+        @keyframes blob-drift-2 {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            100% {
+                transform: translate(-10px, -14px) rotate(-22deg) scale(1.05);
+            }
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           Premium Salon-Themed Animated Background
+           (behind the right-side hero image, inside #img-particles-host)
+           — glowing gold/emerald particles, elegant rising bubbles and
+           faint floating salon-tool glyphs (scissors / sparkle / leaf)
+        ═══════════════════════════════════════════════════════════ */
+        .img-particles-host {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            overflow: visible;
+            pointer-events: none;
+        }
+
+        .salon-fx {
+            position: absolute;
+            bottom: -10%;
+            opacity: 0;
+            will-change: transform, opacity;
+            animation-name: salon-fx-rise;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes salon-fx-rise {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0) rotate(0deg) scale(0.7);
+            }
+
+            12% {
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(var(--fx-drift, 14px), -160px) rotate(var(--fx-rot, 90deg)) scale(1);
+            }
+
+            85% {
+                opacity: 0.65;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(calc(var(--fx-drift, 14px) * 1.6), -300px) rotate(var(--fx-rot-end, 180deg)) scale(0.6);
+            }
+        }
+
+        /* Glowing luxury particle dot */
+        .salon-fx.fx-glow {
+            width: var(--fx-size, 6px);
+            height: var(--fx-size, 6px);
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--fx-color, #f0cd7e) 0%, transparent 72%);
+            box-shadow: 0 0 8px 2px var(--fx-color, rgba(217, 179, 112, 0.7));
+            filter: blur(0.2px);
+        }
+
+        /* Elegant rising bubble (soft glass sphere) */
+        .salon-fx.fx-bubble {
+            width: var(--fx-size, 16px);
+            height: var(--fx-size, 16px);
+            border-radius: 50%;
+            background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.55), rgba(217, 179, 112, 0.12) 55%, transparent 78%);
+            border: 1px solid rgba(217, 179, 112, 0.35);
+            box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.25), 0 0 10px rgba(31, 157, 104, 0.15);
+        }
+
+        /* Subtle floating salon-tool glyph */
+        .salon-fx.fx-icon {
+            font-size: var(--fx-size, 15px);
+            color: var(--fx-color, rgba(217, 179, 112, 0.55));
+            text-shadow: 0 0 10px rgba(217, 179, 112, 0.45);
+        }
+
+        .salon-fx.fx-icon.fx-icon-green {
+            color: rgba(31, 157, 104, 0.55);
+            text-shadow: 0 0 10px rgba(31, 157, 104, 0.4);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .salon-fx {
+                animation: none !important;
+                opacity: 0 !important;
+            }
+        }
+
+        .img-ring {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .img-ring-1 {
+            width: 460px;
+            height: 460px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1.5px dashed rgba(217, 179, 112, 0.3);
+            animation: ring-spin-cw 22s linear infinite;
+        }
+
+        .img-ring-2 {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-top: 2px solid rgba(31, 157, 104, 0.35);
+            border-right: 2px solid transparent;
+            border-bottom: 2px solid rgba(217, 179, 112, 0.25);
+            border-left: 2px solid transparent;
+            animation: ring-spin-ccw 16s linear infinite;
+        }
+
+        @keyframes ring-spin-cw {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes ring-spin-ccw {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(-360deg);
+            }
+        }
+
+        .img-geo {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .img-geo-hex {
+            width: 52px;
+            height: 52px;
+            top: 8px;
+            right: -10px;
+            opacity: 0.45;
+            animation: geo-float-a 6s ease-in-out infinite;
+        }
+
+        .img-geo-diamond {
+            width: 28px;
+            height: 28px;
+            bottom: 40px;
+            left: -14px;
+            background: transparent;
+            border: 1.5px solid rgba(31, 157, 104, 0.45);
+            transform: rotate(45deg);
+            animation: geo-float-b 8s ease-in-out infinite;
+        }
+
+        @keyframes geo-float-a {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg)
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(15deg)
+            }
+        }
+
+        @keyframes geo-float-b {
+
+            0%,
+            100% {
+                transform: rotate(45deg) translateY(0)
+            }
+
+            50% {
+                transform: rotate(45deg) translateY(-8px)
+            }
+        }
+
+        .img-glass-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100% !important;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            border-radius: 24px;
+            background: transparent;
+            border: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            overflow: visible;
+            z-index: 4;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .img-glass-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: bottom center;
+            display: block;
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+
+        @keyframes micro-float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-100px) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        .glow-bottom-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(217, 179, 112, 0.5), transparent);
+        }
+
+        .hero-marquee-strip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 38px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(217, 179, 112, 0.25);
+            z-index: 6;
+        }
+
+        .hero-marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            white-space: nowrap;
+            animation: marquee-rtl 30s linear infinite;
+            will-change: transform;
+        }
+
+        .hero-marquee-strip:hover .hero-marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee-rtl {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 28px;
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(203, 213, 225, 0.8);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .marquee-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--gold-bright);
+            flex-shrink: 0;
+        }
+
+        .marquee-item span {
+            color: #b8dfca;
+        }
+
+        /* Laptop / tablet-landscape gap (992px – 1199px) — img-scene previously
+           kept its full 420px desktop size here and could overflow the
+           narrower .col-lg-5 column, throwing the rings/photo off-centre */
+        @media(max-width:1199.98px) and (min-width:993px) {
+            .img-scene {
+                width: 340px;
+                height: 440px;
+            }
+
+            .img-ring-1 {
+                width: 370px;
+                height: 370px;
+            }
+
+            .img-ring-2 {
+                width: 320px;
+                height: 320px;
+            }
+
+            .img-aura {
+                width: 300px;
+                height: 400px;
+            }
+        }
+
+        @media(max-width:992px) {
+            .hero-content-wrapper {
+                padding: 40px 15px;
+            }
+
+            .home-header-title {
+                font-size: 28px !important;
+            }
+
+            .img-scene {
+                width: 280px;
+                height: 370px;
+                margin: 0 auto;
+            }
+
+            .img-glass-frame {
+                width: 100% !important;
+                height: 100%;
+            }
+
+            .img-float-label {
+                font-size: 10px;
+                padding: 5px 10px 5px 7px;
+            }
+
+            .img-float-label .label-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 9px;
+            }
+
+            .lbl-tds {
+                top: 2%;
+                left: -16%;
+            }
+
+            .lbl-tax-credit {
+                top: 22%;
+                right: -18%;
+            }
+
+            .lbl-gst {
+                top: 48%;
+                left: -18%;
+            }
+
+            .lbl-business {
+                bottom: 22%;
+                right: -18%;
+            }
+
+            .lbl-trademark {
+                bottom: 3%;
+                left: -14%;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .animation-header {
+                min-height: auto;
+                padding-bottom: 48px;
+            }
+
+            .hero-content-wrapper {
+                padding: 28px 16px 10px;
+            }
+
+            .hero-content-wrapper>.row {
+                flex-direction: column;
+            }
+
+            .col-12.col-lg-7 {
+                order: 1;
+            }
+
+            .hero-text {
+                text-align: left !important;
+            }
+
+            .hero-badge {
+                font-size: 10px;
+                padding: 4px 12px;
+                margin-bottom: 14px;
+            }
+
+            .home-header-title {
+                font-size: 22px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 12px;
+            }
+
+            .hero-subtitle {
+                font-size: 13px;
+                line-height: 1.65;
+                max-width: 100%;
+                margin-bottom: 14px;
+            }
+
+            .hero-typed-line {
+                font-size: 13px;
+                margin-bottom: 18px;
+            }
+
+            .flag-container {
+                gap: 18px;
+                margin-bottom: 18px;
+            }
+
+            .flag-container a img {
+                width: 52px !important;
+                height: 52px !important;
+            }
+
+            .hero-vg-btns {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .animation-header .vg-btn-gold,
+            .animation-header .vg-btn-gold {
+                padding: 10px 20px;
+                font-size: 13px;
+                border-radius: 8px;
+            }
+
+            .col-12.col-lg-5 {
+                order: 2;
+            }
+
+            .hero-image-section {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .img-scene {
+                width: 240px;
+                height: 320px;
+                margin: 0 auto;
+            }
+
+            .img-glass-frame {
+                width: 100% !important;
+                height: 100%;
+                overflow: visible;
+            }
+
+            .img-ring-1 {
+                width: 280px;
+                height: 280px;
+            }
+
+            .img-ring-2 {
+                width: 240px;
+                height: 240px;
+            }
+
+            .img-aura {
+                width: 220px;
+                height: 300px;
+            }
+
+            .img-float-label {
+                display: none;
+            }
+
+            .scroll-hint {
+                display: none;
+            }
+
+            .marquee-item {
+                font-size: 10px;
+                padding: 0 18px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .home-header-title {
+                font-size: 20px !important;
+            }
+
+            .hero-subtitle {
+                font-size: 12.5px;
+            }
+
+            .hero-badge {
+                font-size: 9.5px;
+            }
+
+            .flag-container a img {
+                width: 46px !important;
+                height: 46px !important;
+            }
+
+            .animation-header .vg-btn-gold,
+            .animation-header .vg-btn-gold {
+                padding: 9px 16px;
+                font-size: 12.5px;
+            }
+
+            .img-scene {
+                width: 200px;
+                height: 275px;
+                margin: 0 auto;
+            }
+
+            .img-ring-1 {
+                width: 240px;
+                height: 240px;
+            }
+
+            .img-ring-2 {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media(max-width:360px) {
+            .home-header-title {
+                font-size: 18px !important;
+            }
+
+            .flag-container a img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .flag-container {
+                gap: 14px;
+            }
+
+            .hero-vg-btns {
+                flex-wrap: wrap;
+            }
+
+            .animation-header .vg-btn-gold,
+            .animation-header .vg-btn-gold {
+                font-size: 12px;
+            }
+
+            .img-scene {
+                width: 175px;
+                height: 245px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ============ ABOUT SECTION ============ */
+        .about-section {
+            position: relative;
+            background: linear-gradient(10deg, rgb(255, 254, 254), #83b8b8);
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-media {
+            position: relative;
+        }
+
+        .about-media img {
+            width: 100%;
+            max-width: 420px;
+            height: 560px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            border: 1px solid white;
+            padding: 8px;
+            background: white;
+            margin-inline: auto;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -26px;
+            right: -20px;
+            background: linear-gradient(120deg, var(--c-gold), #b3872a);
+            color: var(--c-black);
+            padding: 15px;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 20px 45px -18px rgba(0, 0, 0, .6);
+        }
+
+        .about-badge .num {
+            font-family: var(--f-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-badge .lbl {
+            font-family: var(--f-utility);
+            font-size: .72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .about-info p {
+            margin-bottom: 18px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            padding: 22px 16px;
+            text-align: center;
+        }
+
+        .stat-box .stat-num {
+            font-family: var(--f-display);
+            font-size: 2.1rem;
+            color: var(--c-gold-light);
+            font-weight: 700;
+        }
+
+        .stat-box .stat-label {
+            font-size: .76rem;
+            letter-spacing: .6px;
+            color: var(--c-gray);
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        /* ============ WHY CHOOSE US ============ */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+
+        }
+
+        .why-card {
+            padding: 38px 28px;
+        }
+
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(14, 159, 110, .25), rgba(212, 175, 55, .2));
+            color: var(--c-gold-light);
+        }
+
+        .why-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            font-size: .92rem;
+            color: var(--c-gray);
+        }
+
+        /* ============ SERVICES SECTION ============ */
+        .service-video {
+            position: absolute;
+            inset: 0;
+            opacity: 0.35;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        
+        }
+        .services-img{
+            background-image: url("image/service-img.png");
+            z-index: 0; 
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .services-section {
+            position: relative;
+            min-height: 600px;
+            overflow: hidden;
+            background: linear-gradient(10deg, rgb(255, 254, 254), #83b8b8);
+        }
+
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+
+            z-index: 1;
+        }
+
+        .services-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+
+        }
+
+        .service-card {
+            padding: 34px 24px;
+            text-align: center;
+            border: 1px solid var(--c-glass-border-em);
+            background: #0a62622a;
+        }
+
+        .service-icon {
+            width: 62px;
+            height: 62px;
+            margin-inline: auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            background: rgba(14, 159, 110, .15);
+            border: 1px solid var(--c-glass-border-em);
+            color: var(--c-emerald-light);
+        }
+
+        .service-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: .88rem;
+            color: var(--c-gray);
+        }
+
+        .service-card .service-price {
+            display: inline-block;
+            margin-top: 12px;
+            font-family: var(--f-utility);
+            letter-spacing: 1px;
+            color: var(--c-gold-light);
+            font-size: .95rem;
+        }
+
+        /* ============ GALLERY SECTION ============ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 120px;
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 6;
+            grid-row: span 6;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, .85) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            opacity: 0;
+            transition: opacity .4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-family: var(--f-utility);
+            letter-spacing: 1px;
+            font-size: .85rem;
+            color: var(--c-white);
+        }
+
+        /*----------animation iamge-----------*/
+        .img-container {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-top: 160px;
+            margin-bottom: 50px;
+            overflow: hidden;
+        }
+
+        .image {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            transform-style: preserve-3d;
+            animation: rotate 30s linear infinite;
+
+
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+
+        .image span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
+        }
+
+        .image span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: 2s;
+            cursor: pointer;
+        }
+
+        .image span:hover img {
+            transform: translateY(-50px) scale(1.2);
+        }
+
+
+        /* ============ OFFERS SECTION ============ */
+        .offers-section {
+            background: linear-gradient(10deg, rgb(255, 254, 254), #83b8b8);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .offer-card {
+            position: relative;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .offer-card.featured {
+            border-color: var(--c-gold);
+            transform: scale(1.04);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(120deg, var(--c-gold), #b3872a);
+            color: var(--c-black);
+            font-family: var(--f-utility);
+            font-size: .68rem;
+            letter-spacing: 1.5px;
+            padding: 6px 18px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .offer-price {
+            font-family: var(--f-display);
+            font-size: 2.4rem;
+            color: var(--c-gold-light);
+            margin: 14px 0;
+        }
+
+        .offer-price span {
+            font-size: .9rem;
+            color: var(--c-gray);
+            font-family: var(--f-body);
+        }
+
+        .offer-list {
+            margin: 22px 0;
+            text-align: left;
+        }
+
+        .offer-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .9rem;
+            color: var(--c-gray);
+            padding: 7px 0;
+        }
+
+        .offer-list li i {
+            color: var(--c-emerald-light);
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .testimonial-card {
+            padding: 34px 28px;
+        }
+
+        .testimonial-stars {
+            color: var(--c-gold);
+            font-size: .85rem;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--c-gray);
+            margin-bottom: 22px;
+            font-size: .95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .testimonial-author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--c-gold);
+        }
+
+        .testimonial-author h5 {
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-author span {
+            font-size: .78rem;
+            color: var(--c-gray);
+        }
+
+        /* ============ BOOKING SECTION ============ */
+        .booking-section {
+            background-image: url("image/chat gpt.jpeg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            
+        }
+        .booking-info{
+             background: linear-gradient(10deg, rgb(255, 254, 254), #83b8b8);
+             padding: 50px;
+        }
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .booking-info ul {
+            margin-top: 26px;
+        }
+
+        .booking-info li {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .booking-info li i {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(212, 175, 55, .15);
+            color: var(--c-gold-light);
+        }
+
+        .booking-info li h5 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .booking-info li p {
+            font-size: .88rem;
+            margin: 0;
+        }
+
+        .booking-form {
+            padding: 40px;
+        }
+
+        .booking-form .vg-btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 6px;
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            padding: 26px 22px;
+            background: rgba(4, 66, 75, 0.048) ;
+        }
+
+        .contact-item i {
+            font-size: 1.4rem;
+            color: var(--c-gold-light);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .contact-item h5 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .contact-item p {
+            font-size: .86rem;
+            color: var(--c-gray);
+            margin: 0;
+        }
+        .form-control {
+            background-color: rgb(9, 83, 78);
+        
+        }
+
+
+        .map-frame {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--c-glass-border);
+            height: 100%;
+            min-height: 320px;
+        }
+
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            border: 0;
+            filter: grayscale(.3) invert(.92) contrast(.9);
+        }
+
+        /* ============ NEW BRANCH ============ */
+        .branch-section {
+            background-image: url("image/banner3.jpeg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        /* ============ FOOTER ============ */
+        .site-footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(246, 245, 241, .08);
+            padding-top: 70px;
+            background-image: url("image/wmremove-transformed (1).png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            padding-bottom: 50px;
+        }
+
+        .footer-col h5 {
+            font-size: 1.05rem;
+            color: var(--c-white);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: .88rem;
+            color: var(--c-white);
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul li {
+            font-size: .88rem;
+            color: var(--c-white);
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li i {
+            color: var(--c-gold-light);
+            width: 16px;
+        }
+
+        .footer-col a {
+            color: var(--c-white);
+            transition: color .3s, padding-left .3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--c-gold-light);
+            padding-left: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(246, 245, 241, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s, border-color .3s, transform .3s;
+        }
+
+        .social-links a:hover {
+            background: var(--c-emerald);
+            border-color: var(--c-emerald);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(246, 245, 241, .08);
+            padding: 22px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: .82rem;
+            color: var(--c-white);
+        }
+
+        /* ============ BACK TO TOP ============ */
+        .back-to-top {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(120deg, var(--c-gold), #b3872a);
+            color: var(--c-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 60;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity .35s, visibility .35s, transform .35s;
+            box-shadow: 0 12px 30px -10px rgba(212, 175, 55, .6);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-content .col-lg-6 {
+                width: 100%;
+                max-width: 480px;
+                margin-inline: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                text-align: center;
+            }
+        }
+
+        /* Large screens: keep the layout from stretching too wide */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+        }
+
+        /* Tablets */
+        @media (max-width: 992px) {
+            .container {
+                padding-inline: 20px;
+            }
+        }
+
+        /* Small tablets / large phones */
+        @media (max-width: 768px) {
+            .navbar {
+                padding-inline: 16px;
+            }
+
+            .logo-wrap {
+                width: 56px;
+                height: 48px;
+            }
+
+            .hero-content .col-lg-6,
+            .hero-content .col-md-6 {
+                padding: 24px !important;
+            }
+
+            .marquee-track span {
+                font-size: 12px;
+                padding: 0 22px;
+            }
+        }
+
+        /* Phones */
+        @media (max-width: 576px) {
+            .container {
+                padding-inline: 16px;
+            }
+
+            .section-pad {
+                padding-block: 60px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+            }
+
+            .hero-actions .vg-btn {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .vg-btn {
+                padding: 13px 24px;
+                font-size: .78rem;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 400px) {
+            .logo-text {
+                display: none;
+            }
+
+            .section-eyebrow {
+                font-size: 11px;
+                letter-spacing: 3px;
+            }
+        }
+
+        /* ================================================
+           SECTION-WISE RESPONSIVE MEDIA QUERIES
+           (grouped and labelled by section so each block
+           can be found and tweaked independently)
+        ================================================= */
+
+        /* --- Small laptops (<=1200px) --- */
+        @media (max-width: 1200px) {
+            .service-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* --- Tablets (<=992px) --- */
+        @media (max-width: 992px) {
+
+            /* About */
+            .about-grid,
+            /* Booking */
+            .booking-grid,
+            /* Contact */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-media img {
+                height: 360px;
+            }
+
+            /* Why choose us / Offers / Testimonials */
+            .why-grid,
+            .offers-grid,
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .offer-card.featured {
+                transform: none;
+            }
+
+            /* Gallery */
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 180px;
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            /* Contact map */
+            .map-frame {
+                min-height: 280px;
+            }
+
+            /* Services heading padding so the section doesn't feel oversized on tablets */
+            .services-content {
+                padding: 100px 20px;
+            }
+        }
+
+        /* --- Small tablets / large phones (<=768px) --- */
+        @media (max-width: 768px) {
+
+            /* Services */
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-content {
+                padding: 80px 16px;
+            }
+
+            /* About */
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .stat-box {
+                padding: 16px 8px;
+            }
+
+            .stat-box .stat-num {
+                font-size: 1.6rem;
+            }
+
+            .about-badge {
+                right: 10px;
+                bottom: -20px;
+                padding: 16px 20px;
+            }
+
+            /* Gallery */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 160px;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            /* Contact */
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Booking */
+            .booking-form {
+                padding: 28px;
+            }
+
+            /* Why / Testimonials / Offers cards */
+            .why-card,
+            .testimonial-card,
+            .offer-card {
+                padding: 28px 22px;
+            }
+
+            /* Branch section keeps a sensible minimum height on tablets/phones
+               since it currently only holds a heading */
+            .branch-section {
+                padding-block: 60px;
+            }
+        }
+
+        /* --- Phones (<=576px) --- */
+        @media (max-width: 576px) {
+
+            /* Why / Offers / Testimonials / Footer */
+            .why-grid,
+            .offers-grid,
+            .testimonial-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Services */
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-content {
+                padding: 60px 12px;
+            }
+
+            /* Gallery */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 220px;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            /* About */
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .about-media img {
+                height: 300px;
+            }
+
+            /* Offers */
+            .offer-card.featured {
+                transform: none;
+            }
+
+            /* Footer */
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 16px;
+                right: 16px;
+                font-size: .85rem;
+            }
+        }
+
+        /* --- Very small phones (<=400px) --- */
+        @media (max-width: 400px) {
+
+            /* About */
+            .about-badge {
+                position: static;
+                margin-top: 16px;
+                display: inline-block;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* --------------------------------------------------------------
+           MOBILE / iOS FIX: background-attachment: fixed is unreliable
+           on iOS Safari and many Android browsers — it can make the
+           section repaint incorrectly and expose blank/background-colour
+           strips (including on the right edge) once the page is scrolled.
+           Switching to normal scroll attachment on touch/small screens
+           removes that glitch while keeping the parallax feel on desktop.
+        ----------------------------------------------------------------*/
+        @media (max-width: 992px) {
+
+            .booking-section,
+            .offers-section,
+            .branch-section,
+            .site-footer {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ============ LOADING SCREEN ============ -->
+    <div id="loader" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+            <path class="vg-path" d="M20 30 L45 90 L60 50 L75 90 L100 30" />
+        </svg>
+        <div class="loader-bar"></div>
+        <span class="loader-label">VISUAL GREEN</span>
+    </div>
+
+    <!-- ============ CUSTOM CURSOR ============ -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <div id="main-content">
+
+        <!-- ============ NAVBAR ============ -->
+        <header class="navbar">
+
+            <a href="#home" class="logo">
+                <div class="logo-wrap">
+                    <img src="image/bg removed logo.png" alt="logo">
+                    <span class="vgs-brand-text">VISUAL&nbsp;GREEN<span class="vgs-brand-sub">STUDIO</span></span>
+                </div>
+                <!-----
+                 <div class="logo-text">
+                    <img src="image/text-logo.png" alt="Visual Green Studio">
+                </div>-->
+
+
+            </a>
+
+            <div class="menu-list">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="has-mega">
+                        <a href="service.html">Services <i class="fa-solid fa-chevron-down"
+                                style="font-size:.6rem;margin-left:4px;"></i></a>
+                        <div class="mega-menu">
+                            <a href="#services"><i class="fa-solid fa-scissors"></i>Haircut</a>
+                            <a href="#services"><i class="fa-solid fa-spa"></i>Hair Spa</a>
+                            <a href="#services"><i class="fa-solid fa-palette"></i>Hair Coloring</a>
+                            <a href="#services"><i class="fa-solid fa-wind"></i>Hair Straightening</a>
+                            <a href="#services"><i class="fa-solid fa-mask"></i>Beard Styling</a>
+                            <a href="#services"><i class="fa-solid fa-fire"></i>Royal Shaving</a>
+                            <a href="#services"><i class="fa-solid fa-face-smile"></i>Facial</a>
+                            <a href="#services"><i class="fa-solid fa-soap"></i>Cleanup</a>
+                            <a href="#services"><i class="fa-solid fa-hand-sparkles"></i>Skin Treatment</a>
+                            <a href="#services"><i class="fa-solid fa-hand"></i>Head Massage</a>
+                            <a href="#services"><i class="fa-solid fa-shower"></i>Hair Wash</a>
+                            <a href="#services"><i class="fa-solid fa-droplet"></i>Keratin Treatment</a>
+                            <a href="#services"><i class="fa-solid fa-child"></i>Kids Haircut</a>
+                            <a href="#services"><i class="fa-solid fa-crown"></i>Premium Grooming</a>
+
+                        </div>
+                    </li>
+
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#booking" class="vg-btn vg-btn-gold d-none d-lg-inline-flex"><i
+                            class="fa-solid fa-calendar-check"></i> Book Now</a>
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- ============ MOBILE SLIDE NAV ============ -->
+        <nav class="slider-nav" id="sliderNav" aria-label="Mobile navigation">
+            <div class="slider-nav-head">
+                <a href="#home" class="logo">
+                    <div class="logo-wrap">
+                        <img src="image/bg removed logo.png" alt="logo">
+                    </div>
+                    <span class="vgs-brand-text">VISUAL&nbsp;GREEN<span class="vgs-brand-sub">STUDIO</span></span>
+                </a>
+                <button class="slider-nav-close" id="sliderNavClose" aria-label="Close navigation">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <ul class="slider-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="slider-has-mega">
+                    <a href="service.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="slider-mega-menu">
+                        <a href="#services"><i class="fa-solid fa-scissors"></i>Haircut</a>
+                        <a href="#services"><i class="fa-solid fa-spa"></i>Hair Spa</a>
+                        <a href="#services"><i class="fa-solid fa-palette"></i>Hair Coloring</a>
+                        <a href="#services"><i class="fa-solid fa-wind"></i>Hair Straightening</a>
+                        <a href="#services"><i class="fa-solid fa-mask"></i>Beard Styling</a>
+                        <a href="#services"><i class="fa-solid fa-fire"></i>Royal Shaving</a>
+                        <a href="#services"><i class="fa-solid fa-face-smile"></i>Facial</a>
+                        <a href="#services"><i class="fa-solid fa-soap"></i>Cleanup</a>
+                        <a href="#services"><i class="fa-solid fa-hand-sparkles"></i>Skin Treatment</a>
+                        <a href="#services"><i class="fa-solid fa-hand"></i>Head Massage</a>
+                        <a href="#services"><i class="fa-solid fa-shower"></i>Hair Wash</a>
+                        <a href="#services"><i class="fa-solid fa-droplet"></i>Keratin Treatment</a>
+                        <a href="#services"><i class="fa-solid fa-child"></i>Kids Haircut</a>
+                        <a href="#services"><i class="fa-solid fa-crown"></i>Premium Grooming</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="#booking" class="vg-btn vg-btn-gold slider-nav-cta"><i class="fa-solid fa-calendar-check"></i> Book
+                Now</a>
+        </nav>
+        <div class="slider-nav-overlay" id="sliderNavOverlay"></div>
+
+        <!----=============hero section NEW=======--->
+        <div class="animation-header px-2" id="hero-interactive-section">
+            <!---BACKGROUND SECTION--->
+            <div class="gradient-background">
+                <div class="gradient-sphere sphere-1"></div>
+                <div class="gradient-sphere sphere-2"></div>
+                <div class="gradient-sphere sphere-3"></div>
+                <div class="noise-overlay"></div>
+                <div class="particles-container" id="particles-container"></div>
+            </div>
+            <!--=====IMAGE SECTION =====-->
+            <!-- Left Rotating Circular Medallion -->
+            <div class="side-rotator side-rotator-left">
+                <div class="rotator-glow"></div>
+                <div class="rotator-outer">
+                    <div class="rotator-text-svg">
+                        <img src="image/img/common/header-design-img2.png" alt="img">
+                    </div>
+                </div>
+                <div class="rotator-center">
+                    <img src="image/bg removed logo.png" alt="Visual Green Salon">
+                </div>
+            </div>
+
+            <!-- Right Rotating Circular Medallion -->
+            <div class="side-rotator side-rotator-right">
+                <div class="rotator-glow"></div>
+                <div class="rotator-outer">
+                    <div class="rotator-text-svg">
+                        <img src="image/img/common/header-design-img2.png" alt="img">
+                    </div>
+                </div>
+                <div class="rotator-center">
+                    <img src="image/bg removed logo.png" alt="Visual Green Salon">
+                </div>
+            </div>
+
+            <!--====HERO TEXT CONTENT ====-->
+            <div class="hero-content-wrapper container">
+                <div class="row align-items-center justify-content-center ">
+
+                    <div class="col-12 col-lg-7">
+                        <div class="hero-text text-start">
+
+                            <div class="hero-badge">
+                                <span class="badge-dot"></span>
+                                Thanjavur's Premium Men's Grooming Studio
+                            </div>
+
+                            <h1 class="home-header-title">
+                                Where Sharp Style Meets
+                                <span class="accent-word">Timeless Grooming</span>
+                            </h1>
+
+                            <p class="hero-subtitle">
+                                From precision haircuts and beard artistry to rejuvenating spa treatments —
+                                experience grooming crafted for the modern gentleman in an elegant, premium setting.
+                            </p>
+
+                            <div class="hero-typed-line">
+                                Book your session for
+                                <span class="typed-cursor" id="typed-word">Haircuts.</span>
+                            </div>
+
+                            <div class="flag-container py-3">
+                                <a href="#services" title="Haircuts &amp; Styling">
+                                    <span class="usp-icon"><i class="fa-solid fa-scissors"></i></span>
+                                    <span class="usp-label">Haircuts</span>
+                                </a>
+                                <a href="#services" title="Beard Grooming">
+                                    <span class="usp-icon"><i class="fa-solid fa-user-tie"></i></span>
+                                    <span class="usp-label">Beard Care</span>
+                                </a>
+                                <a href="#services" title="Spa &amp; Skincare">
+                                    <span class="usp-icon"><i class="fa-solid fa-spa"></i></span>
+                                    <span class="usp-label">Spa &amp; Skin</span>
+                                </a>
+                            </div>
+
+                            <div class="nav-actions">
+                                <a href="#contact" class="vg-btn vg-btn-gold d-none d-lg-inline-flex"><i class="fa-solid fa-calendar-check"></i>Book an Appointment</a>
+                                <a href="#services" class="vg-btn vg-btn-gold d-none d-lg-inline-flex"><i class="fa-solid fa-calendar-check"></i>Our Services →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
+                        <div class="hero-image-section">
+                            <div class="img-scene">
+
+                                <div class="img-aura"></div>
+
+                                <div class="img-ring img-ring-1"></div>
+                                <div class="img-ring img-ring-2"></div>
+                                <div class="img-geo img-geo-diamond"></div>
+
+                                <svg class="img-geo img-geo-hex" viewBox="0 0 52 52" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="26,2 49,14.5 49,37.5 26,50 3,37.5 3,14.5"
+                                        stroke="rgba(217,179,112,0.6)" stroke-width="1.5"
+                                        fill="rgba(217,179,112,0.03)" />
+                                </svg>
+
+                                <div class="img-glass-frame">
+                                    <img src="image/img/common/design-img3.png"
+                                        alt="Visual Green Premium Men's Salon Stylist">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Animated Marquee Ticker -->
+            <div class="hero-marquee-strip">
+                <div class="hero-marquee-track">
+                    <!-- Set 1 -->
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Haircut</span> &amp;
+                        Styling</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Beard</span> Grooming</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Hair</span> Spa</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Facials</span> &amp;
+                        Skincare</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Hair</span> Coloring</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Scalp</span>Treatment</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>De- </span>Tan </span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Groom</span> &amp;
+                        Package </span>
+                    <!-- Set 2 (duplicate for seamless loop) -->
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Haircut</span> &amp;
+                        Styling</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Beard</span> Grooming</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Hair</span> Spa</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Facials</span> &amp;
+                        Skincare</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Hair</span> Coloring</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Bridal</span> Grooming</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Head</span> Massage</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span> <span>Groom</span> &amp;
+                        Package </span>
+                </div>
+            </div>
+
+            <div class="glow-bottom-line"></div>
+
+        </div>
+
+        <main class="main-content">
+
+
+        </main>
+
+        <main>
+            <!-- ============ ABOUT SECTION ============ -->
+            <section class="about-section section-pad" id="about">
+                <div class="container">
+                    <div class="about-grid">
+                        <div class="about-media" data-aos="fade-right">
+                            <img src="image/vg mobile view.png" alt="Visual Green salon interior">
+                            <div class="about-badge">
+                                <div class="num">12+</div>
+                                <div class="lbl">Years of Craft</div>
+                            </div>
+                        </div>
+                        <div class="about-info" data-aos="fade-left">
+                            <p class="section-eyebrow">our story</p>
+                            <h2 class="section-title">Crafting Confidence, <em>One Style</em> at a Time</h2>
+                            <p>Visual Green was born from a simple idea — every gentleman deserves a grooming
+                                experience that feels personal, precise and premium. From classic fades to royal
+                                beard rituals, our master stylists blend timeless technique with modern trend.</p>
+                            <p>Step into our lounge and trade the rush of the day for warm lighting, curated
+                                playlists and a chair that feels like it was made for you.</p>
+                            <div class="stats-grid">
+                                <div class="stat-box glass-card">
+                                    <div class="stat-num">12+</div>
+                                    <div class="stat-label">Years Experience</div>
+                                </div>
+                                <div class="stat-box glass-card">
+                                    <div class="stat-num">8k+</div>
+                                    <div class="stat-label">Happy Clients</div>
+                                </div>
+                                <div class="stat-box glass-card">
+                                    <div class="stat-num">15</div>
+                                    <div class="stat-label">Expert Stylists</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ WHY CHOOSE US ============ -->
+            <section class="why-section section-pad" id="why-us">
+                <div class="container">
+                    <div class="section-head text-center">
+                        <p class="section-eyebrow">the visual green edge</p>
+                        <h2 class="section-title">Why Gentlemen <em>Choose</em> Us</h2>
+                        <p class="section-sub">Six reasons our chairs stay full and our clients keep coming back.</p>
+                    </div>
+                    <div class="why-grid">
+                        <div class="why-card glass-card" data-aos="fade-up">
+                            <div class="why-icon"><i class="fa-solid fa-user-tie"></i></div>
+                            <h4>Expert Stylists</h4>
+                            <p>Trained, certified professionals who treat every cut as a craft, not a routine.</p>
+                        </div>
+                        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="why-icon"><i class="fa-solid fa-leaf"></i></div>
+                            <h4>Premium Products</h4>
+                            <p>Only dermatologically safe, imported grooming products touch your skin and hair.</p>
+                        </div>
+                        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="why-icon"><i class="fa-solid fa-pump-soap"></i></div>
+                            <h4>Hygienic Environment</h4>
+                            <p>Sanitized tools and single-use essentials for every client, every single time.</p>
+                        </div>
+                        <div class="why-card glass-card" data-aos="fade-up">
+                            <div class="why-icon"><i class="fa-solid fa-crown"></i></div>
+                            <h4>Luxury Ambience</h4>
+                            <p>Warm lighting, curated music and a lounge built for relaxation.</p>
+                        </div>
+                        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="why-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <h4>Flexible Booking</h4>
+                            <p>Walk in or reserve your slot online — your time matters to us.</p>
+                        </div>
+                        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="why-icon"><i class="fa-solid fa-tags"></i></div>
+                            <h4>Honest Pricing</h4>
+                            <p>Transparent, upfront pricing with zero hidden charges — always.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ SERVICES SECTION ============ -->
+            <section class="services-section section-pad" id="services">
+                <video class="service-video" autoplay muted loop playsinline preload="auto">
+                    <source src="" type="video/mp4">
+                </video>
+                <div class="services-img"></div>
+                <div class="video-overlay"></div>
+                <div class="container">
+                    <div class="section-head text-center">
+                        <div class="services-content">
+                            <p class="section-eyebrow">what we offer</p>
+                            <h2 class="section-title">Our Signature <em>Services</em></h2>
+                            <p class="section-sub">A complete grooming menu designed for the modern gentleman.</p>
+                        </div>
+                    </div>
+                    <div class="service-grid">
+                        <div class="service-card glass-card" data-aos="fade-up">
+                            <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                            <h4>Precision Haircut</h4>
+                            <p>Classic, fade or trend cuts tailored to your face shape.</p>
+                            <span class="service-price">From ₹299</span>
+                        </div>
+                        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="service-icon"><i class="fa-solid fa-mask"></i></div>
+                            <h4>Royal Beard Styling</h4>
+                            <p>Sharp shaping, hot towel and precision beard sculpting.</p>
+                            <span class="service-price">From ₹249</span>
+                        </div>
+                        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="service-icon"><i class="fa-solid fa-fire"></i></div>
+                            <h4>Royal Shaving</h4>
+                            <p>Traditional straight-razor shave with a hot towel finish.</p>
+                            <span class="service-price">From ₹199</span>
+                        </div>
+                        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="service-icon"><i class="fa-solid fa-face-smile"></i></div>
+                            <h4>Signature Facial</h4>
+                            <p>Deep cleanse, exfoliation and hydration for glowing skin.</p>
+                            <span class="service-price">From ₹599</span>
+                        </div>
+                        <div class="service-card glass-card" data-aos="fade-up">
+                            <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                            <h4>Skin Treatment</h4>
+                            <p>Targeted therapies for brightening, anti-tan and glow.</p>
+                            <span class="service-price">From ₹699</span>
+                        </div>
+                        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="service-icon"><i class="fa-solid fa-hand"></i></div>
+                            <h4>Head Massage</h4>
+                            <p>Relaxing therapeutic massage to relieve stress and tension.</p>
+                            <span class="service-price">From ₹349</span>
+                        </div>
+                        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+                            <h4>Keratin Treatment</h4>
+                            <p>Smooth, frizz-free hair that lasts for months.</p>
+                            <span class="service-price">From ₹1999</span>
+                        </div>
+                        <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="service-icon"><i class="fa-solid fa-ring"></i></div>
+                            <h4>Bridal Groom Package</h4>
+                            <p>Complete head-to-toe grooming for your big day.</p>
+                            <span class="service-price">From ₹4999</span>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="#booking" class="vg-btn vg-btn-gold"><i class="fa-solid fa-calendar-check"></i> Book a
+                            Service</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ GALLERY SECTION ============-->
+            <section class="gallery-section section-pad" id="gallery">
+                <div class="container">
+                    <div class="section-head text-center">
+                        <p class="section-eyebrow">inside the salon</p>
+                        <h2 class="section-title">A Glimpse of <em>Visual Green</em></h2>
+                        <p class="section-sub">Moments of style, precision and transformation from our chairs.</p>
+                    </div>
+
+                    <div class="img-container">
+                        <div class="image">
+                            <span style="--i:1;"> <img src="image/gallary1.jpg" alt="hair cut "> </span>
+                            <span style="--i:2;"> <img src="image/gallary2.jpg" alt="shave "> </span>
+                            <span style="--i:3;"> <img src="image/gallary3.jpg" alt="facial treatment"> </span>
+                            <span style="--i:4;"> <img src="image/gallary4.avif" alt="grooming tool"> </span>
+                            <span style="--i:5;"> <img src="image/gallary5.avif" alt="beard styling"> </span>
+                            <span style="--i:6;"> <img src="image/gallaray6.jpg" alt="towel shave"> </span>
+                            <span style="--i:7;"> <img src="image/gallary7.jpg" alt="hair color"> </span>
+                            <span style="--i:8;"> <img src="image/gallary8.jpg" alt="hair styling"> </span>
+
+                        </div>
+                    </div>
+                    <center>
+                    <h4>Note:</h4>
+                    <p> Every corner of Visual Green is designed to make your grooming experience comfortable,
+                        refreshing, and memorable.</p>
+                    </center>
+                </div>
+            </section>
+
+            <!-- ============ OFFERS SECTION ============ --
+            <section class="offers-section section-pad" id="offers">
+                <div class="container">
+                    <div class="section-head text-center">
+                        <p class="section-eyebrow">limited time</p>
+                        <h2 class="section-title">Exclusive <em>Offers</em></h2>
+                        <p class="section-sub">Curated grooming bundles that give you more, for less.</p>
+                    </div>
+                    <div class="offers-grid">
+                        <div class="offer-card glass-card" data-aos="fade-up">
+                            <h4>First Visit Special</h4>
+                            <div class="offer-price">20% <span>off</span></div>
+                            <ul class="offer-list">
+                                <li><i class="fa-solid fa-check"></i>Haircut + Beard Styling</li>
+                                <li><i class="fa-solid fa-check"></i>Complimentary Head Massage</li>
+                                <li><i class="fa-solid fa-check"></i>Valid for new clients only</li>
+                            </ul>
+                            <a href="#booking" class="btn btn-outline">Claim Offer</a>
+                        </div>
+                        <div class="offer-card glass-card featured" data-aos="fade-up" data-aos-delay="100">
+                            <div class="offer-badge">Most Popular</div>
+                            <h4>Groom's Package</h4>
+                            <div class="offer-price">₹3,999<span>/package</span></div>
+                            <ul class="offer-list">
+                                <li><i class="fa-solid fa-check"></i>Haircut, Shave &amp; Facial</li>
+                                <li><i class="fa-solid fa-check"></i>Skin Brightening Treatment</li>
+                                <li><i class="fa-solid fa-check"></i>Head &amp; Shoulder Massage</li>
+                                <li><i class="fa-solid fa-check"></i>Complimentary Refreshments</li>
+                            </ul>
+                            <a href="#booking" class="vg-btn vg-btn-gold">Claim Offer</a>
+                        </div>
+                        <div class="offer-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                            <h4>Monthly Membership</h4>
+                            <div class="offer-price">₹1,499<span>/month</span></div>
+                            <ul class="offer-list">
+                                <li><i class="fa-solid fa-check"></i>2 Haircuts + 2 Beard Trims</li>
+                                <li><i class="fa-solid fa-check"></i>Priority Booking Slots</li>
+                                <li><i class="fa-solid fa-check"></i>10% off all add-on services</li>
+                            </ul>
+                            <a href="#booking" class="vg-btn vg-btn-outline">Claim Offer</a>
+                        </div>
+                    </div>
+                </div>
+            </section>--->
+
+            <!-- ============ TESTIMONIALS SECTION ============ --
+            <section class="testimonial-section section-pad" id="testimonials">
+                <div class="container">
+                    <div class="section-head text-center">
+                        <p class="section-eyebrow">client love</p>
+                        <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+                    </div>
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card glass-card" data-aos="fade-up">
+                            <div class="testimonial-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Best grooming experience in the city. The beard styling is
+                                unmatched and the ambience feels genuinely premium."</p>
+                            <div class="testimonial-author">
+                                <img src="image/client-1.jpg" alt="Arjun Mehta">
+                                <div>
+                                    <h5>Arjun Mehta</h5>
+                                    <span>Regular Client</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="testimonial-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Booked the bridal groom package for my wedding — flawless
+                                from start to finish. Highly recommend Visual Green."</p>
+                            <div class="testimonial-author">
+                                <img src="image/client-2.jpg" alt="Rohit Sharma">
+                                <div>
+                                    <h5>Rohit Sharma</h5>
+                                    <span>Wedding Client</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="testimonial-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <p class="testimonial-text">"Clean, professional and the stylists actually listen to
+                                what you want. My go-to salon now."</p>
+                            <div class="testimonial-author">
+                                <img src="image/client-3.jpg" alt="Karthik Iyer">
+                                <div>
+                                    <h5>Karthik Iyer</h5>
+                                    <span>Monthly Member</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>--->
+
+            <!-- ============ BOOKING SECTION ============ -->
+            <section class="booking-section section-pad" id="booking">
+                <div class="container">
+                    <div class="booking-grid">
+                        <div class="booking-info" data-aos="fade-right">
+                            <p class="section-eyebrow">reserve your chair</p>
+                            <h2 class="section-title">Book Your <em>Appointment</em></h2>
+                            <p class="section-sub">Choose your service and preferred time — we'll take care of the
+                                rest.</p>
+                            <ul>
+                                <li>
+                                    <i class="fa-solid fa-clock"></i>
+                                    <div>
+                                        <h5>Working Hours</h5>
+                                        <p>Mon – Sun: 9:00 AM – 9:00 PM</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-phone"></i>
+                                    <div>
+                                        <h5>Call to Book</h5>
+                                        <p>+91 98765 43210</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-bolt"></i>
+                                    <div>
+                                        <h5>Instant Confirmation</h5>
+                                        <p>Get your slot confirmed within minutes.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <form class="booking-form glass-card" data-aos="fade-left">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Full Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Select Service</option>
+                                        <option>Haircut</option>
+                                        <option>Beard Styling</option>
+                                        <option>Royal Shaving</option>
+                                        <option>Facial</option>
+                                        <option>Bridal Groom Package</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="time" class="form-control" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control" rows="3"
+                                        placeholder="Any special request? (optional)"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="vg-btn vg-btn-gold"><i
+                                            class="fa-solid fa-calendar-check"></i>
+                                        Confirm Booking</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ CONTACT SECTION ============ -->
+            <section class="contact-section section-pad" id="contact">
+                <div class="container">
+                    <div class="section-head text-center">
+                        <p class="section-eyebrow">get in touch</p>
+                        <h2 class="section-title">Visit Or <em>Reach Us</em></h2>
+                    </div>
+                    <div class="contact-grid">
+                        <div data-aos="fade-right">
+                            <div class="contact-info-grid">
+                                <div class="contact-item glass-card">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <h5>Our Location</h5>
+                                    <p>12, MG Road, Chennai, Tamil Nadu 600001</p>
+                                </div>
+                                <div class="contact-item glass-card">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <h5>Phone</h5>
+                                    <p>+91 98765 43210</p>
+                                </div>
+                                <div class="contact-item glass-card">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <h5>Email</h5>
+                                    <p>hello@visualgreen.example</p>
+                                </div>
+                                <div class="contact-item glass-card">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <h5>Hours</h5>
+                                    <p>Mon – Sun: 9 AM – 9 PM</p>
+                                </div>
+
+                                <form class="row" style="row-gap:4px;">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Your Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Your Email">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="vg-btn vg-btn-gold"><i
+                                                class="fa-solid fa-paper-plane"></i>
+                                            Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="map-frame" data-aos="fade-left">
+                            <iframe src="https://www.google.com/maps?q=Chennai&output=embed" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade" title="Visual Green location map"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ============ NEW BRANCH ============ -->
+
+            <section class="branch-section section-pad" id="contact">
+                <div class="container">
+                    <div class="section-head text-center">
+                        <p class="section-eyebrow">get in touch</p>
+                        <h2 class="section-title">Visit our <em>New Branch</em></h2>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============ FOOTER ============ -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <a href="#home" class="logo" style="margin-bottom:18px;">
+                            <div class="logo-wrap">
+                                <img src="image/bg removed logo.png" alt="logo">
+                            </div>
+
+                        </a>
+                        <p>Premium men's salon and beauty parlour delivering luxury grooming experiences for the
+                            modern gentleman.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#offers">Offers</a></li>
+                            <li><a href="#booking">Booking</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Services</h5>
+                        <ul>
+                            <li><a href="#services">Haircut</a></li>
+                            <li><a href="#services">Beard Styling</a></li>
+                            <li><a href="#services">Facial</a></li>
+                            <li><a href="#services">Bridal Package</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Contact</h5>
+                        <ul>
+                            <li><i class="fa-solid fa-location-dot"></i> 12, MG Road, Chennai 600001</li>
+                            <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+                            <li><i class="fa-solid fa-envelope"></i> hello@visualgreen.example</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; <span id="year"></span> Visual Green. All rights reserved.</p>
+                    <p>Crafted with <i class="fa-solid fa-heart" style="color:var(--c-gold);"></i> for the
+                        modern gentleman.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ============ BACK TO TOP ============ -->
+        <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top"><i
+                class="fa-solid fa-arrow-up"></i></a>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+
+        /* ---------- Back to top visibility (called from onScroll) ---------- */
+        function backToTopVisibility() {
+            const vgbtn = document.getElementById('backToTop');
+            if (!vgbtn) return;
+            if (window.scrollY > 400) vg - btn.classList.add('visible');
+            else vg - btn.classList.remove('visible');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ---------- Footer year ---------- */
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            /* ---------- AOS init ---------- */
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 700, once: true, offset: 60 });
+            }
+
+            /* ---------- Loading Screen ---------- */
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader?.classList.add('hidden');
+                    document.body.classList.add('loaded');
+                }, 900);
+            });
+
+            // Fallback in case 'load' fires slowly
+            setTimeout(() => {
+                loader?.classList.add('hidden');
+                document.body.classList.add('loaded');
+            }, 3200);
+
+            /* ---------- Custom Cursor ---------- */
+            const dot = document.querySelector('.cursor-dot');
+            const ring = document.querySelector('.cursor-ring');
+            if (dot && ring && matchMedia('(min-width:993px)').matches) {
+                let mx = 0, my = 0, rx = 0, ry = 0;
+                window.addEventListener('mousemove', e => {
+                    mx = e.clientX; my = e.clientY;
+                    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+                });
+                const animateRing = () => {
+                    rx += (mx - rx) * 0.15;
+                    ry += (my - ry) * 0.15;
+                    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+                    requestAnimationFrame(animateRing);
+                };
+                animateRing();
+                document.querySelectorAll('a, button, .service-card, .gallery-item, .glass-card').forEach(el => {
+                    el.addEventListener('mouseenter', () => ring.classList.add('active'));
+                    el.addEventListener('mouseleave', () => ring.classList.remove('active'));
+                });
+            }
+        
+            /* ---------- 1. Navbar scroll state ---------- */
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                const onScroll = () => {
+                    navbar.classList.toggle('scrolled', window.scrollY > 40);
+                };
+                onScroll();
+                window.addEventListener('scroll', onScroll, { passive: true });
+            }
+
+            /* ---------- 2. Mobile slide nav (hamburger -> .slider-nav) ---------- */
+            const navToggle = document.getElementById('navToggle');
+            const sliderNav = document.getElementById('sliderNav');
+            const sliderNavOverlay = document.getElementById('sliderNavOverlay');
+            const sliderNavClose = document.getElementById('sliderNavClose');
+
+            const openSliderNav = () => {
+                sliderNav?.classList.add('open');
+                sliderNavOverlay?.classList.add('visible');
+                navToggle?.classList.add('active');
+                navToggle?.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeSliderNav = () => {
+                sliderNav?.classList.remove('open');
+                sliderNavOverlay?.classList.remove('visible');
+                navToggle?.classList.remove('active');
+                navToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                document.querySelectorAll('.slider-has-mega.open').forEach(li => li.classList.remove('open'));
+            };
+
+            if (navToggle && sliderNav) {
+                navToggle.addEventListener('click', () => {
+                    sliderNav.classList.contains('open') ? closeSliderNav() : openSliderNav();
+                });
+
+                sliderNavClose?.addEventListener('click', closeSliderNav);
+                sliderNavOverlay?.addEventListener('click', closeSliderNav);
+
+                // Close the slide nav when a plain (non-mega) link is followed
+                sliderNav.querySelectorAll(':scope > .slider-menu > li > a').forEach(link => {
+                    if (link.parentElement.classList.contains('slider-has-mega')) return;
+                    link.addEventListener('click', closeSliderNav);
+                });
+                sliderNav.querySelectorAll('.slider-nav-cta, .slider-nav-head .logo').forEach(link => {
+                    link.addEventListener('click', closeSliderNav);
+                });
+
+                // Close on Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeSliderNav();
+                });
+
+                // Close the panel automatically if the viewport grows past the mobile breakpoint
+                window.addEventListener('resize', () => {
+                    if (window.matchMedia('(min-width: 993px)').matches) closeSliderNav();
+                });
+            }
+
+            // Slide-nav mega menu: tapping "Services" expands its submenu in place
+            document.querySelectorAll('.slider-has-mega').forEach(item => {
+                const trigger = item.querySelector(':scope > a');
+                if (!trigger) return;
+
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = item.classList.toggle('open');
+                    trigger.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+            /* ---------- Sticky Navbar ---------- 
+            const navbar = document.querySelector('.navbar');
+            const onScroll = () => {
+                if (!navbar) return;
+                if (window.scrollY > 40) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+                if (typeof backToTopVisibility === 'function') backToTopVisibility();
+                if (typeof revealOnScroll === 'function') revealOnScroll();
+            };
+            window.addEventListener('scroll', onScroll);
+            onScroll();---
+
+            /* ---------- Mobile Nav Toggle ---------- *
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.querySelector('.nav-menu');
+            navToggle?.addEventListener('click', () => {
+                navMenu?.classList.toggle('open');
+                navToggle.classList.toggle('active');
+            });
+
+            // Mobile mega menu accordion
+            document.querySelectorAll('.has-mega > a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (matchMedia('(max-width:992px)').matches) {
+                        e.preventDefault();
+                        link.parentElement.classList.toggle('open');
+                    }
+                });
+            });
+
+            // Close mobile menu after clicking a real link
+            document.querySelectorAll('.nav-menu a:not(.has-mega > a)').forEach(a => {
+                a.addEventListener('click', () => {
+                    navMenu?.classList.remove('open');
+                    navToggle?.classList.remove('active');
+                });
+            });
+
+            /* ---------- Active nav link on scroll ---------- *
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu > li');
+            const setActiveLink = () => {
+                let current = '';
+                sections.forEach(sec => {
+                    const top = sec.offsetTop - 140;
+                    if (window.scrollY >= top) current = sec.id;
+                });
+                navLinks.forEach(li => {
+                    li.classList.remove('active');
+                    const a = li.querySelector('a');
+                    if (a && a.getAttribute('href') === `#${current}`) li.classList.add('active');
+                });
+            };
+            window.addEventListener('scroll', setActiveLink);---*/
+        });
+
+        /*-------HERO SECTION NEW------*/
+
+
+        /*======================================
+            Hero Typed Word JS (Salon Services)
+        =======================================*/
+
+        (function () {
+            const el = document.getElementById("typed-word");
+            if (!el) return;
+
+            const words = ["Haircuts.", "Beard Grooming.", "Hair Spa.", "Facials & Skincare.", "Bridal Styling."];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let deleting = false;
+
+            function tick() {
+                const current = words[wordIndex];
+
+                if (!deleting) {
+                    charIndex++;
+                    el.textContent = current.substring(0, charIndex);
+                    if (charIndex === current.length) {
+                        deleting = true;
+                        setTimeout(tick, 1400);
+                        return;
+                    }
+                } else {
+                    charIndex--;
+                    el.textContent = current.substring(0, charIndex);
+                    if (charIndex === 0) {
+                        deleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
+                }
+
+                setTimeout(tick, deleting ? 40 : 90);
+            }
+
+            setTimeout(tick, 800);
+        })();
+
+        /*======================================
+            Premium Salon-Themed Floating Background
+            (glowing particles, elegant bubbles &
+             subtle salon-tool glyphs behind the
+             right-side hero image)
+        =======================================*/
+
+        (function () {
+            const host = document.getElementById("img-particles-host");
+            if (!host) return;
+
+            const goldColors = ["#f0cd7e", "#d9b370", "#e9c98c"];
+            const greenColors = ["#3fc088", "#1f9d68"];
+            const icons = ["fa-scissors", "fa-spray-can-sparkles", "fa-soap", "fa-wand-magic-sparkles", "fa-gem", "fa-leaf"];
+
+            function rand(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            function buildParticles() {
+                host.innerHTML = "";
+                const count = window.innerWidth < 576 ? 8 : (window.innerWidth < 992 ? 12 : 18);
+
+                for (let i = 0; i < count; i++) {
+                    const roll = Math.random();
+                    const el = document.createElement(roll < 0.55 ? "span" : "i");
+                    const isIcon = roll >= 0.55 && roll < 0.8;
+                    const isBubble = roll >= 0.8;
+
+                    let type = "fx-glow";
+                    if (isIcon) type = "fx-icon";
+                    if (isBubble) type = "fx-bubble";
+
+                    el.className = "salon-fx " + type;
+
+                    if (isIcon) {
+                        const greenTone = Math.random() < 0.35;
+                        el.classList.add("fa-solid", icons[Math.floor(Math.random() * icons.length)]);
+                        if (greenTone) el.classList.add("fx-icon-green");
+                        el.style.setProperty("--fx-size", rand(13, 20).toFixed(0) + "px");
+                    } else if (isBubble) {
+                        el.style.setProperty("--fx-size", rand(10, 22).toFixed(0) + "px");
+                    } else {
+                        el.style.setProperty("--fx-size", rand(3, 7).toFixed(0) + "px");
+                        const palette = Math.random() < 0.7 ? goldColors : greenColors;
+                        el.style.setProperty("--fx-color", palette[Math.floor(Math.random() * palette.length)]);
+                    }
+
+                    el.style.left = rand(2, 92).toFixed(1) + "%";
+                    el.style.setProperty("--fx-drift", rand(-26, 26).toFixed(0) + "px");
+                    el.style.setProperty("--fx-rot", rand(-40, 40).toFixed(0) + "deg");
+                    el.style.setProperty("--fx-rot-end", rand(60, 160).toFixed(0) + "deg");
+
+                    const duration = rand(7, 13).toFixed(2) + "s";
+                    el.style.animationDuration = duration;
+                    el.style.animationDelay = "-" + rand(0, 12).toFixed(2) + "s";
+
+                    host.appendChild(el);
+                }
+            }
+
+            buildParticles();
+
+            let resizeTimer;
+            window.addEventListener("resize", () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(buildParticles, 400);
+            });
+        })();
+
+        /*======================================
+            Hero Particle Background JS
+        =======================================*/
+
+        (function () {
+            const canvas = document.getElementById("hero-canvas");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            const heroSection = document.getElementById("hero");
+            let particles = [];
+            const colors = ["rgba(205,164,94,0.7)", "rgba(240,205,126,0.6)", "rgba(31,157,104,0.6)"];
+
+            function resize() {
+                canvas.width = heroSection.offsetWidth;
+                canvas.height = heroSection.offsetHeight;
+            }
+
+            function createParticles() {
+                const count = window.innerWidth < 768 ? 35 : 70;
+                particles = Array.from({
+                    length: count
+                }, () => ({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 2 + 1,
+                    dx: (Math.random() - 0.5) * 0.4,
+                    dy: (Math.random() - 0.5) * 0.4,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                }));
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p) => {
+                    p.x += p.dx;
+                    p.y += p.dy;
+
+                    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 6;
+                    ctx.shadowColor = p.color;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener("resize", () => {
+                resize();
+                createParticles();
+            });
+
+            resize();
+            createParticles();
+            animate();
+        })();
+
+    </script>
+
+</body>
+
+</html>
