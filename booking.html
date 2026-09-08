@@ -1,0 +1,3238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment — VGS Visual Green Men's Salon</title>
+    <meta name="description"
+        content="Book your appointment at VGS — Visual Green Men's Salon &amp; Beauty Parlour. Choose your service, pick a time, and walk out with confidence.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <!-- Site styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+
+    <style>
+        /* =============================================================
+   VGS — VISUAL GREEN MEN'S SALON — BOOKING PAGE
+   Design tokens
+   ============================================================= */
+
+        :root {
+            --emerald: #7bb6a4;
+            --emerald-deep: #dfeee9;
+            --emerald-light: #9dd9db;
+            --black: #111111;
+            --ink: #16181B;
+            --white: #FFFFFF;
+            --bg: #F7F8F5;
+            --gold: #C9A24B;
+            --vg-green-dark: #0A6244;
+
+            --line: rgba(17, 17, 17, 0.09);
+            --shadow-soft: 0 20px 50px -25px rgba(17, 17, 17, 0.35);
+            --shadow-card: 0 14px 34px -18px rgba(17, 17, 17, 0.28);
+
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-sm: 14px;
+
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            --ease: cubic-bezier(.22, .61, .36, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            color: var(--ink);
+            background: var(--bg);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--emerald);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .vgs-container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* =============================================================
+   NAVBAR
+   ============================================================= */
+
+        .vgs-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 22px 0;
+            background: transparent;
+            transition: background .45s var(--ease), padding .35s var(--ease), box-shadow .35s var(--ease);
+        }
+
+        .logo-wrap {
+            width: 90px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .vgs-navbar.is-scrolled {
+            background: #7bb6a4;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 14px 0;
+            box-shadow: 0 8px 30px -18px rgba(17, 17, 17, 0.25);
+        }
+
+        .vgs-navbar-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .vgs-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+            color: var(--white);
+            transition: color .35s var(--ease);
+        }
+
+        .vgs-navbar.is-scrolled .vgs-logo {
+            color: var(--black);
+        }
+
+        .vgs-logo-mark {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: 0.02em;
+        }
+
+        .vgs-logo-sub {
+            font-size: 0.62rem;
+            letter-spacing: 0.16em;
+            color: var(--vg-green-dark);
+            margin-top: 2px;
+            font-weight: 700;
+        }
+
+        .vgs-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        .vgs-nav-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.88);
+            position: relative;
+            padding: 4px 0;
+            transition: color .3s var(--ease);
+        }
+
+        .vgs-navbar.is-scrolled .vgs-nav-link {
+            color: var(--ink);
+        }
+
+        .vgs-nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -4px;
+            height: 2px;
+            background: var(--emerald);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s var(--ease);
+        }
+
+        .vgs-nav-link:hover::after,
+        .vgs-nav-link.is-active::after {
+            transform: scaleX(1);
+        }
+
+        .vgs-nav-link.is-active {
+            color: var(--emerald);
+        }
+
+        .vgs-navbar.is-scrolled .vgs-nav-link.is-active {
+            color: var(--emerald);
+        }
+
+        .vgs-nav-cta {
+            margin-left: 8px;
+        }
+
+        .vgs-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 42px;
+            height: 42px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .vgs-burger span {
+            display: block;
+            height: 2px;
+            width: 26px;
+            background: var(--white);
+            transition: transform .35s var(--ease), opacity .25s var(--ease), background .3s var(--ease);
+        }
+
+        .vgs-navbar.is-scrolled .vgs-burger span {
+            background: var(--ink);
+        }
+
+        .vgs-burger.is-open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .vgs-burger.is-open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .vgs-burger.is-open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ============ MOBILE SLIDE NAV ============ */
+        .slider-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: min(320px, 86vw);
+            background: rgba(10, 12, 11, 0.98);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: none;
+            flex-direction: column;
+            padding: 26px;
+            transform: translateX(100%);
+            transition: transform 0.4s var(--vg-ease);
+            z-index: 1200;
+            overflow-y: auto;
+            box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .slider-nav.open {
+            transform: translateX(0);
+        }
+
+        .slider-nav-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 30px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(246, 245, 241, .1);
+        }
+
+        .slider-nav-head .logo {
+            margin-left: 0;
+        }
+
+        .slider-nav-close {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(246, 245, 241, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-white);
+            font-size: 1rem;
+            transition: background .3s, border-color .3s, transform .3s;
+        }
+
+        .slider-nav-close:hover {
+            background: var(--c-emerald);
+            border-color: var(--c-emerald);
+            transform: rotate(90deg);
+        }
+
+        .slider-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            list-style: none;
+            margin: 0 0 24px;
+            padding: 0;
+        }
+
+        .slider-menu>li>a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 6px;
+            font-size: .95rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--c-white);
+            border-bottom: 1px solid rgba(246, 245, 241, .08);
+            transition: color .3s;
+        }
+
+        .slider-menu>li>a:hover {
+            color: var(--c-gold-light);
+        }
+
+        .slider-has-mega>a i {
+            transition: transform .3s var(--vg-ease);
+        }
+
+        .slider-has-mega.open>a i {
+            transform: rotate(180deg);
+        }
+
+        .slider-mega-menu {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 14px;
+            padding: 10px 0 14px 10px;
+        }
+
+        .slider-has-mega.open .slider-mega-menu {
+            display: grid;
+        }
+
+        .slider-mega-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 6px;
+            font-size: .82rem;
+            color: var(--c-gray);
+            border-radius: 8px;
+            transition: background .25s, color .25s;
+        }
+
+        .slider-mega-menu a i {
+            color: var(--c-emerald-light);
+            width: 14px;
+            font-size: .8rem;
+        }
+
+        .slider-mega-menu a:hover {
+            background: rgba(255, 255, 255, .06);
+            color: var(--c-gold-light);
+        }
+
+        .slider-nav-cta {
+            margin-top: auto;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .slider-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .35s ease, visibility .35s ease;
+            z-index: 1150;
+        }
+
+        .slider-nav-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 992px) {
+            .slider-nav {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .slider-nav {
+                width: 100vw;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-actions .vg-btn-gold {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* =============================================================
+   BUTTONS
+   ============================================================= */
+
+        .vgs-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+            white-space: nowrap;
+        }
+
+        .vgs-btn-primary {
+            background: var(--emerald);
+            color: var(--white);
+            box-shadow: 0 14px 28px -14px rgba(15, 139, 95, 0.65);
+        }
+
+        .vgs-btn-primary:hover {
+            background: var(--emerald-deep);
+            transform: translateY(-3px);
+            box-shadow: 0 18px 32px -14px rgba(15, 139, 95, 0.75);
+            color: var(--white);
+        }
+
+        .vgs-btn-primary:active {
+            transform: translateY(-1px) scale(.98);
+        }
+
+        .vgs-btn-lg {
+            padding: 16px 34px;
+            font-size: 1rem;
+        }
+
+        .vgs-btn-outline {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--line);
+        }
+
+        .vgs-btn-outline:hover {
+            border-color: var(--emerald);
+            color: var(--emerald);
+            transform: translateY(-2px);
+        }
+
+        .vgs-btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vgs-btn-shine::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+            transform: skewX(-20deg);
+            animation: vgsShine 3.2s ease-in-out infinite;
+        }
+
+        @keyframes vgsShine {
+            0% {
+                left: -60%;
+            }
+
+            55% {
+                left: 130%;
+            }
+
+            100% {
+                left: 130%;
+            }
+        }
+
+        .vgs-btn[disabled] {
+            opacity: .55;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .vgs-btn-spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, .5);
+            border-top-color: #fff;
+            animation: vgsSpin .7s linear infinite;
+        }
+
+        @keyframes vgsSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .is-loading .vgs-btn-label {
+            opacity: .001;
+            width: 0;
+            overflow: hidden;
+        }
+
+        .is-loading .vgs-btn-spinner {
+            display: inline-block;
+        }
+
+        /* =============================================================
+   HERO
+   ============================================================= */
+
+        .vgs-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .vgs-hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .vgs-hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: vgsKen 22s var(--ease) infinite alternate;
+        }
+
+        @keyframes vgsKen {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.09);
+            }
+        }
+
+        .vgs-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 12, 10, 0.72) 0%, rgba(10, 12, 10, 0.58) 45%, rgba(8, 10, 8, 0.88) 100%);
+        }
+
+        .vgs-hero-glow {
+            position: absolute;
+            width: 620px;
+            height: 620px;
+            right: -160px;
+            top: -160px;
+            background: radial-gradient(circle, rgba(15, 139, 95, 0.55), transparent 70%);
+            filter: blur(10px);
+            animation: vgsGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes vgsGlow {
+
+            0%,
+            100% {
+                opacity: .55;
+            }
+
+            50% {
+                opacity: .95;
+            }
+        }
+
+        .vgs-float {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(15, 139, 95, 0.4);
+            animation: vgsFloat 9s ease-in-out infinite;
+        }
+
+        .vgs-float-1 {
+            width: 220px;
+            height: 220px;
+            left: 6%;
+            bottom: 12%;
+            animation-delay: .4s;
+        }
+
+        .vgs-float-2 {
+            width: 120px;
+            height: 120px;
+            left: 20%;
+            bottom: 30%;
+            animation-delay: 1.6s;
+        }
+
+        @keyframes vgsFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-22px) translateX(10px);
+            }
+        }
+
+        .vgs-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 140px 32px 120px;
+            width: 100%;
+        }
+
+        .vgs-hero-kicker {
+            color: var(--emerald);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            margin: 0 0 22px;
+        }
+
+        .vgs-hero-title {
+            font-family: var(--font-display);
+            color: var(--white);
+            font-weight: 600;
+            font-size: clamp(3rem, 6vw, 5.4rem);
+            line-height: 1.03;
+            margin: 0 0 26px;
+            max-width: 780px;
+            letter-spacing: -0.01em;
+        }
+
+        .vgs-hero-sub {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1.18rem;
+            max-width: 480px;
+            margin: 0 0 44px;
+            line-height: 1.55;
+        }
+
+        .vgs-hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .vgs-hero-note {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.92rem;
+            margin: 0;
+        }
+
+        .vgs-scroll-indicator {
+            position: absolute;
+            left: 32px;
+            bottom: 40px;
+            z-index: 3;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.75);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .vgs-scroll-line {
+            width: 1px;
+            height: 46px;
+            background: rgba(255, 255, 255, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vgs-scroll-line::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--emerald);
+            animation: vgsScrollLine 2.1s ease-in-out infinite;
+        }
+
+        @keyframes vgsScrollLine {
+            0% {
+                top: -100%;
+            }
+
+            60% {
+                top: 100%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .vgs-scroll-text {
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+        }
+
+        /* =============================================================
+   SHARED SECTION STYLES
+   ============================================================= */
+
+        .vgs-section {
+            padding: 120px 0;
+            background: var(--bg);
+        }
+
+        .vgs-section-alt {
+            background: var(--white);
+        }
+
+        .vgs-section-head {
+            max-width: 620px;
+            margin: 0 0 56px;
+        }
+
+        .vgs-eyebrow {
+            color: var(--emerald);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 0 0 14px;
+        }
+
+        .vgs-section-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+            margin: 0 0 14px;
+            color: var(--black);
+            letter-spacing: -0.01em;
+        }
+
+        .vgs-section-sub {
+            color: #5b5f5a;
+            font-size: 1.08rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* scroll reveal base */
+        .vgs-reveal {
+            opacity: 0;
+            transition: opacity .8s var(--ease), transform .8s var(--ease);
+        }
+
+        .vgs-reveal[data-reveal="up"] {
+            transform: translateY(36px);
+        }
+
+        .vgs-reveal[data-reveal="left"] {
+            transform: translateX(-36px);
+        }
+
+        .vgs-reveal[data-reveal="right"] {
+            transform: translateX(36px);
+        }
+
+        .vgs-reveal.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* =============================================================
+   SERVICE SELECTOR
+   ============================================================= */
+
+        .vgs-selected-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--emerald-deep);
+            background: var(--emerald-light);
+            border-radius: 100px;
+            padding: 9px 18px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: opacity .35s var(--ease), transform .35s var(--ease);
+            pointer-events: none;
+        }
+
+        .vgs-selected-indicator.is-shown {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vgs-service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .vgs-service-card {
+            border-radius: var(--radius-lg);
+            background: var(--white);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+            border: 2px solid transparent;
+        }
+
+        .vgs-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .vgs-service-card.is-selected {
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 4px var(--emerald-light), var(--shadow-soft);
+            animation: vgsCardPop .4s var(--ease);
+        }
+
+        @keyframes vgsCardPop {
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .vgs-service-select {
+            all: unset;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .vgs-service-img {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .vgs-service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s var(--ease);
+        }
+
+        .vgs-service-card:hover .vgs-service-img img {
+            transform: scale(1.08);
+        }
+
+        .vgs-service-icon {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: transform .4s var(--ease);
+        }
+
+        .vgs-service-card:hover .vgs-service-icon {
+            transform: rotate(-14deg);
+        }
+
+        .vgs-check {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--emerald);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            opacity: 0;
+            transform: scale(.4);
+            transition: opacity .3s var(--ease), transform .3s var(--ease);
+        }
+
+        .vgs-service-card.is-selected .vgs-check {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .vgs-service-body {
+            padding: 24px 24px 26px;
+            text-align: left;
+        }
+
+        .vgs-service-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0 0 8px;
+            color: var(--black);
+        }
+
+        .vgs-service-body p {
+            font-size: 0.92rem;
+            color: #6a6e69;
+            margin: 0 0 18px;
+            line-height: 1.5;
+            min-height: 42px;
+        }
+
+        .vgs-service-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .vgs-price {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--emerald-deep);
+        }
+
+        .vgs-price span {
+            font-size: 0.75rem;
+            font-weight: 700;
+            opacity: .7;
+        }
+
+        .vgs-select-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap .3s var(--ease), color .3s var(--ease);
+        }
+
+        .vgs-service-card:hover .vgs-select-label {
+            gap: 10px;
+            color: var(--emerald);
+        }
+
+        .vgs-service-card.is-selected .vgs-select-label::after {
+            content: "✓ Selected";
+        }
+
+        .vgs-service-card.is-selected .vgs-select-label {
+            color: var(--emerald-deep);
+        }
+
+        /* =============================================================
+   DATE & TIME
+   ============================================================= */
+
+        .vgs-datetime-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .vgs-col-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 22px;
+            color: var(--black);
+        }
+
+        .vgs-col-title i {
+            color: var(--emerald);
+        }
+
+        .vgs-date-scroller {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .vgs-date-card {
+            flex: 0 0 auto;
+            width: 84px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 18px 0 16px;
+            border-radius: var(--radius-md);
+            background: var(--white);
+            border: 1px solid var(--line);
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: transform .3s var(--ease), background .3s var(--ease), color .3s var(--ease), box-shadow .3s var(--ease);
+            position: relative;
+        }
+
+        .vgs-date-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .vgs-date-day {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #8a8f89;
+            letter-spacing: .05em;
+        }
+
+        .vgs-date-num {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .vgs-date-month {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #8a8f89;
+            letter-spacing: .05em;
+        }
+
+        .vgs-date-check {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            opacity: 0;
+            transform: scale(.5);
+            transition: opacity .3s var(--ease), transform .3s var(--ease);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+        }
+
+        .vgs-date-card.is-selected {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            transform: scale(1.04);
+        }
+
+        .vgs-date-card.is-selected .vgs-date-day,
+        .vgs-date-card.is-selected .vgs-date-num,
+        .vgs-date-card.is-selected .vgs-date-month {
+            color: var(--white);
+        }
+
+        .vgs-date-card.is-selected .vgs-date-check {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .vgs-time-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .vgs-time-slot {
+            padding: 13px 10px;
+            border-radius: 100px;
+            border: 1px solid var(--line);
+            background: var(--white);
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--ink);
+            cursor: pointer;
+            transition: transform .25s var(--ease), background .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+        }
+
+        .vgs-time-slot:hover:not(.is-unavailable) {
+            transform: translateY(-3px);
+            border-color: var(--emerald);
+            box-shadow: 0 10px 20px -12px rgba(15, 139, 95, 0.45);
+        }
+
+        .vgs-time-slot.is-selected {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            color: var(--white);
+            box-shadow: 0 0 0 6px var(--emerald-light);
+        }
+
+        .vgs-time-slot.is-unavailable {
+            opacity: 0.42;
+            text-decoration: line-through;
+            cursor: not-allowed;
+            color: #8a8f89;
+        }
+
+        .vgs-validation-msg {
+            max-width: 620px;
+            margin: 30px auto 0;
+            text-align: center;
+            color: #B3261E;
+            font-weight: 700;
+            font-size: 0.92rem;
+            background: #FBE9E7;
+            border-radius: var(--radius-sm);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all .35s var(--ease);
+        }
+
+        .vgs-validation-msg.is-shown {
+            padding: 14px 20px;
+            max-height: 80px;
+            opacity: 1;
+            margin-top: 30px;
+        }
+
+        .vgs-step-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 46px;
+        }
+
+        /* =============================================================
+   DETAILS + SUMMARY
+============================================================= */
+
+        .vgs-details-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        .vgs-field {
+            position: relative;
+            margin-bottom: 26px;
+        }
+
+        .vgs-field input,
+        .vgs-field select,
+        .vgs-field textarea {
+            width: 100%;
+            border: 1.5px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: var(--white);
+            padding: 20px 18px 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--ink);
+            transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+            resize: vertical;
+        }
+
+        .vgs-field textarea {
+            padding-top: 22px;
+        }
+
+        .vgs-field input:focus,
+        .vgs-field select:focus,
+        .vgs-field textarea:focus {
+            outline: none;
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 4px var(--emerald-light);
+        }
+
+        .vgs-field label {
+            position: absolute;
+            left: 18px;
+            top: 18px;
+            font-size: 1rem;
+            color: #8a8f89;
+            pointer-events: none;
+            transition: all .22s var(--ease);
+            background: var(--white);
+            padding: 0 4px;
+        }
+
+        .vgs-field input:focus+label,
+        .vgs-field input:not(:placeholder-shown)+label,
+        .vgs-field textarea:focus+label,
+        .vgs-field textarea:not(:placeholder-shown)+label,
+        .vgs-field-select label {
+            top: -9px;
+            left: 14px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--emerald-deep);
+        }
+
+        .vgs-field-select select {
+            padding-top: 14px;
+            padding-bottom: 14px;
+            cursor: pointer;
+        }
+
+        .vgs-field-select label {
+            top: -9px;
+            left: 14px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--emerald-deep);
+        }
+
+        .vgs-field.has-error input,
+        .vgs-field.has-error select,
+        .vgs-field.has-error textarea {
+            border-color: #B3261E;
+        }
+
+        .vgs-field-error {
+            display: none;
+            color: #B3261E;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 6px;
+            padding-left: 4px;
+        }
+
+        .vgs-field.has-error .vgs-field-error {
+            display: block;
+        }
+
+        #err-terms {
+            display: none;
+            margin-top: 8px;
+        }
+
+        #err-terms.is-shown {
+            display: block;
+        }
+
+        .vgs-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+
+        .vgs-checkbox input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .vgs-checkbox-box {
+            width: 22px;
+            height: 22px;
+            flex: 0 0 auto;
+            border-radius: 6px;
+            border: 1.5px solid var(--line);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            font-size: 0.75rem;
+            transition: all .25s var(--ease);
+            margin-top: 1px;
+        }
+
+        .vgs-checkbox input:checked+.vgs-checkbox-box {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            color: #fff;
+        }
+
+        .vgs-checkbox-text {
+            font-size: 0.92rem;
+            color: #4b4f4b;
+        }
+
+        /* Summary */
+
+        .vgs-summary-card {
+            background: var(--black);
+            border-radius: var(--radius-lg);
+            padding: 38px 34px;
+            color: var(--white);
+            position: sticky;
+            top: 110px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .vgs-summary-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0 0 26px;
+        }
+
+        .vgs-summary-list {
+            margin: 0 0 26px;
+        }
+
+        .vgs-summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .vgs-summary-row dt {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .vgs-summary-row dd {
+            margin: 0;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .vgs-summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0 26px;
+            font-family: var(--font-display);
+        }
+
+        .vgs-summary-total span:first-child {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+        }
+
+        .vgs-summary-total span:last-child {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--emerald);
+        }
+
+        .vgs-confirm-btn {
+            width: 100%;
+        }
+
+        /* =============================================================
+   SUCCESS MODAL
+   ============================================================= */
+
+        .vgs-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 12, 10, 0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .35s var(--ease);
+            padding: 20px;
+        }
+
+        .vgs-modal-backdrop.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .vgs-modal {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            max-width: 460px;
+            width: 100%;
+            padding: 44px 36px 36px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transform: scale(.85);
+            transition: transform .4s var(--ease);
+        }
+
+        .vgs-modal-backdrop.is-open .vgs-modal {
+            transform: scale(1);
+        }
+
+        .vgs-modal-check {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: var(--emerald-light);
+            color: var(--emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 22px;
+            animation: vgsCheckPop .5s var(--ease) .15s both;
+        }
+
+        @keyframes vgsCheckPop {
+            0% {
+                transform: scale(0);
+            }
+
+            70% {
+                transform: scale(1.12);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .vgs-modal-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+
+        .vgs-modal-text {
+            color: #5b5f5a;
+            margin: 0 0 26px;
+            font-size: 0.96rem;
+        }
+
+        .vgs-modal-summary {
+            text-align: left;
+            background: var(--bg);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin: 0 0 28px;
+        }
+
+        .vgs-modal-summary div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 0.9rem;
+        }
+
+        .vgs-modal-summary div:last-child {
+            border-bottom: none;
+        }
+
+        .vgs-modal-summary dt {
+            color: #7a7f7a;
+            font-weight: 600;
+        }
+
+        .vgs-modal-summary dd {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .vgs-modal-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .vgs-modal-actions .vgs-btn {
+            flex: 1;
+        }
+
+
+
+        /* ============ FOOTER ============ */
+        .site-footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(246, 245, 241, .08);
+            padding-top: 70px;
+            background-image: url("image/wmremove-transformed (1).png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            padding-bottom: 50px;
+        }
+
+        .footer-col h5 {
+            font-size: 1.05rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: .88rem;
+            color: white;
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul li {
+            font-size: .88rem;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li i {
+            color: white;
+            width: 16px;
+        }
+
+        .footer-col a {
+            color: white;
+            transition: color .3s, padding-left .3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(246, 245, 241, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s, border-color .3s, transform .3s;
+        }
+
+        .social-links a:hover {
+            background: var(--c-emerald);
+            border-color: var(--c-emerald);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(246, 245, 241, .08);
+            padding: 22px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: .82rem;
+            color: white;
+        }
+
+        /* =============================================================
+   FOOTER
+   ============================================================= *
+
+        .vgs-footer {
+            position: relative;
+            background: var(--black);
+            color: rgba(255, 255, 255, 0.82);
+            padding: 90px 0 26px;
+            overflow: hidden;
+        }
+
+        .vgs-footer-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.16;
+        }
+
+        .vgs-footer-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vgs-footer .vgs-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .vgs-footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 56px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .vgs-footer-logo {
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .vgs-footer-brand p {
+            margin: 14px 0 4px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .vgs-footer-tagline {
+            color: var(--emerald) !important;
+            font-weight: 700;
+        }
+
+        .vgs-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .vgs-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s var(--ease);
+        }
+
+        .vgs-social a:hover {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            transform: translateY(-4px);
+        }
+
+        .vgs-footer-col h4 {
+            font-family: var(--font-display);
+            color: var(--white);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 0 0 20px;
+        }
+
+        .vgs-footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .vgs-footer-col a {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.92rem;
+            transition: color .25s var(--ease), padding-left .25s var(--ease);
+        }
+
+        .vgs-footer-col a:hover {
+            color: var(--emerald);
+            padding-left: 4px;
+        }
+
+        .vgs-footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .vgs-footer-contact i {
+            color: var(--emerald);
+        }
+
+        .vgs-footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 26px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .vgs-footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .vgs-footer-legal a:hover {
+            color: var(--emerald);
+        }
+
+        .vgs-footer-legal span {
+            margin: 0 8px;
+            opacity: .5;
+        }
+
+
+    /* =============================================================
+   VGS — RESPONSIVE / MEDIA QUERIES
+   Kept fully separate from style.css by design.
+   ============================================================= */
+
+        /* ---------- ≤1200px ---------- */
+        @media (max-width: 1200px) {
+            .vgs-container {
+                padding: 0 26px;
+            }
+
+            .vgs-navbar-inner {
+                padding: 0 26px;
+            }
+
+            .vgs-service-grid {
+                gap: 22px;
+            }
+
+            .vgs-details-grid {
+                gap: 40px;
+            }
+
+            .vgs-footer-grid {
+                grid-template-columns: 1.3fr 1fr 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* ---------- ≤992px (tablet) ---------- */
+        @media (max-width: 992px) {
+
+            .vgs-nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: min(320px, 82vw);
+                background: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 8px;
+                padding: 110px 32px 40px;
+                transform: translateX(100%);
+                transition: transform .45s var(--ease);
+                box-shadow: -20px 0 50px rgba(0, 0, 0, 0.15);
+            }
+
+            .vgs-nav-links.is-open {
+                transform: translateX(0);
+            }
+
+            .vgs-nav-link {
+                color: var(--ink);
+                width: 100%;
+                padding: 12px 0;
+                font-size: 1.05rem;
+            }
+
+            .vgs-nav-cta {
+                margin: 18px 0 0;
+                width: 100%;
+            }
+
+            .vgs-burger {
+                display: flex;
+            }
+
+            .vgs-navbar.is-scrolled .vgs-burger span,
+            .vgs-burger span {
+                background: var(--white);
+            }
+
+            .vgs-navbar.is-scrolled .vgs-burger span {
+                background: var(--ink);
+            }
+
+            .vgs-hero-title {
+                font-size: clamp(2.6rem, 7vw, 3.6rem);
+            }
+
+            .vgs-hero-content {
+                padding: 130px 24px 100px;
+            }
+
+            .vgs-service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vgs-datetime-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .vgs-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vgs-summary-card {
+                position: static;
+            }
+
+            .vgs-footer-grid {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 40px;
+            }
+        }
+
+        /* ---------- ≤768px (mobile) ---------- */
+        @media (max-width: 768px) {
+
+            .vgs-section {
+                padding: 80px 0;
+            }
+
+            .vgs-hero {
+                min-height: 92vh;
+            }
+
+            .vgs-hero-sub {
+                font-size: 1.05rem;
+            }
+
+            .vgs-scroll-indicator {
+                left: 24px;
+                bottom: 26px;
+            }
+
+            .vgs-section-head {
+                margin-bottom: 40px;
+            }
+
+            .vgs-section-title {
+                font-size: 2rem;
+            }
+
+            .vgs-service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vgs-time-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vgs-date-card {
+                width: 76px;
+                padding: 15px 0 13px;
+            }
+
+            .vgs-step-actions .vgs-btn {
+                width: 100%;
+            }
+
+            .vgs-modal-actions {
+                flex-direction: column;
+            }
+
+            .vgs-footer {
+                padding: 70px 0 24px;
+            }
+
+            .vgs-footer-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .vgs-footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        /* ---------- ≤576px ---------- */
+        @media (max-width: 576px) {
+
+            .vgs-container {
+                padding: 0 20px;
+            }
+
+            .vgs-navbar-inner {
+                padding: 0 20px;
+            }
+
+            .vgs-logo-mark {
+                font-size: 1.35rem;
+            }
+
+            .vgs-hero-content {
+                padding: 118px 20px 90px;
+            }
+
+            .vgs-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .vgs-hero-kicker {
+                font-size: 0.8rem;
+                margin-bottom: 16px;
+            }
+
+            .vgs-hero-sub {
+                font-size: 1rem;
+                margin-bottom: 34px;
+            }
+
+            .vgs-btn-lg {
+                width: 100%;
+            }
+
+            .vgs-hero-actions {
+                width: 100%;
+            }
+
+            .vgs-service-body {
+                padding: 20px 20px 22px;
+            }
+
+            .vgs-service-img {
+                height: 190px;
+            }
+
+            .vgs-time-slot {
+                font-size: 0.82rem;
+                padding: 12px 6px;
+            }
+
+            .vgs-summary-card {
+                padding: 30px 24px;
+            }
+
+            .vgs-modal {
+                padding: 34px 22px 26px;
+            }
+        }
+
+        /* ---------- ≤400px ---------- */
+        @media (max-width: 400px) {
+
+            .vgs-hero-title {
+                font-size: 2.15rem;
+            }
+
+            .vgs-date-card {
+                width: 68px;
+            }
+
+            .vgs-date-num {
+                font-size: 1.4rem;
+            }
+
+            .vgs-time-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .vgs-summary-total span:last-child {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================= -->
+    <!-- SECTION 1 — HEADER + BOOKING HERO -->
+    <!-- ============================================= -->
+
+    <header class="vgs-navbar" id="vgsNavbar">
+        <div class="vgs-navbar-inner">
+            <a href="#home" class="logo">
+                <div class="logo-wrap">
+                    <img src="image/bg removed logo.png" alt="logo">
+
+                    <span class="vgs-brand-text">VISUAL&nbsp;GREEN<span class="vgs-brand-sub">STUDIO</span></span>
+                </div>
+
+                <nav class="vgs-nav-links" id="vgsNavLinks" aria-label="Primary">
+                    <a href="#" class="vgs-nav-link">Home</a>
+                    <a href="#" class="vgs-nav-link">About</a>
+                    <a href="#" class="vgs-nav-link">Services</a>
+
+
+                    <a href="#" class="vgs-nav-link">Contact</a>
+                    <a href="#booking-service" class="vgs-btn vgs-btn-primary vgs-nav-cta">Book Now</a>
+                </nav>
+
+                <button class="vgs-burger" id="vgsBurger" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="vgsNavLinks">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <ul class="slider-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="slider-has-mega">
+                        <a href="service.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                        <div class="slider-mega-menu">
+                            <a href="#services"><i class="fa-solid fa-scissors"></i>Haircut</a>
+                            <a href="#services"><i class="fa-solid fa-spa"></i>Hair Spa</a>
+                            <a href="#services"><i class="fa-solid fa-palette"></i>Hair Coloring</a>
+                            <a href="#services"><i class="fa-solid fa-wind"></i>Hair Straightening</a>
+                            <a href="#services"><i class="fa-solid fa-mask"></i>Beard Styling</a>
+                            <a href="#services"><i class="fa-solid fa-fire"></i>Royal Shaving</a>
+                            <a href="#services"><i class="fa-solid fa-face-smile"></i>Facial</a>
+                            <a href="#services"><i class="fa-solid fa-soap"></i>Cleanup</a>
+                            <a href="#services"><i class="fa-solid fa-hand-sparkles"></i>Skin Treatment</a>
+                            <a href="#services"><i class="fa-solid fa-hand"></i>Head Massage</a>
+                            <a href="#services"><i class="fa-solid fa-shower"></i>Hair Wash</a>
+                            <a href="#services"><i class="fa-solid fa-droplet"></i>Keratin Treatment</a>
+                            <a href="#services"><i class="fa-solid fa-child"></i>Kids Haircut</a>
+                            <a href="#services"><i class="fa-solid fa-crown"></i>Premium Grooming</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <a href="#booking" class="btn btn-gold slider-nav-cta"><i class="fa-solid fa-calendar-check"></i> Book
+                    Now</a>
+                </nav>
+                <div class="slider-nav-overlay" id="sliderNavOverlay"></div>
+
+
+        </div>
+    </header>
+    <!-- ============ MOBILE SLIDE NAV ============ -->
+    <nav class="slider-nav" id="sliderNav" aria-label="Mobile navigation">
+        <div class="slider-nav-head">
+            <a href="#home" class="logo">
+                <div class="logo-wrap">
+                    <img src="image/bg removed logo.png" alt="logo">
+                </div>
+                <span class="vgs-brand-text">VISUAL&nbsp;GREEN<span class="vgs-brand-sub">STUDIO</span></span>
+            </a>
+            <button class="slider-nav-close" id="sliderNavClose" aria-label="Close navigation">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="slider-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="slider-has-mega">
+                <a href="service.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="slider-mega-menu">
+                    <a href="#services"><i class="fa-solid fa-scissors"></i>Haircut</a>
+                    <a href="#services"><i class="fa-solid fa-spa"></i>Hair Spa</a>
+                    <a href="#services"><i class="fa-solid fa-palette"></i>Hair Coloring</a>
+                    <a href="#services"><i class="fa-solid fa-wind"></i>Hair Straightening</a>
+                    <a href="#services"><i class="fa-solid fa-mask"></i>Beard Styling</a>
+                    <a href="#services"><i class="fa-solid fa-fire"></i>Royal Shaving</a>
+                    <a href="#services"><i class="fa-solid fa-face-smile"></i>Facial</a>
+                    <a href="#services"><i class="fa-solid fa-soap"></i>Cleanup</a>
+                    <a href="#services"><i class="fa-solid fa-hand-sparkles"></i>Skin Treatment</a>
+                    <a href="#services"><i class="fa-solid fa-hand"></i>Head Massage</a>
+                    <a href="#services"><i class="fa-solid fa-shower"></i>Hair Wash</a>
+                    <a href="#services"><i class="fa-solid fa-droplet"></i>Keratin Treatment</a>
+                    <a href="#services"><i class="fa-solid fa-child"></i>Kids Haircut</a>
+                    <a href="#services"><i class="fa-solid fa-crown"></i>Premium Grooming</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <a href="#booking" class="btn btn-gold slider-nav-cta"><i class="fa-solid fa-calendar-check"></i> Book
+            Now</a>
+    </nav>
+    <div class="slider-nav-overlay" id="sliderNavOverlay"></div>
+
+
+    <section class="vgs-hero" id="booking-hero">
+        <div class="vgs-hero-media" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1800&q=80"
+                alt="" loading="lazy" id="vgsHeroImg">
+            <div class="vgs-hero-overlay"></div>
+            <div class="vgs-hero-glow"></div>
+            <div class="vgs-float vgs-float-1"></div>
+            <div class="vgs-float vgs-float-2"></div>
+        </div>
+
+        <div class="vgs-hero-content">
+            <p class="vgs-hero-kicker vgs-reveal" data-reveal="up">Book your chair at VGS</p>
+            <h1 class="vgs-hero-title vgs-reveal" data-reveal="up">Your Best Look<br>Starts Here.</h1>
+            <p class="vgs-hero-sub vgs-reveal" data-reveal="up">Reserve your chair. Choose your service. Walk out with
+                confidence.</p>
+
+            <div class="vgs-hero-actions vgs-reveal" data-reveal="up">
+                <a href="#booking-service" class="vgs-btn vgs-btn-primary vgs-btn-lg">
+                    Book Your Appointment
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+                <p class="vgs-hero-note">Professional grooming. Personal style. Premium experience.</p>
+            </div>
+        </div>
+
+        <button class="vgs-scroll-indicator" id="vgsScrollDown" aria-label="Scroll to services">
+            <span class="vgs-scroll-line"></span>
+            <span class="vgs-scroll-text">Scroll</span>
+        </button>
+    </section>
+
+    <!-- ============================================= --
+    <SECTION 2 — CHOOSE YOUR SERVICE 
+     ============================================= --
+
+    <section class="vgs-section" id="booking-service">
+        <div class="vgs-container">
+            <div class="vgs-section-head vgs-reveal" data-reveal="up">
+                <p class="vgs-eyebrow">Step 01 · Service</p>
+                <h2 class="vgs-section-title">Choose Your Experience</h2>
+                <p class="vgs-section-sub">Select the service that matches your style.</p>
+            </div>
+
+            <div class="vgs-selected-indicator" id="serviceIndicator" aria-live="polite"></div>
+
+            <div class="vgs-service-grid" id="serviceGrid" role="radiogroup" aria-label="Choose a service">
+
+                <article class="vgs-service-card vgs-reveal" data-reveal="up" data-service="Haircut" data-price="499">
+                    <button class="vgs-service-select" role="radio" aria-checked="false"
+                        aria-label="Select Haircut service">
+                        <div class="vgs-service-img">
+                            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+                                alt="Barber giving a modern fade haircut" loading="lazy">
+                            <span class="vgs-service-icon"><i class="bi bi-scissors"></i></span>
+                            <span class="vgs-check"><i class="bi bi-check-lg"></i></span>
+                        </div>
+                        <div class="vgs-service-body">
+                            <h3>Haircut</h3>
+                            <p>Modern cuts, fades and personalised styling.</p>
+                            <div class="vgs-service-foot">
+                                <span class="vgs-price">₹499<span>+</span></span>
+                                <span class="vgs-select-label">Select Service</span>
+                            </div>
+                        </div>
+                    </button>
+                </article>
+
+                <article class="vgs-service-card vgs-reveal" data-reveal="up" data-service="Hair &amp; Beard"
+                    data-price="799">
+                    <button class="vgs-service-select" role="radio" aria-checked="false"
+                        aria-label="Select Hair and Beard service">
+                        <div class="vgs-service-img">
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80"
+                                alt="Barber trimming a client's beard" loading="lazy">
+                            <span class="vgs-service-icon"><i class="bi bi-person-badge"></i></span>
+                            <span class="vgs-check"><i class="bi bi-check-lg"></i></span>
+                        </div>
+                        <div class="vgs-service-body">
+                            <h3>Hair &amp; Beard</h3>
+                            <p>Complete haircut and beard styling.</p>
+                            <div class="vgs-service-foot">
+                                <span class="vgs-price">₹799<span>+</span></span>
+                                <span class="vgs-select-label">Select Service</span>
+                            </div>
+                        </div>
+                    </button>
+                </article>
+
+                <article class="vgs-service-card vgs-reveal" data-reveal="up" data-service="Hair Color"
+                    data-price="1499">
+                    <button class="vgs-service-select" role="radio" aria-checked="false"
+                        aria-label="Select Hair Color service">
+                        <div class="vgs-service-img">
+                            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80"
+                                alt="Hair colour being applied in a salon" loading="lazy">
+                            <span class="vgs-service-icon"><i class="bi bi-palette"></i></span>
+                            <span class="vgs-check"><i class="bi bi-check-lg"></i></span>
+                        </div>
+                        <div class="vgs-service-body">
+                            <h3>Hair Color</h3>
+                            <p>Premium colour transformation and styling.</p>
+                            <div class="vgs-service-foot">
+                                <span class="vgs-price">₹1,499<span>+</span></span>
+                                <span class="vgs-select-label">Select Service</span>
+                            </div>
+                        </div>
+                    </button>
+                </article>
+
+                <article class="vgs-service-card vgs-reveal" data-reveal="up" data-service="Grooming" data-price="999">
+                    <button class="vgs-service-select" role="radio" aria-checked="false"
+                        aria-label="Select Grooming service">
+                        <div class="vgs-service-img">
+                            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80"
+                                alt="Men's grooming session in a salon chair" loading="lazy">
+                            <span class="vgs-service-icon"><i class="bi bi-stars"></i></span>
+                            <span class="vgs-check"><i class="bi bi-check-lg"></i></span>
+                        </div>
+                        <div class="vgs-service-body">
+                            <h3>Grooming</h3>
+                            <p>Complete men's grooming experience.</p>
+                            <div class="vgs-service-foot">
+                                <span class="vgs-price">₹999<span>+</span></span>
+                                <span class="vgs-select-label">Select Service</span>
+                            </div>
+                        </div>
+                    </button>
+                </article>
+
+                <article class="vgs-service-card vgs-reveal" data-reveal="up" data-service="Facial" data-price="899">
+                    <button class="vgs-service-select" role="radio" aria-checked="false"
+                        aria-label="Select Facial service">
+                        <div class="vgs-service-img">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
+                                alt="Man receiving a facial treatment" loading="lazy">
+                            <span class="vgs-service-icon"><i class="bi bi-droplet"></i></span>
+                            <span class="vgs-check"><i class="bi bi-check-lg"></i></span>
+                        </div>
+                        <div class="vgs-service-body">
+                            <h3>Facial</h3>
+                            <p>Deep cleansing and skin refreshing treatment.</p>
+                            <div class="vgs-service-foot">
+                                <span class="vgs-price">₹899<span>+</span></span>
+                                <span class="vgs-select-label">Select Service</span>
+                            </div>
+                        </div>
+                    </button>
+                </article>
+
+                <article class="vgs-service-card vgs-reveal" data-reveal="up" data-service="Scalp Treatment"
+                    data-price="1299">
+                    <button class="vgs-service-select" role="radio" aria-checked="false"
+                        aria-label="Select Scalp Treatment service">
+                        <div class="vgs-service-img">
+                            <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?auto=format&fit=crop&w=800&q=80"
+                                alt="Relaxing scalp treatment at a salon" loading="lazy">
+                            <span class="vgs-service-icon"><i class="bi bi-water"></i></span>
+                            <span class="vgs-check"><i class="bi bi-check-lg"></i></span>
+                        </div>
+                        <div class="vgs-service-body">
+                            <h3>Scalp Treatment</h3>
+                            <p>Relaxing scalp care and treatment.</p>
+                            <div class="vgs-service-foot">
+                                <span class="vgs-price">₹1,299<span>+</span></span>
+                                <span class="vgs-select-label">Select Service</span>
+                            </div>
+                        </div>
+                    </button>
+                </article>
+
+            </div>
+        </div>
+    </section>---->
+
+    <!-- ============================================= -->
+    <!-- SECTION 3 — CHOOSE DATE & TIME -->
+    <!-- ============================================= -->
+
+    <section class="vgs-section vgs-section-alt" id="booking-datetime">
+        <div class="vgs-container">
+            <div class="vgs-section-head vgs-reveal" data-reveal="up">
+                <p class="vgs-eyebrow">Step 02 · Schedule</p>
+                <h2 class="vgs-section-title">Choose Your Date &amp; Time</h2>
+                <p class="vgs-section-sub">Pick a convenient time for your appointment.</p>
+            </div>
+
+            <div class="vgs-datetime-grid">
+
+                <div class="vgs-datetime-col vgs-reveal" data-reveal="left">
+                    <h3 class="vgs-col-title"><i class="bi bi-calendar3"></i> Select Date</h3>
+                    <div class="vgs-date-scroller" id="dateScroller" role="radiogroup" aria-label="Choose a date">
+                        <button class="vgs-date-card" role="radio" aria-checked="false" data-date="2026-09-02">
+                            <span class="vgs-date-day">MON</span>
+                            <span class="vgs-date-num">02</span>
+                            <span class="vgs-date-month">SEP</span>
+                            <span class="vgs-date-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button class="vgs-date-card" role="radio" aria-checked="false" data-date="2026-09-03">
+                            <span class="vgs-date-day">TUE</span>
+                            <span class="vgs-date-num">03</span>
+                            <span class="vgs-date-month">SEP</span>
+                            <span class="vgs-date-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button class="vgs-date-card" role="radio" aria-checked="false" data-date="2026-09-04">
+                            <span class="vgs-date-day">WED</span>
+                            <span class="vgs-date-num">04</span>
+                            <span class="vgs-date-month">SEP</span>
+                            <span class="vgs-date-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button class="vgs-date-card" role="radio" aria-checked="false" data-date="2026-09-05">
+                            <span class="vgs-date-day">THU</span>
+                            <span class="vgs-date-num">05</span>
+                            <span class="vgs-date-month">SEP</span>
+                            <span class="vgs-date-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button class="vgs-date-card" role="radio" aria-checked="false" data-date="2026-09-06">
+                            <span class="vgs-date-day">FRI</span>
+                            <span class="vgs-date-num">06</span>
+                            <span class="vgs-date-month">SEP</span>
+                            <span class="vgs-date-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button class="vgs-date-card" role="radio" aria-checked="false" data-date="2026-09-07">
+                            <span class="vgs-date-day">SAT</span>
+                            <span class="vgs-date-num">07</span>
+                            <span class="vgs-date-month">SEP</span>
+                            <span class="vgs-date-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="vgs-datetime-col vgs-reveal" data-reveal="right">
+                    <h3 class="vgs-col-title"><i class="bi bi-clock"></i> Available Time</h3>
+                    <div class="vgs-time-grid" id="timeGrid" role="radiogroup" aria-label="Choose a time slot">
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="09:00 AM">09:00
+                            AM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="09:30 AM">09:30
+                            AM</button>
+                        <button class="vgs-time-slot is-unavailable" role="radio" aria-checked="false"
+                            aria-disabled="true" data-time="10:00 AM" disabled>10:00 AM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="10:30 AM">10:30
+                            AM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="11:00 AM">11:00
+                            AM</button>
+                        <button class="vgs-time-slot is-unavailable" role="radio" aria-checked="false"
+                            aria-disabled="true" data-time="11:30 AM" disabled>11:30 AM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="12:00 PM">12:00
+                            PM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="02:00 PM">02:00
+                            PM</button>
+                        <button class="vgs-time-slot is-unavailable" role="radio" aria-checked="false"
+                            aria-disabled="true" data-time="02:30 PM" disabled>02:30 PM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="03:00 PM">03:00
+                            PM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="04:00 PM">04:00
+                            PM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="05:00 PM">05:00
+                            PM</button>
+                        <button class="vgs-time-slot is-unavailable" role="radio" aria-checked="false"
+                            aria-disabled="true" data-time="06:00 PM" disabled>06:00 PM</button>
+                        <button class="vgs-time-slot" role="radio" aria-checked="false" data-time="07:00 PM">07:00
+                            PM</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vgs-validation-msg" id="step3Validation" role="alert" aria-live="assertive"></div>
+
+            <div class="vgs-step-actions vgs-reveal" data-reveal="up">
+                <button class="vgs-btn vgs-btn-primary vgs-btn-lg" id="continueBtn">
+                    Continue <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION 4 — CUSTOMER DETAILS + BOOKING SUMMARY -->
+    <!-- ============================================= -->
+
+    <section class="vgs-section" id="booking-details">
+        <div class="vgs-container">
+            <div class="vgs-section-head vgs-reveal" data-reveal="up">
+                <p class="vgs-eyebrow">Step 03 · Details</p>
+                <h2 class="vgs-section-title">Your Details</h2>
+                <p class="vgs-section-sub">Just a few details and your chair is reserved.</p>
+            </div>
+
+            <div class="vgs-details-grid">
+
+                <div class="vgs-form-col vgs-reveal" data-reveal="left">
+                    <form id="bookingForm" novalidate>
+
+                        <div class="vgs-field">
+                            <input type="text" id="fullName" name="fullName" placeholder=" " autocomplete="name"
+                                required>
+                            <label for="fullName">Full Name</label>
+                            <span class="vgs-field-error" id="err-fullName">Please enter your name.</span>
+                        </div>
+
+                        <div class="vgs-field">
+                            <input type="tel" id="mobile" name="mobile" placeholder=" " autocomplete="tel"
+                                inputmode="numeric" maxlength="10" required>
+                            <label for="mobile">Mobile Number</label>
+                            <span class="vgs-field-error" id="err-mobile">Enter a valid 10-digit mobile number.</span>
+                        </div>
+
+                        <div class="vgs-field">
+                            <input type="email" id="email" name="email" placeholder=" " autocomplete="email" required>
+                            <label for="email">Email Address</label>
+                            <span class="vgs-field-error" id="err-email">Enter a valid email address.</span>
+                        </div>
+
+                        <div class="vgs-field vgs-field-select">
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected hidden> </option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+                            <label for="gender">Select Gender</label>
+                            <span class="vgs-field-error" id="err-gender">Please select a gender.</span>
+                        </div>
+
+                        <div class="vgs-field">
+                            <textarea id="specialRequest" name="specialRequest" placeholder=" " rows="3"></textarea>
+                            <label for="specialRequest">Special Request (optional)</label>
+                        </div>
+
+                        <label class="vgs-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="vgs-checkbox-box"><i class="bi bi-check-lg"></i></span>
+                            <span class="vgs-checkbox-text">I agree to the salon booking terms.</span>
+                        </label>
+                        <span class="vgs-field-error" id="err-terms">Please accept the booking terms to continue.</span>
+
+                    </form>
+                </div>
+
+                <div class="vgs-summary-col vgs-reveal" data-reveal="right">
+                    <div class="vgs-summary-card">
+                        <h3 class="vgs-summary-title">Booking Summary</h3>
+
+                        <dl class="vgs-summary-list">
+                            <div class="vgs-summary-row">
+                                <dt>Service</dt>
+                                <dd id="sumService">Not selected</dd>
+                            </div>
+                            <div class="vgs-summary-row">
+                                <dt>Date</dt>
+                                <dd id="sumDate">Not selected</dd>
+                            </div>
+                            <div class="vgs-summary-row">
+                                <dt>Time</dt>
+                                <dd id="sumTime">Not selected</dd>
+                            </div>
+                            <div class="vgs-summary-row">
+                                <dt>Customer</dt>
+                                <dd id="sumCustomer">—</dd>
+                            </div>
+                        </dl>
+
+                        <div class="vgs-summary-total">
+                            <span>Total</span>
+                            <span id="sumPrice">₹0</span>
+                        </div>
+
+                        <button type="submit" form="bookingForm"
+                            class="vgs-btn vgs-btn-primary vgs-btn-lg vgs-btn-shine vgs-confirm-btn" id="confirmBtn">
+                            <span class="vgs-btn-label">Confirm Booking</span>
+                            <span class="vgs-btn-spinner" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Popup -->
+    <div class="vgs-modal-backdrop" id="successBackdrop">
+        <div class="vgs-modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+            <div class="vgs-modal-check">
+                <i class="bi bi-check-lg"></i>
+            </div>
+            <h3 class="vgs-modal-title" id="successTitle">Appointment Confirmed!</h3>
+            <p class="vgs-modal-text">Your VGS salon appointment has been successfully reserved.</p>
+
+            <dl class="vgs-modal-summary">
+                <div>
+                    <dt>Booking ID</dt>
+                    <dd id="popBookingId">—</dd>
+                </div>
+                <div>
+                    <dt>Service</dt>
+                    <dd id="popService">—</dd>
+                </div>
+                <div>
+                    <dt>Date</dt>
+                    <dd id="popDate">—</dd>
+                </div>
+                <div>
+                    <dt>Time</dt>
+                    <dd id="popTime">—</dd>
+                </div>
+                <div>
+                    <dt>Customer</dt>
+                    <dd id="popCustomer">—</dd>
+                </div>
+            </dl>
+
+            <div class="vgs-modal-actions">
+                <button class="vgs-btn vgs-btn-outline" id="addToCalendarBtn"><i class="bi bi-calendar-plus"></i> Add to
+                    Calendar</button>
+                <button class="vgs-btn vgs-btn-primary" id="backToHomeBtn">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#home" class="logo" style="margin-bottom:18px;">
+                        <div class="logo-wrap">
+                            <img src="image/bg removed logo.png" alt="logo">
+                        </div>
+
+                    </a>
+                    <p>Premium men's salon and beauty parlour delivering luxury grooming experiences for the
+                        modern gentleman.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#offers">Offers</a></li>
+                        <li><a href="#booking">Booking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#services">Haircut</a></li>
+                        <li><a href="#services">Beard Styling</a></li>
+                        <li><a href="#services">Facial</a></li>
+                        <li><a href="#services">Bridal Package</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> 12, MG Road, Chennai 600001</li>
+                        <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fa-solid fa-envelope"></i> hello@visualgreen.example</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Visual Green. All rights reserved.</p>
+                <p>Crafted with <i class="fa-solid fa-heart" style="color:var(--c-gold);"></i> for the
+                    modern gentleman.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================= 
+               SECTION 5 — FOOTER -->
+    <!-- ============================================= --
+
+    <footer class="vgs-footer" id="contact">
+        <div class="vgs-footer-bg" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1800&q=80"
+                alt="" loading="lazy">
+        </div>
+
+        <div class="vgs-container">
+            <div class="vgs-footer-grid">
+
+                <div class="vgs-footer-col vgs-footer-brand">
+                    <span class="vgs-logo-mark vgs-footer-logo">VGS</span>
+                    <p>Visual Green Men's Salon &amp; Beauty Parlour.</p>
+                    <p class="vgs-footer-tagline">Style. Confidence. You.</p>
+                    <div class="vgs-social">
+                        <a href="#" aria-label="VGS on Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="VGS on Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Message VGS on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" aria-label="VGS on YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="vgs-footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Transformations</a></li>
+                        <li><a href="#booking-hero">Booking</a></li>
+                    </ul>
+                </div>
+
+                <div class="vgs-footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#booking-service">Haircut</a></li>
+                        <li><a href="#booking-service">Hair Color</a></li>
+                        <li><a href="#booking-service">Beard Grooming</a></li>
+                        <li><a href="#booking-service">Facial</a></li>
+                        <li><a href="#booking-service">Scalp Treatment</a></li>
+                    </ul>
+                </div>
+
+                <div class="vgs-footer-col">
+                    <h4>Contact</h4>
+                    <ul class="vgs-footer-contact">
+                        <li><i class="bi bi-telephone"></i> +91 98765 43210</li>
+                        <li><i class="bi bi-envelope"></i> hello@vgsmenssalon.in</li>
+                        <li><i class="bi bi-geo-alt"></i> Erode, Tamil Nadu</li>
+                        <li><i class="bi bi-clock"></i> 9:00 AM – 8:00 PM, All Days</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="vgs-footer-bottom">
+                <p>© 2026 VGS – Visual Green. All Rights Reserved.</p>
+                <p class="vgs-footer-legal"><a href="#">Privacy Policy</a> <span>|</span> <a href="#">Terms &amp;
+                        Conditions</a></p>
+            </div>
+        </div>
+    </footer>----->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        (function () {
+            "use strict";
+            var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            /* =========================================================
+               STATE
+               ========================================================= *
+            const state = {
+                service: null,
+                price: 0,
+                date: null,   // { label, iso }
+                time: null,
+            };
+
+            /* =========================================================
+               NAVBAR SCROLL EFFECT
+               ========================================================= *
+            const navbar = document.getElementById("vgsNavbar");
+
+            function handleNavScroll() {
+                if (window.scrollY > 40) {
+                    navbar.classList.add("is-scrolled");
+                } else {
+                    navbar.classList.remove("is-scrolled");
+                }
+            }
+            handleNavScroll();
+            window.addEventListener("scroll", handleNavScroll, { passive: true });
+
+
+            /* -------------------------------------------------------------
+               1. PRELOADER — hide once window + fonts are ready
+            ------------------------------------------------------------- */
+            window.addEventListener("load", function () {
+                var pre = document.getElementById("vgs-preloader");
+                setTimeout(function () {
+                    if (pre) pre.classList.add("is-hidden");
+                    document.getElementById("hero").classList.add("is-loaded");
+                }, 350);
+            });
+            /* =========================================================
+               MOBILE MENU
+            ========================================================= 
+            const burger = document.getElementById("vgsBurger");
+            const navLinks = document.getElementById("vgsNavLinks");
+
+            function closeMenu() {
+                burger.classList.remove("is-open");
+                navLinks.classList.remove("is-open");
+                burger.setAttribute("aria-expanded", "false");
+            }
+
+            burger.addEventListener("click", () => {
+                const isOpen = navLinks.classList.toggle("is-open");
+                burger.classList.toggle("is-open", isOpen);
+                burger.setAttribute("aria-expanded", String(isOpen));
+            });
+
+            navLinks.querySelectorAll(".vgs-nav-link, .vgs-nav-cta").forEach((link) => {
+                link.addEventListener("click", closeMenu);
+            });
+
+
+            /* ---------- 2. Mobile slide nav (hamburger -> .slider-nav) ---------- *
+            const navToggle = document.getElementById('navToggle');
+            const sliderNav = document.getElementById('sliderNav');
+            const sliderNavOverlay = document.getElementById('sliderNavOverlay');
+            const sliderNavClose = document.getElementById('sliderNavClose');
+
+            const openSliderNav = () => {
+                sliderNav?.classList.add('open');
+                sliderNavOverlay?.classList.add('visible');
+                navToggle?.classList.add('active');
+                navToggle?.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeSliderNav = () => {
+                sliderNav?.classList.remove('open');
+                sliderNavOverlay?.classList.remove('visible');
+                navToggle?.classList.remove('active');
+                navToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                document.querySelectorAll('.slider-has-mega.open').forEach(li => li.classList.remove('open'));
+            };
+
+            if (navToggle && sliderNav) {
+                navToggle.addEventListener('click', () => {
+                    sliderNav.classList.contains('open') ? closeSliderNav() : openSliderNav();
+                });
+
+                sliderNavClose?.addEventListener('click', closeSliderNav);
+                sliderNavOverlay?.addEventListener('click', closeSliderNav);
+
+                // Close the slide nav when a plain (non-mega) link is followed
+                sliderNav.querySelectorAll(':scope > .slider-menu > li > a').forEach(link => {
+                    if (link.parentElement.classList.contains('slider-has-mega')) return;
+                    link.addEventListener('click', closeSliderNav);
+                });
+                sliderNav.querySelectorAll('.slider-nav-cta, .slider-nav-head .logo').forEach(link => {
+                    link.addEventListener('click', closeSliderNav);
+                });
+
+                // Close on Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeSliderNav();
+                });
+
+                // Close the panel automatically if the viewport grows past the mobile breakpoint
+                window.addEventListener('resize', () => {
+                    if (window.matchMedia('(min-width: 993px)').matches) closeSliderNav();
+                });
+            }
+
+            // Slide-nav mega menu: tapping "Services" expands its submenu in place
+            document.querySelectorAll('.slider-has-mega').forEach(item => {
+                const trigger = item.querySelector(':scope > a');
+                if (!trigger) return;
+
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = item.classList.toggle('open');
+                    trigger.setAttribute('aria-expanded', String(isOpen));
+                });
+            }); ----*/
+
+
+            /* -------------------------------------------------------------
+               2. NAVBAR — add solid background after scrolling past hero
+            ------------------------------------------------------------- */
+
+            /* ---------- 1. Navbar scroll state ---------- */
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                const onScroll = () => {
+                    navbar.classList.toggle('scrolled', window.scrollY > 40);
+                };
+                onScroll();
+                window.addEventListener('scroll', onScroll, { passive: true });
+            }
+
+            /* ---------- 2. Mobile slide nav (hamburger -> .slider-nav) ---------- */
+            const navToggle = document.getElementById('navToggle');
+            const sliderNav = document.getElementById('sliderNav');
+            const sliderNavOverlay = document.getElementById('sliderNavOverlay');
+            const sliderNavClose = document.getElementById('sliderNavClose');
+
+            const openSliderNav = () => {
+                sliderNav?.classList.add('open');
+                sliderNavOverlay?.classList.add('visible');
+                navToggle?.classList.add('active');
+                navToggle?.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeSliderNav = () => {
+                sliderNav?.classList.remove('open');
+                sliderNavOverlay?.classList.remove('visible');
+                navToggle?.classList.remove('active');
+                navToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                document.querySelectorAll('.slider-has-mega.open').forEach(li => li.classList.remove('open'));
+            };
+
+            if (navToggle && sliderNav) {
+                navToggle.addEventListener('click', () => {
+                    sliderNav.classList.contains('open') ? closeSliderNav() : openSliderNav();
+                });
+
+                sliderNavClose?.addEventListener('click', closeSliderNav);
+                sliderNavOverlay?.addEventListener('click', closeSliderNav);
+
+                // Close the slide nav when a plain (non-mega) link is followed
+                sliderNav.querySelectorAll(':scope > .slider-menu > li > a').forEach(link => {
+                    if (link.parentElement.classList.contains('slider-has-mega')) return;
+                    link.addEventListener('click', closeSliderNav);
+                });
+                sliderNav.querySelectorAll('.slider-nav-cta, .slider-nav-head .logo').forEach(link => {
+                    link.addEventListener('click', closeSliderNav);
+                });
+
+                // Close on Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeSliderNav();
+                });
+
+                // Close the panel automatically if the viewport grows past the mobile breakpoint
+                window.addEventListener('resize', () => {
+                    if (window.matchMedia('(min-width: 993px)').matches) closeSliderNav();
+                });
+            }
+
+            // Slide-nav mega menu: tapping "Services" expands its submenu in place
+            document.querySelectorAll('.slider-has-mega').forEach(item => {
+                const trigger = item.querySelector(':scope > a');
+                if (!trigger) return;
+
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = item.classList.toggle('open');
+                    trigger.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+
+            /* =========================================================
+               SCROLL DOWN INDICATOR
+               ========================================================= */
+            const scrollDownBtn = document.getElementById("vgsScrollDown");
+            scrollDownBtn.addEventListener("click", () => {
+                document.getElementById("booking-service").scrollIntoView({ behavior: "smooth" });
+            });
+
+            /* =========================================================
+               SCROLL REVEAL (Intersection Observer)
+               ========================================================= */
+            const revealEls = document.querySelectorAll(".vgs-reveal");
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+            );
+            revealEls.forEach((el) => revealObserver.observe(el));
+
+            /* =========================================================
+               SERVICE SELECTION
+               ========================================================= */
+            const serviceCards = document.querySelectorAll(".vgs-service-card");
+            const serviceIndicator = document.getElementById("serviceIndicator");
+
+            serviceCards.forEach((card) => {
+                const btn = card.querySelector(".vgs-service-select");
+                btn.addEventListener("click", () => {
+                    serviceCards.forEach((c) => {
+                        c.classList.remove("is-selected");
+                        c.querySelector(".vgs-service-select").setAttribute("aria-checked", "false");
+                    });
+                    card.classList.add("is-selected");
+                    btn.setAttribute("aria-checked", "true");
+
+                    state.service = card.dataset.service;
+                    state.price = Number(card.dataset.price);
+
+                    serviceIndicator.textContent = `Selected: ${state.service}`;
+                    serviceIndicator.classList.add("is-shown");
+
+                    updateSummary();
+                });
+            });
+
+            /* =========================================================
+               DATE SELECTION
+               ========================================================= */
+            const dateCards = document.querySelectorAll(".vgs-date-card");
+
+            dateCards.forEach((card) => {
+                card.addEventListener("click", () => {
+                    dateCards.forEach((c) => {
+                        c.classList.remove("is-selected");
+                        c.setAttribute("aria-checked", "false");
+                    });
+                    card.classList.add("is-selected");
+                    card.setAttribute("aria-checked", "true");
+
+                    const day = card.querySelector(".vgs-date-day").textContent;
+                    const num = card.querySelector(".vgs-date-num").textContent;
+                    const month = card.querySelector(".vgs-date-month").textContent;
+
+                    state.date = { label: `${day} ${num} ${month}`, iso: card.dataset.date };
+                    updateSummary();
+                });
+            });
+
+            /* =========================================================
+               TIME SELECTION
+               ========================================================= */
+            const timeSlots = document.querySelectorAll(".vgs-time-slot");
+
+            timeSlots.forEach((slot) => {
+                if (slot.classList.contains("is-unavailable")) return;
+                slot.addEventListener("click", () => {
+                    timeSlots.forEach((s) => {
+                        s.classList.remove("is-selected");
+                        s.setAttribute("aria-checked", "false");
+                    });
+                    slot.classList.add("is-selected");
+                    slot.setAttribute("aria-checked", "true");
+
+                    state.time = slot.dataset.time;
+                    updateSummary();
+                });
+            });
+
+            /* =========================================================
+               STEP 3 -> CONTINUE VALIDATION
+               ========================================================= */
+            const continueBtn = document.getElementById("continueBtn");
+            const step3Validation = document.getElementById("step3Validation");
+
+            continueBtn.addEventListener("click", () => {
+                const missing = [];
+                if (!state.service) missing.push("a service");
+                if (!state.date) missing.push("a date");
+                if (!state.time) missing.push("a time slot");
+
+                if (missing.length) {
+                    step3Validation.textContent = `Please select ${missing.join(", ")} before continuing.`;
+                    step3Validation.classList.add("is-shown");
+                    window.setTimeout(() => step3Validation.classList.remove("is-shown"), 3800);
+
+                    const target = !state.service ? "booking-service" : "booking-datetime";
+                    document.getElementById(target).scrollIntoView({ behavior: "smooth", block: "start" });
+                    return;
+                }
+
+                step3Validation.classList.remove("is-shown");
+                document.getElementById("booking-details").scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+
+            /* =========================================================
+               BOOKING SUMMARY
+               ========================================================= */
+            const sumService = document.getElementById("sumService");
+            const sumDate = document.getElementById("sumDate");
+            const sumTime = document.getElementById("sumTime");
+            const sumCustomer = document.getElementById("sumCustomer");
+            const sumPrice = document.getElementById("sumPrice");
+            const fullNameInput = document.getElementById("fullName");
+
+            function updateSummary() {
+                sumService.textContent = state.service || "Not selected";
+                sumDate.textContent = state.date ? state.date.label : "Not selected";
+                sumTime.textContent = state.time || "Not selected";
+                sumCustomer.textContent = fullNameInput.value.trim() || "—";
+                sumPrice.textContent = `₹${state.price ? state.price.toLocaleString("en-IN") : 0}`;
+            }
+
+            fullNameInput.addEventListener("input", updateSummary);
+
+            /* =========================================================
+               FORM VALIDATION + SUBMISSION
+               ========================================================= */
+            const form = document.getElementById("bookingForm");
+            const mobileInput = document.getElementById("mobile");
+            const emailInput = document.getElementById("email");
+            const genderInput = document.getElementById("gender");
+            const termsInput = document.getElementById("terms");
+            const errTerms = document.getElementById("err-terms");
+            const confirmBtn = document.getElementById("confirmBtn");
+
+            function setFieldError(input, hasError) {
+                const field = input.closest(".vgs-field");
+                if (field) field.classList.toggle("has-error", hasError);
+            }
+
+            function validateMobile(value) {
+                return /^[6-9]\d{9}$/.test(value.trim());
+            }
+
+            function validateEmail(value) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+            }
+
+            mobileInput.addEventListener("input", () => {
+                mobileInput.value = mobileInput.value.replace(/\D/g, "").slice(0, 10);
+            });
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                let valid = true;
+
+                // Step-level guard: booking flow must be complete
+                if (!state.service || !state.date || !state.time) {
+                    step3Validation.textContent = "Please complete the service, date and time selection first.";
+                    step3Validation.classList.add("is-shown");
+                    window.setTimeout(() => step3Validation.classList.remove("is-shown"), 3800);
+                    document.getElementById("booking-service").scrollIntoView({ behavior: "smooth" });
+                    return;
+                }
+
+                if (!fullNameInput.value.trim()) {
+                    setFieldError(fullNameInput, true);
+                    valid = false;
+                } else {
+                    setFieldError(fullNameInput, false);
+                }
+
+                if (!validateMobile(mobileInput.value)) {
+                    setFieldError(mobileInput, true);
+                    valid = false;
+                } else {
+                    setFieldError(mobileInput, false);
+                }
+
+                if (!validateEmail(emailInput.value)) {
+                    setFieldError(emailInput, true);
+                    valid = false;
+                } else {
+                    setFieldError(emailInput, false);
+                }
+
+                if (!genderInput.value) {
+                    setFieldError(genderInput, true);
+                    valid = false;
+                } else {
+                    setFieldError(genderInput, false);
+                }
+
+                if (!termsInput.checked) {
+                    errTerms.classList.add("is-shown");
+                    valid = false;
+                } else {
+                    errTerms.classList.remove("is-shown");
+                }
+
+                if (!valid) {
+                    const firstError = form.querySelector(".has-error, #err-terms.is-shown");
+                    if (firstError) firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return;
+                }
+
+                // Button loading animation
+                confirmBtn.classList.add("is-loading");
+                confirmBtn.disabled = true;
+
+                window.setTimeout(() => {
+                    confirmBtn.classList.remove("is-loading");
+                    confirmBtn.disabled = false;
+                    showSuccessPopup();
+                }, 900);
+            });
+
+            /* =========================================================
+               SUCCESS POPUP
+               ========================================================= */
+            const successBackdrop = document.getElementById("successBackdrop");
+            const popBookingId = document.getElementById("popBookingId");
+            const popService = document.getElementById("popService");
+            const popDate = document.getElementById("popDate");
+            const popTime = document.getElementById("popTime");
+            const popCustomer = document.getElementById("popCustomer");
+            const backToHomeBtn = document.getElementById("backToHomeBtn");
+            const addToCalendarBtn = document.getElementById("addToCalendarBtn");
+
+            let lastBookingId = "";
+
+            function generateBookingId() {
+                const rand = Math.floor(1000 + Math.random() * 9000);
+                return `VGS-${new Date().getFullYear()}-${rand}`;
+            }
+
+            function showSuccessPopup() {
+                lastBookingId = generateBookingId();
+                popBookingId.textContent = lastBookingId;
+                popService.textContent = state.service;
+                popDate.textContent = state.date.label;
+                popTime.textContent = state.time;
+                popCustomer.textContent = fullNameInput.value.trim();
+
+                successBackdrop.classList.add("is-open");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeSuccessPopup() {
+                successBackdrop.classList.remove("is-open");
+                document.body.style.overflow = "";
+            }
+
+            successBackdrop.addEventListener("click", (e) => {
+                if (e.target === successBackdrop) closeSuccessPopup();
+            });
+
+            backToHomeBtn.addEventListener("click", () => {
+                closeSuccessPopup();
+                resetBooking();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            addToCalendarBtn.addEventListener("click", () => {
+                if (!state.date || !state.time) return;
+
+                const dateObj = new Date(`${state.date.iso}T00:00:00`);
+                const [time, meridiem] = state.time.split(" ");
+                let [hh, mm] = time.split(":").map(Number);
+                if (meridiem === "PM" && hh !== 12) hh += 12;
+                if (meridiem === "AM" && hh === 12) hh = 0;
+                dateObj.setHours(hh, mm, 0, 0);
+
+                const start = dateObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+                const endObj = new Date(dateObj.getTime() + 45 * 60000);
+                const end = endObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+                const details = encodeURIComponent(
+                    `VGS Visual Green Men's Salon appointment.\nService: ${state.service}\nBooking ID: ${lastBookingId}`
+                );
+                const title = encodeURIComponent(`VGS Salon — ${state.service}`);
+                const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${details}&location=VGS%20Visual%20Green%20Men%27s%20Salon`;
+
+                window.open(url, "_blank", "noopener");
+            });
+
+            /* =========================================================
+               RESET BOOKING
+               ========================================================= */
+            function resetBooking() {
+                state.service = null;
+                state.price = 0;
+                state.date = null;
+                state.time = null;
+
+                serviceCards.forEach((c) => {
+                    c.classList.remove("is-selected");
+                    c.querySelector(".vgs-service-select").setAttribute("aria-checked", "false");
+                });
+                serviceIndicator.classList.remove("is-shown");
+                serviceIndicator.textContent = "";
+
+                dateCards.forEach((c) => {
+                    c.classList.remove("is-selected");
+                    c.setAttribute("aria-checked", "false");
+                });
+
+                timeSlots.forEach((s) => {
+                    s.classList.remove("is-selected");
+                    s.setAttribute("aria-checked", "false");
+                });
+
+                form.reset();
+                [fullNameInput, mobileInput, emailInput, genderInput].forEach((el) => setFieldError(el, false));
+                errTerms.classList.remove("is-shown");
+
+                updateSummary();
+            }
+
+            /* Initial summary render */
+            updateSummary();
+        })();
+
+    </script>
+</body>
+
+</html>
